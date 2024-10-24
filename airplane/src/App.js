@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import './css/navbar.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav class="navbar">
+    <ul class="navbar-menu">
+      <li><a href="home.html" id="highlight">Home</a></li>
+      <li><a href="gate.html">Gate</a></li>
+      <li><a href="flight.html">Flight</a></li>
+      <li><a href="boarding.html">Boarding Pass</a></li>
+      <li><a href="notification.html">Notification</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <h1>Welcome to the Homepage</h1>
+    <p>Connecting the world, one flight at a time.</p>
+  </div>
     </div>
   );
 }
