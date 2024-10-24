@@ -25,6 +25,8 @@
     
     <div id="notification-form">
         <input type="text" id="message" placeholder="Enter notification message" required>
+        <!-- New Timestamp Field -->
+        <input type="datetime-local" id="timestamp" required>
         <button id="create-btn">Create Notification</button>
     </div>
 
@@ -34,6 +36,7 @@
     <h2>Update Notification</h2>
     <input type="number" id="update-id" placeholder="Notification ID" required>
     <input type="text" id="update-message" placeholder="New message" required>
+    <input type="datetime-local" id="update-timestamp" required>
     <button id="update-btn">Update Notification</button>
 
     <h2>Delete Notification</h2>
@@ -41,5 +44,6 @@
     <button id="delete-btn">Delete Notification</button>
 </div>
 
-  </body>
-  </html>
+  <script src="script.js"></script>
+</body>
+</html>
