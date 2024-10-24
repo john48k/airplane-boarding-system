@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/frontend/css/navbar.css">
+  <link rel="stylesheet" href="/airplane/frontend/css/navbar.css">
+  <link rel="stylesheet" href="/airplane/frontend/css/notify.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul class="navbar-menu">
+      <li><a href="home.html" id="highlight">Home</a></li>
+      <li><a href="gate.html">Gate</a></li>
+      <li><a href="flight.html">Flight</a></li>
+      <li><a href="boarding.html">Boarding Pass</a></li>
+      <li><a href="notification.html">Notification</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Notification Management</h1>
+    
+    <div id="notification-form">
+        <input type="text" id="message" placeholder="Enter notification message" required>
+        <button id="create-btn">Create Notification</button>
+    </div>
+
+    <h2>All Notifications</h2>
+    <ul id="notification-list"></ul>
+
+    <h2>Update Notification</h2>
+    <input type="number" id="update-id" placeholder="Notification ID" required>
+    <input type="text" id="update-message" placeholder="New message" required>
+    <button id="update-btn">Update Notification</button>
+
+    <h2>Delete Notification</h2>
+    <input type="number" id="delete-id" placeholder="Notification ID" required>
+    <button id="delete-btn">Delete Notification</button>
+</div>
+
+  </body>
+  </html>
