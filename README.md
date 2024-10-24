@@ -1,4 +1,4 @@
-# airplane-boarding-system
+# AirplaneBoardingSystem
 CSIT340 - Industry Elective 1 G2 (1st Sem 2024-2025)
 
 Members: 
