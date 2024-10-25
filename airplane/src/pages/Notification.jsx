@@ -1,6 +1,25 @@
+import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 
 export const Notification = () => {
+  const [users, setUsers] = useState([]);
+
+  // Function to fetch users (or notifications)
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/notification");
+      const data = await response.json();
+      setUsers(data); // Set the fetched users/notifications data
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  // Call fetchUsers when the component mounts
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <div>
       <Navbar activeTab="Notification" />
@@ -20,7 +39,11 @@ export const Notification = () => {
         </div>
 
         <h2>All Notifications</h2>
-        <ul id="notification-list"></ul>
+        <ul id="notification-list">
+          {users.map((user) => (
+            <li key={user.id}>{user.name}</li> // Adjust according to your data structure
+          ))}
+        </ul>
 
         <h2>Update Notification</h2>
         <input
