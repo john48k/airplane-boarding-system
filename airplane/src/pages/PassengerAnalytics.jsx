@@ -11,7 +11,7 @@ export const Passenger = () => {
       <div className="form-container">
         <h2 className="pass-title">PassengerAnalytics</h2>
         <form action="#" method="post">
-          <label htmlFor="seat-number">Seat Number:</label>
+          <label htmlFor="seat-number">Check In Time:</label>
           <input type="time" id="seat-number" name="seat-number" required />
 
           <label htmlFor="boarding-time">Boarding Time:</label>
