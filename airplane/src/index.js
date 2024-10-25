@@ -8,11 +8,14 @@ import './css/Boarding.css'
 import './css/Flight.css'
 import './css/Gate.css'
 import './css/Notify.css'
+import './css/PassengerAnalytics.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
 import { Flight } from "./pages/Flight";
 import { Notification } from "./pages/Notification";
+import { Passenger } from "./pages/PassengerAnalytics";
+
 
 
 
@@ -36,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: 'notification',
     element: <Notification/>
+  },
+  {
+    path: 'passenger',
+    element: <Passenger/>
   }
 ]);
 

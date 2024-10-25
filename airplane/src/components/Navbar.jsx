@@ -38,6 +38,14 @@ export const Navbar = ({ activeTab }) => {
             Notification
           </Link>
         </li>
+        <li>
+          <Link
+            to="/passenger"
+            id={activeTab === "Passenger" ? "highlight" : undefined}
+          >
+            Passenger
+          </Link>
+        </li>
       </ul>
     </nav>
   );
