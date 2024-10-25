@@ -7,7 +7,7 @@ export const Notification = () => {
   // Function to fetch users (or notifications)
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/notification");
+      const response = await fetch("http://localhost:8080/api/notification");
       const data = await response.json();
       setUsers(data); // Set the fetched users/notifications data
     } catch (error) {
