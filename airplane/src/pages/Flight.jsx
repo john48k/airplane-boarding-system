@@ -47,14 +47,14 @@ export const Flight = () => {
             Update Flight
           </button>
 
-          <h2>Delete Flight</h2>
+          <h2 className="deleteflight-title">Delete Flight</h2>
           <input
             type="number"
             id="delete-flight-id"
             placeholder="Flight ID"
             required
           />
-          <button id="delete-flight-btn" type="button">
+          <button className="flight-del-button" id="delete-flight-btn" type="button">
             Delete Flight
           </button>
 
