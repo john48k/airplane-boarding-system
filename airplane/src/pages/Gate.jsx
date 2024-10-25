@@ -28,7 +28,6 @@ export const Gate = () => {
         const result = await response.json();
         alert("Gate created successfully!");
         console.log("New Gate:", result);
-        // Optionally, reset form fields
         setGateNumber("");
         setTerminal("");
         setGateStatus("open");
