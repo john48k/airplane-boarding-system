@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Management</title>
+    <link rel="stylesheet" href="/airplane/frontend/css/navbar.css">
+    <link rel="stylesheet" href="/airplane/frontend/css/flight_update.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gate.html">Gate</a></li>
+            <li><a href="flight.html" id="highlight">Flight</a></li>
+            <li><a href="boarding.html">Boarding Pass</a></li>
+            <li><a href="notification.html">Notification</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Delete Flight</h1>
+        <form id="flightForm" action="/api/flight/deleteFlight" method="DELETE">
+            <label for="delete-flight-id">Flight ID:</label>
+            <input type="number" id="delete-flight-id" name="id" placeholder="Flight ID" required>
+
+            <div class="action-buttons">
+                <button type="button" class="return-button" onclick="window.location.href='flight.html';">Return</button>
+                <button id="delete-flight-btn" type="submit" class="confirm-button">Confirm</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -2,8 +2,9 @@ import { Navbar } from "../components/Navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Flight = () => {
+export const Flightupdate = () => {
   const [formData, setFormData] = useState({
+    id: "",
     flight_number: "",
     departure_time: "",
     arrival_time: "",
@@ -23,16 +24,20 @@ export const Flight = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/flight/postFlightEntity", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `/api/flight/putFlightDetails/${formData.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
-        alert("Flight created successfully!");
+        alert("Flight updated successfully!");
+        navigate("/flight");
       } else {
-        alert("Failed to create flight.");
+        alert("Failed to update flight.");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -44,41 +49,51 @@ export const Flight = () => {
     <div>
       <Navbar activeTab="Flight" />
       <div className="container">
-        <h1>Flight Management</h1>
+        <h1>Update Flight</h1>
         <form id="flightForm" onSubmit={handleSubmit}>
-          <label htmlFor="flightNumber">Flight Number:</label>
+          <label htmlFor="update-flight-id">Flight ID:</label>
           <input
             type="number"
-            id="flightNumber"
+            id="update-flight-id"
+            name="id"
+            placeholder="Flight ID"
+            value={formData.id}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="update-flight-number">Flight Number:</label>
+          <input
+            type="number"
+            id="update-flight-number"
             name="flight_number"
+            placeholder="Flight Number"
             value={formData.flight_number}
             onChange={handleChange}
             required
           />
 
-          <label htmlFor="departureTime">Departure Time:</label>
+          <label htmlFor="update-departure-time">Departure Time:</label>
           <input
             type="datetime-local"
-            id="departureTime"
+            id="update-departure-time"
             name="departure_time"
             value={formData.departure_time}
             onChange={handleChange}
-            required
           />
 
-          <label htmlFor="arrivalTime">Arrival Time:</label>
+          <label htmlFor="update-arrival-time">Arrival Time:</label>
           <input
             type="datetime-local"
-            id="arrivalTime"
+            id="update-arrival-time"
             name="arrival_time"
             value={formData.arrival_time}
             onChange={handleChange}
-            required
           />
 
-          <label htmlFor="flightStatus">Flight Status:</label>
+          <label htmlFor="update-flight-status">New Flight Status:</label>
           <select
-            id="flightStatus"
+            id="update-flight-status"
             name="flight_status"
             value={formData.flight_status}
             onChange={handleChange}
@@ -92,25 +107,23 @@ export const Flight = () => {
             <option value="2">Arrived</option>
           </select>
 
-          <button type="submit">Create Flight</button>
+          <div className="action-buttons">
+            <button
+              type="button"
+              className="return-button"
+              onClick={() => navigate("/flight")}
+            >
+              Return
+            </button>
+            <button
+              id="update-flight-btn"
+              type="submit"
+              className="confirm-button"
+            >
+              Confirm
+            </button>
+          </div>
         </form>
-
-        <div className="action-buttons">
-          <button
-            id="update-btn"
-            className="update-button"
-            onClick={() => navigate("/Flightupdate")}
-          >
-            Update a Flight
-          </button>
-          <button
-            id="delete-btn"
-            className="delete-button"
-            onClick={() => navigate("/Flightdelete")}
-          >
-            Delete a Flight
-          </button>
-        </div>
       </div>
     </div>
   );

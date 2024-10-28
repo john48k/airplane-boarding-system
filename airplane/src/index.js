@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './css/NavBar.css'
 import './css/Boarding.css'
 import './css/Flight.css'
+import './css/Flight_delete.css'
+import './css/Flight_update.css'
 import './css/Gate.css'
 import './css/Notify.css'
 import './css/Analytics.css'
@@ -14,14 +16,16 @@ import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
 import { Flight } from "./pages/Flight";
+import { Flightupdate } from "./pages/Flightupdate";
+import { Flightdelete } from "./pages/Flightdelete";
 import { Notification } from "./pages/Notification";
 import { Analytics } from "./pages/Analytics";
 import { Passenger } from "./pages/Passenger";
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +44,14 @@ const router = createBrowserRouter([
     element: <Flight/>
   },
   {
+    path: 'flightupdate',
+    element: <Flightupdate/>
+  },
+  {
+    path: 'flightdelete',
+    element: <Flightdelete/>
+  },
+  {
     path: 'notification',
     element: <Notification/>
   },
@@ -52,14 +64,14 @@ const router = createBrowserRouter([
     element: <Passenger/>
   },
 ]);
-
+ 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
+ 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
