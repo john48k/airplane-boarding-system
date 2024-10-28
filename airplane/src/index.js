@@ -8,13 +8,16 @@ import './css/Boarding.css'
 import './css/Flight.css'
 import './css/Gate.css'
 import './css/Notify.css'
-import './css/PassengerAnalytics.css'
+import './css/Analytics.css'
+import './css/Passenger.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
 import { Flight } from "./pages/Flight";
 import { Notification } from "./pages/Notification";
-import { Passenger } from "./pages/PassengerAnalytics";
+import { Analytics } from "./pages/Analytics";
+import { Passenger } from "./pages/Passenger";
+
 
 
 
@@ -41,9 +44,13 @@ const router = createBrowserRouter([
     element: <Notification/>
   },
   {
+    path: 'analytics',
+    element: <Analytics/>
+  },
+  {
     path: 'passenger',
     element: <Passenger/>
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

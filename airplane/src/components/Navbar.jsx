@@ -40,6 +40,14 @@ export const Navbar = ({ activeTab }) => {
         </li>
         <li>
           <Link
+            to="/analytics"
+            id={activeTab === "Analytics" ? "highlight" : undefined}
+          >
+            Analytics
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/passenger"
             id={activeTab === "Passenger" ? "highlight" : undefined}
           >
