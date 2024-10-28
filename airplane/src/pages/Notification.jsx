@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
- 
+
 export const Notification = () => {
   const [notifications, setNotifications] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [newTimestamp, setNewTimestamp] = useState("");
- 
+
   const [updateId, setUpdateId] = useState("");
   const [updateMessage, setUpdateMessage] = useState("");
   const [updateTimestamp, setUpdateTimestamp] = useState("");
- 
+
   const [deleteId, setDeleteId] = useState("");
- 
+
   // Fetch all notifications from the backend
   const fetchNotifications = async () => {
     try {
@@ -24,7 +24,7 @@ export const Notification = () => {
       console.error("Error fetching notifications:", error);
     }
   };
- 
+
   // Create a new notification
   const createNotification = async () => {
     try {
@@ -41,7 +41,7 @@ export const Notification = () => {
           }),
         }
       );
- 
+
       if (response.ok) {
         alert("Notification created successfully!");
         fetchNotifications(); // Refresh notifications
@@ -52,7 +52,7 @@ export const Notification = () => {
       console.error("Error creating notification:", error);
     }
   };
- 
+
   // Update an existing notification
   const updateNotification = async () => {
     try {
@@ -69,7 +69,7 @@ export const Notification = () => {
           }),
         }
       );
- 
+
       if (response.ok) {
         alert("Notification updated successfully!");
         fetchNotifications(); // Refresh notifications
@@ -80,7 +80,7 @@ export const Notification = () => {
       console.error("Error updating notification:", error);
     }
   };
- 
+
   // Delete a notification
   const deleteNotification = async () => {
     try {
@@ -88,7 +88,7 @@ export const Notification = () => {
         `http://localhost:8080/api/notification/deleteNotification/${deleteId}`,
         { method: "DELETE" }
       );
- 
+
       if (response.ok) {
         alert("Notification deleted successfully!");
         fetchNotifications(); // Refresh notifications
@@ -99,46 +99,50 @@ export const Notification = () => {
       console.error("Error deleting notification:", error);
     }
   };
- 
+
   // Fetch notifications on component mount
   useEffect(() => {
     fetchNotifications();
   }, []);
- 
+
   return (
-<div>
-<Navbar activeTab="Notification" />
- 
-  <div className="container">
-    <h1>Notification Management</h1>
- 
-      <div id="notification-form">
-      <input
+    <div>
+      <Navbar activeTab="Notification" />
+
+      <div className="container">
+        <h1>Notification Management</h1>
+
+        <h2>All Notifications</h2>
+        <div className="notification-list">
+          {notifications.map((notification) => (
+            <div className="notification-item" key={notification.id}>
+              <p className="notification-message">{notification.message}</p>
+              <p className="notification-timestamp">
+                {new Date(notification.timestamp).toLocaleString()}
+              </p>
+            </div>
+          ))}
+        </div>
+        
+        <div id="notification-form">
+          <input
             type="text"
             id="message"
             placeholder="Enter notification message"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             required
-      /><input
+          />
+          <input
             type="datetime-local"
             id="timestamp"
             value={newTimestamp}
             onChange={(e) => setNewTimestamp(e.target.value)}
             required
           />
-    <button onClick={createNotification}>Create Notification</button>
-    </div>
- 
-        <h2>All Notifications</h2>
-        <ul id="notification-list">
-          {notifications.map((notification) => (
-        <li key={notification.id}>
-              {notification.message} - {notification.timestamp}
-        </li>
-          ))}
-        </ul>
- 
+          <button onClick={createNotification}>Create Notification</button>
+        </div>
+
         <h2>Update Notification</h2>
         <input
           type="number"
@@ -156,15 +160,15 @@ export const Notification = () => {
           onChange={(e) => setUpdateMessage(e.target.value)}
           required
         />
-      <input
+        <input
           type="datetime-local"
           id="update-timestamp"
           value={updateTimestamp}
           onChange={(e) => setUpdateTimestamp(e.target.value)}
           required
         />
-      <button onClick={updateNotification}>Update Notification</button>
- 
+        <button onClick={updateNotification}>Update Notification</button>
+
         <h2>Delete Notification</h2>
         <input
           type="number"
@@ -174,8 +178,8 @@ export const Notification = () => {
           onChange={(e) => setDeleteId(e.target.value)}
           required
         />
-      <button onClick={deleteNotification}>Delete Notification</button>
-</div>
-</div>
+        <button onClick={deleteNotification}>Delete Notification</button>
+      </div>
+    </div>
   );
 };

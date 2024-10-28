@@ -6,47 +6,75 @@
 } */
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-list {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
     margin-top: 20px;
+    background-color: #f9f9f9;
+    max-height: 300px; /* Limiting height */
+    overflow-y: auto; /* Scroll if overflow */
 }
 
-h1, h2 {
-    color: #333;
-}
-
-input {
-    width: calc(100% - 22px);
+.notification-item {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    transition: transform 0.2s;
 }
 
-/* Style the datetime-local input */
-input[type="datetime-local"] {
-    width: calc(100% - 22px); /* Same width as other inputs */
+.notification-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-message {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.notification-timestamp {
+    color: #888;
+    font-size: 1.2em; /* Larger font size for better readability */
+    margin-top: 5px; /* Add margin to space out from the message */
+    margin-bottom: 0; /* Adjust bottom margin if needed */
+}
+
+/* Adjust spacing between date input and button in the Create Notification section */
+#notification-form input[type="datetime-local"] {
+    margin-bottom: 10px; /* Add margin to space out from the button */
+}
+
+/* Adjust spacing between sections */
+#all-notifications {
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #333;
+    margin-bottom: 10px; 
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
+#update-notification {
+    padding: 10px;
+    margin-bottom: 10px; 
 }
 
-button:hover {
-    background-color: #218838;
+#delete-notification {
+    padding: 10px;
+    margin-bottom: 10px; 
 }
+
+/* Adjust spacing between inputs and button in the Update Notification section */
+#update-id,
+#update-message,
+#update-timestamp {
+    margin-bottom: 10px; 
+}
+
+
+
+  
+  
