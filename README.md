@@ -1,6 +1,6 @@
 # AirplaneBoardingSystem
 
-CSIT340-G2 - Industry Elective 1 (1st Sem 2024-2025)
+CSIT340-G2 - Industry Elective 1 (1st Sem 2024-2025) </br>
 CSIT321-G3 - Applications Development and Emerging Technologies (1stSem AY24-25)
 
 Members:
