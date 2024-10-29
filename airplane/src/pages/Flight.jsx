@@ -23,7 +23,7 @@ export const Flight = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/flight/postFlightEntity", {
+      const response = await fetch("http://localhost:8080/api/flight", { // Updated URL
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -48,7 +48,7 @@ export const Flight = () => {
         <form id="flightForm" onSubmit={handleSubmit}>
           <label htmlFor="flightNumber">Flight Number:</label>
           <input
-            type="number"
+            type="text"
             id="flightNumber"
             name="flight_number"
             value={formData.flight_number}
