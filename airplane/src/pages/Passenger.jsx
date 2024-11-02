@@ -33,8 +33,8 @@ export const Passenger = () => {
  
   return (
     <>
+      <Navbar activeTab="Passenger" />
       <div className="container">
-        <Navbar activeTab="Passenger" />
         <h1>Passenger</h1>
         
         <div id="passenger-form">

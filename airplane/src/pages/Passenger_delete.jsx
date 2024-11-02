@@ -22,8 +22,8 @@ export const Passengerdelete = () => {
  
   return (
     <>
+      <Navbar activeTab="Passengerdelete" />
       <div className="container">
-        <Navbar activeTab="Passengerdelete" />
       
           <h1>Delete Passenger</h1>
 

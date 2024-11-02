@@ -34,9 +34,9 @@ export const Passengerupdate = () => {
  
   return (
     <>
+      <Navbar activeTab="Passengerupdate" />
       <div className="container">
-        <Navbar activeTab="Passengerupdate" />
-      
+        
         <h1>Update Passenger</h1>
       
         <div id="passenger-form">
