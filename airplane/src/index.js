@@ -12,6 +12,8 @@ import './css/Gate.css'
 import './css/Notify.css'
 import './css/Analytics.css'
 import './css/Passenger.css'
+import './css/Passenger_delete.css'
+import './css/Passenger_update.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
@@ -21,6 +23,8 @@ import { Flightdelete } from "./pages/Flightdelete";
 import { Notification } from "./pages/Notification";
 import { Analytics } from "./pages/Analytics";
 import { Passenger } from "./pages/Passenger";
+import { Passengerdelete } from "./pages/Passenger_delete";
+import { Passengerupdate } from "./pages/Passenger_update";
  
  
  
@@ -62,6 +66,14 @@ const router = createBrowserRouter([
   {
     path: 'passenger',
     element: <Passenger/>
+  },
+  {
+    path: 'passengerdelete',
+    element: <Passengerdelete/>
+  },
+  {
+    path: 'passengerupdate',
+    element: <Passengerupdate/>
   },
 ]);
  

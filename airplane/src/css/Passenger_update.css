@@ -35,32 +35,32 @@ button:hover {
     background-color: #4cae4c;
 }
  
-.update-button {
-    background-color: #5cb85c; /* Green */
+.return-button {
+    background-color: #92B6F0;
     color: white;
     border: none;
     border-radius: 4px;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left: 114px;
+    padding-right: 114px;
     cursor: pointer;
     font-size: 16px;
 }
  
-.update-button:hover {
-    background-color: #4cae4c; /* Darker green on hover */
+.return-button:hover {
+    background-color: #7F9FD1;
 }
  
-.delete-button {
-    background-color: #d9534f; /* Red */
+.confirm-button {
+    background-color: #5cb85c;
     color: white;
     border: none;
     border-radius: 4px;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left: 110px;
+    padding-right: 110px;
     cursor: pointer;
     font-size: 16px;
 }
  
-.delete-button:hover {
-    background-color: #c9302c;
+.confirm-button:hover {
+    background-color: #4cae4c;
 }
