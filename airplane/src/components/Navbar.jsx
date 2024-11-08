@@ -54,6 +54,14 @@ export const Navbar = ({ activeTab }) => {
             Passenger
           </Link>
         </li>
+        <li>
+          <Link
+            to="/Login"
+            id={activeTab === "Login" ? "highlight" : undefined}
+          >
+            Login
+          </Link>
+        </li>
       </ul>
     </nav>
   );

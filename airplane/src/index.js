@@ -25,6 +25,7 @@ import { Analytics } from "./pages/Analytics";
 import { Passenger } from "./pages/Passenger";
 import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
+import {Login} from "./pages/Login";
  
  
  
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
     path: 'passengerupdate',
     element: <Passengerupdate/>
   },
+  {
+    path: 'login',
+    element: <Login/>
+  }
 ]);
  
 const root = ReactDOM.createRoot(document.getElementById("root"));
