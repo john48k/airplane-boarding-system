@@ -34,6 +34,9 @@ export const Analytics = () => {
       const data = await response.json();
       console.log("Passenger data saved:", data);
       setMessage("Passenger data saved successfully!"); // Success message
+      
+      // Redirect to PassengerLogs page
+      window.location.href = "/passenger-logs"; // Update this path to match your actual route
     } catch (error) {
       console.error("Error saving passenger data:", error);
       setMessage(`Error saving passenger data: ${error.message}`); // Error message
