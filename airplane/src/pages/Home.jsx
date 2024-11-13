@@ -11,7 +11,7 @@ export const Home = () => {
           <img
             src="/images/banner-01.jpg"
             className="carousel-banner-size"
-            alt=""
+            alt="slide 1"
           />
           <Carousel.Caption className="carousel-caption">
             <h3>SM SEASIDE, CEBU</h3>
@@ -21,7 +21,7 @@ export const Home = () => {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
-        {/* 
+
         <Carousel.Item>
           <img
             src="/images/banner-02.jpg"
@@ -36,7 +36,7 @@ export const Home = () => {
 
         <Carousel.Item>
           <img
-            src="/images/banner-02.jpg"
+            src="/images/banner-03.jpg"
             className="carousel-banner-size"
             alt=""
           />
@@ -48,8 +48,25 @@ export const Home = () => {
               Taoist traditions and architecture.
             </p>
           </Carousel.Caption>
-        </Carousel.Item> */}
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+            src="/images/banner-04.jpg"
+            className="carousel-banner-size"
+            alt=""
+          />
+          <Carousel.Caption className="carousel-caption">
+            <h3>YORK, ENGLAND</h3>
+            <p>
+              York, England is a historic city known for its medieval
+              architecture, including the iconic York Minster.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
       </Carousel>
+
+      <div></div>
     </>
   );
 };
