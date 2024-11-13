@@ -19,29 +19,40 @@ export const Flightupdate = () => {
       ...prevData,
       [name]: value,
     }));
+    console.log("Form data updated:", { ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const updatedFlightData = {
+        ...formData,
+        flight_status: formData.flight_status ? formData.flight_status : "BOARDING",
+      };
+
+      console.log("Submitting flight update:", updatedFlightData);
+
       const response = await fetch(
-        `/api/flight/putFlightDetails/${formData.id}`,
+        `http://localhost:8080/api/flight/updateFlight/${formData.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(updatedFlightData),
         }
       );
+
+      console.log("Response status:", response.status);
 
       if (response.ok) {
         alert("Flight updated successfully!");
         navigate("/flight");
       } else {
-        alert("Failed to update flight.");
+        const errorText = await response.text();
+        alert(`Failed to update flight: ${errorText}`);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred.");
+      alert("An error occurred while updating the flight.");
     }
   };
 
