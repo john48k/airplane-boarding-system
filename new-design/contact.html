@@ -9,15 +9,14 @@
   <title>Customer Page</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -40,7 +39,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-8">
           <ul class="info">
-            <li><i class="fa fa-envelope"></i> JoeMarie@citedu.com</li>
+            <li><i class="fa fa-envelope"></i> CitUniversity@citedu.com</li>
             <li><i class="fa fa-map"></i> 7VVJ+QFR, Natalio B. Bacalso Ave, Cebu City, 6000 Cebu</li>
           </ul>
         </div>
@@ -59,32 +58,28 @@
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <h1>FlightMatch</h1>
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="flights.html">View Flights</a></li>
-                      <li><a href="booking.html">Booking</a></li>
-                      <li><a href="checkin.html">Check In</a></li>
-                      <li><a href="info.html">Information</a></li>
-                      <li><a href="contact.html" class="active">Customer Support</a></li>
-                      <li><a href="signup.html">Sign Up</a></li>
-                      <li><a href="login.html"><i class="fa fa-calendar"></i> Login</a></li>
-                  </ul>  
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="home.html" class="logo">
+              <h1>FlightMatch</h1>
+            </a>
+            <ul class="nav">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="flights.html">View Flights</a></li>
+              <li><a href="booking.html">Booking</a></li>
+              <li><a href="checkin.html">Check In</a></li>
+              <li><a href="information.html">Information</a></li>
+              <li><a href="contact.html" class="active">Customer Support</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.html"><i class="fa fa-calendar"></i> Login</a></li>
+            </ul>  
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
@@ -107,17 +102,17 @@
             <h6>| Contact Us</h6>
             <h2>Get In Touch With Our Agents</h2>
           </div>
-          <p>Get in touch with our agents to start planning your next adventure today. Our experienced team is here to provide personalized assistance, helping you find the perfect flights, accommodations, and services for your journey. Whether you’re traveling for business or leisure, our agents are ready to offer expert advice and support every step of the way. With our commitment to exceptional customer service, we ensure that your travel experience is smooth, stress-free, and tailored to your needs. Reach out now and let us help you create memories that last a lifetime.</p>
+          <p>Get in touch with our agents to start planning your next adventure today...</p>
           <div class="row">
             <div class="col-lg-12">
               <div class="item phone">
-                <img src="{% static 'assets/images/phone-icon.png' %}" alt="" style="max-width: 52px;">
+                <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
                 <h6>Phone Number<br><span>(032) 261 7741</span></h6>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="item email">
-                <img src="{% static 'assets/images/email-icon.png' %}" alt="" style="max-width: 52px;">
+                <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
                 <h6>Email<br><span>FlightMatch@gmail.com</span></h6>
               </div>
             </div>
@@ -125,7 +120,6 @@
         </div>
         <div class="col-lg-6">
           <form id="contact-form" action="" method="post">
-            {% csrf_token %}
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
@@ -177,13 +171,13 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
-  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
-  <script src="{% static 'assets/js/animation.js' %}"></script>
-  <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
-  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/custom.js"></script>
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 </body>
 
