@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = ({ activeTab }) => {
   return (
-    <nav className="navbar">
+    <nav className="navbar header-area">
       <ul className="navbar-menu">
         <li>
           <Link to="/" id={activeTab === "Home" ? "highlight" : undefined}>
