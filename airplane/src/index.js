@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "https://unpkg.com/swiper@7/swiper-bundle.min.css";
 import './css/NavBar.css'
 import './css/Boarding.css'
 import './css/Flight.css'
@@ -14,6 +15,11 @@ import './css/Analytics.css'
 import './css/Passenger.css'
 import './css/Passenger_delete.css'
 import './css/Passenger_update.css'
+import "./css/fontawesome.css";
+import "./css/templatemo-villa-agency.css";
+import "./css/owl.css";
+import "./css/animate.css";
+
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
