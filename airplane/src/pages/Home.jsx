@@ -1,51 +1,55 @@
 import { Navbar } from "../components/Navbar";
-import {
-  CCarousel,
-  CCarouselItem,
-  CCarouselCaption,
-  CImage,
-} from "@coreui/react";
-
+import Carousel from "react-bootstrap/Carousel";
+// import ExampleCarouselImage from "components/ExampleCarouselImage";
 export const Home = () => {
   return (
     <>
-      {/* <div> */}
-      <Navbar activeTab="Home" className="header-area" />
-      <CCarousel controls indicators>
-        <CCarouselItem>
-          <CImage
-            className="d-block w-100"
-            src={"/images/banner-01.jpg"}
-            alt="slide 1"
+      <Navbar activeTab="Home" />
+
+      <Carousel>
+        <Carousel.Item className="carousel-item carousel-image-size">
+          <img
+            src="/images/banner-01.jpg"
+            className="carousel-banner-size"
+            alt=""
           />
-          <CCarouselCaption className="d-none d-md-block">
-            <h5>SM SEASIDE, CEBU</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </CCarouselCaption>
-        </CCarouselItem>
-        <CCarouselItem>
-          <CImage
-            className="d-block w-100"
-            src={"/images/banner-02.jpg"}
-            alt="slide 2"
+          <Carousel.Caption className="carousel-caption">
+            <h3>SM SEASIDE, CEBU</h3>
+            <p>
+              Modern shopping and lifestyle destination located along Cebu's
+              South Road Properties
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        {/* 
+        <Carousel.Item>
+          <img
+            src="/images/banner-02.jpg"
+            className="carousel-banner-size"
+            alt=""
           />
-          <CCarouselCaption className="d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </CCarouselCaption>
-        </CCarouselItem>
-        <CCarouselItem>
-          <CImage
-            className="d-block w-100"
-            src={"/images/banner-03.jpg"}
-            alt="slide 3"
+          <Carousel.Caption className="carousel-caption">
+            <h3>TOKYO, JAPAN</h3>
+            <p>Explore The Fascinating Wonders of Japans Natural Beauty</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+            src="/images/banner-02.jpg"
+            className="carousel-banner-size"
+            alt=""
           />
-          <CCarouselCaption className="d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </CCarouselCaption>
-        </CCarouselItem>
-      </CCarousel>
+          <Carousel.Caption className="carousel-caption">
+            <h3>TAOIST, CEBU</h3>
+            <p>
+              The Taoist Temple in Cebu is a peaceful and picturesque place of
+              worship, offering stunning views of the city and a glimpse into
+              Taoist traditions and architecture.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item> */}
+      </Carousel>
     </>
   );
 };

@@ -1,5 +1,5 @@
 /* Reset some default browser styles */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,10 +14,11 @@
 
 #highlight {
     color: yellow;
-}
+} */
 
   
   /* Navbar styling */
+/*   
   .navbar {
     background-color: #333;
     padding: 10px 0;
@@ -26,17 +27,17 @@
     width: 100%;
     z-index: 100;
     display: flex;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center; /* Center content horizontally
   }
   
   /* Center the menu items */
-  .navbar-menu {
+  /* .navbar-menu {
     list-style-type: none;
     display: flex;
     gap: 20px;
   }
   
-  /* .navbar-menu li a {
+  .navbar-menu li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
@@ -55,18 +56,22 @@
     text-align: center;
   } */
   
-/* 
-.color-on{
+
+/* .color-on{
     color: aqua !important;
 } */
 
-.header-area {
-    position: relative;
-    background-color: #fff;
-    height: 100px;
-    z-index: 100;
-    -webkit-transition: all .5s ease 0s;
-    -moz-transition: all .5s ease 0s;
-    -o-transition: all .5s ease 0s;
-    transition: all .5s ease 0s;
+
+
+.carousel-caption {
+  top: 30%;
+  font-size: 1.4em;
 }
+
+.carousel-item{
+  height: 19%;
+  object-fit: contain;
+}
+
+
+  

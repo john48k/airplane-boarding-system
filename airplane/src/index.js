@@ -4,16 +4,16 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './css/NavBar.css'
-import './css/Boarding.css'
-import './css/Flight.css'
-import './css/Flight_delete.css'
-import './css/Flight_update.css'
-import './css/Gate.css'
-import './css/Notify.css'
-import './css/Analytics.css'
-import './css/Passenger.css'
-import './css/Passenger_delete.css'
-import './css/Passenger_update.css'
+// import './css/Boarding.css'
+// import './css/Flight.css'
+// import './css/Flight_delete.css'
+// import './css/Flight_update.css'
+// import './css/Gate.css'
+// import './css/Notify.css'
+// import './css/Analytics.css'
+// import './css/Passenger.css'
+// import './css/Passenger_delete.css'
+// import './css/Passenger_update.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
@@ -26,9 +26,13 @@ import { Passenger } from "./pages/Passenger";
 import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
 import {Login} from "./pages/Login";
-import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
- 
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Carousel from 'react-bootstrap/Carousel';
+
  
  
  
