@@ -16,7 +16,7 @@ export const Navbar = ({ activeTab }) => {
             <Nav.Link href="Flight">Flight</Nav.Link>
             <Nav.Link href="Gate">Gate</Nav.Link>
             <Nav.Link href="Passenger">Passenger</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="Login">Login</Nav.Link>
           </Nav>
         </Container>
       </BootstrapNavbar>

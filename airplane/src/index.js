@@ -14,6 +14,8 @@ import './css/NavBar.css'
 // import './css/Passenger.css'
 // import './css/Passenger_delete.css'
 // import './css/Passenger_update.css'
+import './css/Home.css'
+import './css/Carousel.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";

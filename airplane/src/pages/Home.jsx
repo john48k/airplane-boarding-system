@@ -66,7 +66,9 @@ export const Home = () => {
         </Carousel.Item>
       </Carousel>
 
-      <div></div>
+      <div className="home-bottom">
+        <div></div>
+      </div>
     </>
   );
 };
