@@ -106,6 +106,15 @@ export const Signup = () => {
       <div className="banner-signup">
         <div className="banner-heading-text">SIGN UP</div>
       </div>
+      {message && (
+        <div
+          className={`message ${
+            message.includes("successful") ? "success" : "error"
+          }`}
+        >
+          {message}
+        </div>
+      )}
 
       <MDBContainer
         fluid
@@ -258,16 +267,6 @@ export const Signup = () => {
                   </div>
                 </MDBCardBody>
               </MDBCard>
-
-              {message && (
-                <div
-                  className={`message ${
-                    message.includes("successful") ? "success" : "error"
-                  }`}
-                >
-                  {message}
-                </div>
-              )}
             </form>
           </MDBCol>
         </MDBRow>
