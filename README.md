@@ -20,8 +20,16 @@ Members:
 **Things to install in order to run this**
 
 1. npm install
-2. npm install react-router-dom
-3. npm install localforage match-sorter sort-by
+2. npm install swiper
+3. npm install @coreui/react @coreui/coreui
+4. npm install bootstrap
+5. npm install react-bootstrap
+6. npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+npm i mdb-react-ui-kit
+npm install @fortawesome/fontawesome-free
+8. npm install react-router-dom
+9. npm install localforage match-sorter sort-by
+    
 
 # Project Summary
 
