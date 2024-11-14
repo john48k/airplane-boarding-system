@@ -51,7 +51,7 @@ export const Signup = () => {
 
       if (response.ok) {
         setMessage("Signup successful!");
-        navigate("/login");
+        navigate("/");
       } else {
         const errorMessage = await response.text();
         setMessage(errorMessage);
