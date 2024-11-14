@@ -1,5 +1,12 @@
 import { Navbar } from "../components/Navbar";
 import Carousel from "react-bootstrap/Carousel";
+import Accordion from "@mui/material/Accordion";
+import AccordionActions from "@mui/material/AccordionActions";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Button from "@mui/material/Button";
+
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 export const Home = () => {
   return (
@@ -66,8 +73,52 @@ export const Home = () => {
         </Carousel.Item>
       </Carousel>
 
-      <div className="home-bottom">
-        <div></div>
+      <div>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+          >
+            Best Seats
+          </AccordionSummary>
+          <AccordionDetails>
+            Get <strong>the best seats</strong> and elevate your travel
+            experience! Enjoy extra legroom, stunning window views, and premium
+            comfort throughout your journey. Reserve now and make your next
+            flight unforgettable!"
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2-content"
+            id="panel2-header"
+          >
+            How Does This Work?
+          </AccordionSummary>
+          <AccordionDetails>
+            It's simple and easy, All you have to do is book a flight and we'll
+            give you the best option for you!
+          </AccordionDetails>
+        </Accordion>
+        <Accordion defaultExpanded>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3-content"
+            id="panel3-header"
+          >
+            Why <strong> FLIGHTMATCH ?</strong>
+          </AccordionSummary>
+          <AccordionDetails>
+            It's <strong>simple and easy</strong>, All you have to do is book a
+            fligt and we'll give you the best option for you!
+          </AccordionDetails>
+          <AccordionActions>
+            <Button>Cancel</Button>
+            <Button>Agree</Button>
+          </AccordionActions>
+        </Accordion>
       </div>
     </>
   );
