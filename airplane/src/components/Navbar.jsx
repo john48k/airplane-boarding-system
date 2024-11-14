@@ -62,6 +62,14 @@ export const Navbar = ({ activeTab }) => {
             Login
           </Link>
         </li>
+        <li>
+          <Link
+            to="/Signup"
+            id={activeTab === "Signup" ? "highlight" : undefined}
+          >
+            Signup
+          </Link>
+        </li>
       </ul>
     </nav>
   );

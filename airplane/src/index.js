@@ -26,6 +26,7 @@ import { Passenger } from "./pages/Passenger";
 import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
 import {Login} from "./pages/Login";
+import { Signup } from "./pages/Signup";
  
  
  
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login/>
+  },
+  {
+    path: 'signup',
+    element: <Signup/>
   }
 ]);
  
