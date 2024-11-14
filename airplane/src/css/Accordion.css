@@ -1,0 +1,12 @@
+.home-bottom-flex-container {
+    display: flex;
+    justify-content:center; /* Adjust to center, start, or other values as needed */
+    align-items: center;
+    gap: 20px; /* Optional: adds space between the two items */
+  }
+  
+  .accord-size {
+    width: 300px;
+    height: auto;
+  }
+  
