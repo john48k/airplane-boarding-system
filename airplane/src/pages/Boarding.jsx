@@ -92,33 +92,31 @@ export const Boarding = () => {
           </section>
         </MDBFooter>
         <Navbar activeTab="Boarding" />
+        <div className="banner-page-heading">
+          <div className="banner-heading-text">BOARDING</div>
+        </div>
 
-        <div className="form-container">
-          <h1>Create Boarding Pass</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="seat-number">Seat Number:</label>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="seatNumber">Seat Number:</label>
             <input
               type="text"
-              id="seat-number"
-              name="seat-number"
+              id="seatNumber"
               value={seatNumber}
-              onChange={(e) => setSeatNumber(e.target.value)}
-              required
+              onChange={(event) => setSeatNumber(event.target.value)}
             />
-
-            <label htmlFor="boarding-time">Boarding Time:</label>
+          </div>
+          <div>
+            <label htmlFor="boardingTime">Boarding Time:</label>
             <input
-              type="time"
-              id="boarding-time"
-              name="boarding-time"
+              type="text"
+              id="boardingTime"
               value={boardingTime}
-              onChange={(e) => setBoardingTime(e.target.value)}
-              required
+              onChange={(event) => setBoardingTime(event.target.value)}
             />
-
-            <button type="submit">Submit</button>
-          </form>
-        </div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
       </div>
       {/* <MDBFooter
         className="text-center text-white"

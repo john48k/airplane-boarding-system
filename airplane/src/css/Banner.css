@@ -1,4 +1,4 @@
-.anal-page-heading {
+.banner-page-heading {
     background-image: url(../../public/images/page-heading-bg.jpg);
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-.anal-heading-text{
+.banner-heading-text{
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%); /* Centers text */
