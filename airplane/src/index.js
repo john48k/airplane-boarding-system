@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './css/NavBar.css'
 import './css/Analytics.css'
 import './css/Banner.css'
+import './css/Signup.css'
 // import './css/Boarding.css'
 // import './css/Flight.css'
 // import './css/Flight_delete.css'

@@ -110,7 +110,7 @@ export const Signup = () => {
       </MDBFooter>
 
       <Navbar activeTab="Boarding" />
-      <div className="banner-page-heading">
+      <div className="banner-signup">
         <div className="banner-heading-text">SIGN UP</div>
       </div>
 
@@ -125,15 +125,15 @@ export const Signup = () => {
           >
             <h1
               className="my-5 display-3 fw-bold ls-tight px-3"
-              style={{ color: "hsl(218, 81%, 95%)" }}
+              style={{ color: "hsl(214 70% 56%)" }}
             >
-              The best offer <br />
-              <span style={{ color: "hsl(218, 81%, 75%)" }}>
-                for your business
+              Join the Journey <br />
+              <span style={{ color: "hsl(208 100% 78%)" }}>
+                Sign Up and Take Off!
               </span>
             </h1>
 
-            <p className="px-3" style={{ color: "hsl(218, 81%, 85%)" }}>
+            <p className="px-3" style={{ color: "hsl(208 100% 88%)" }}>
               Book a flight now and start planning your next adventure today.
               Whether you're looking for a relaxing vacation or an exciting
               business trip, booking your flight early ensures the best prices
