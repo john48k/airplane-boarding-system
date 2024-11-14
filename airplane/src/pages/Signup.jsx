@@ -177,12 +177,23 @@ export const Signup = () => {
                   label="Email"
                   id="form3"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
+
                 <MDBInput
                   wrapperClass="mb-4"
                   label="Phone Number"
                   id="form3"
                   type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => {
+                    // Allow only numbers in the input field
+                    const value = e.target.value.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+                    setPhoneNumber(value);
+                  }}
+                  required
                 />
 
                 <MDBInput
@@ -190,6 +201,9 @@ export const Signup = () => {
                   label="Password"
                   id="form4"
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
 
                 <MDBInput
@@ -197,6 +211,9 @@ export const Signup = () => {
                   label="Confirm Password"
                   id="form4"
                   type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
                 />
 
                 <div className="d-flex justify-content-center mb-4">
@@ -208,8 +225,8 @@ export const Signup = () => {
                   />
                 </div>
 
-                <MDBBtn className="w-100 mb-4" size="md">
-                  sign up
+                <MDBBtn className="w-100 mb-4" size="md" type="submit">
+                  Sign Up
                 </MDBBtn>
 
                 <div className="text-center">
@@ -258,7 +275,7 @@ export const Signup = () => {
       </MDBContainer>
 
       <div className="signup-container">
-        <h2>Signup</h2>
+        {/* <h2>Signup</h2> */}
         <form className="signup-form" onSubmit={handleSignup}>
           <label htmlFor="username">Username</label>
           <input
