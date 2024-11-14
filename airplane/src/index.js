@@ -18,6 +18,7 @@ import './css/Home.css'
 import './css/Carousel.css'
 import './css/Accordion.css'
 import { Home } from "./pages/Home";
+import { Signup } from "./pages/Signup";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
 import { Flight } from "./pages/Flight";
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login/>
+  },
+  {
+    path: 'signup',
+    element: <Signup/>
   }
 ]);
  
