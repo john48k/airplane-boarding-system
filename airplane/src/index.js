@@ -16,6 +16,7 @@ import './css/Analytics.css'
 // import './css/Passenger_update.css'
 import './css/Home.css'
 import './css/Carousel.css'
+import './css/Accordion.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";

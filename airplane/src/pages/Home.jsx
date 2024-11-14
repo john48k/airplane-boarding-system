@@ -125,54 +125,69 @@ export const Home = () => {
         </Carousel.Item>
       </Carousel>
 
-      <div>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            Best Seats
-          </AccordionSummary>
-          <AccordionDetails>
-            Get <strong>the best seats</strong> and elevate your travel
-            experience! Enjoy extra legroom, stunning window views, and premium
-            comfort throughout your journey. Reserve now and make your next
-            flight unforgettable!"
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2-content"
-            id="panel2-header"
-          >
-            How Does This Work?
-          </AccordionSummary>
-          <AccordionDetails>
-            It's simple and easy, All you have to do is book a flight and we'll
-            give you the best option for you!
-          </AccordionDetails>
-        </Accordion>
-        <Accordion defaultExpanded>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3-content"
-            id="panel3-header"
-          >
-            Why <strong>‎ FLIGHTMATCH ?</strong>
-          </AccordionSummary>
-          <AccordionDetails>
-            It's <strong>simple and easy</strong>, All you have to do is book a
-            flight and we'll give you the best option for you!
-          </AccordionDetails>
-          <AccordionActions>
-            <Link to="/Flight" style={{ textDecoration: "none" }}>
-              <Button variant="contained">Book Now</Button>
-            </Link>
-            {/* <Button>Agree</Button> */}
-          </AccordionActions>
-        </Accordion>
+      <div className="home-bottom-flex-container">
+        <div className="home-guy-char">
+          <img src="/images/featured.jpg" alt="" />
+        </div>
+        {/* <div className="home-bottom-text">
+          <p className="home-bottom-title">FEATURED</p>
+        </div> */}
+        <div className="accord-size ">
+          <div className="home-bottom-ile">
+            <p className="home-bottom-title">| FEATURED</p>
+            <p className="home-bottom-text">Best Seats & In The Sky</p>
+          </div>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              Best Seats
+            </AccordionSummary>
+            <AccordionDetails>
+              Get <strong>the best seats</strong> and elevate your travel
+              experience! Enjoy extra legroom, stunning window views, and
+              premium comfort throughout your journey. Reserve now and make your
+              next flight unforgettable!"
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2-content"
+              id="panel2-header"
+            >
+              How Does This Work?
+            </AccordionSummary>
+            <AccordionDetails>
+              It's simple and easy, All you have to do is book a flight and
+              we'll give you the best option for you!
+            </AccordionDetails>
+          </Accordion>
+          <Accordion defaultExpanded>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3-content"
+              id="panel3-header"
+            >
+              Why <strong>‎ FLIGHTMATCH ?</strong>
+            </AccordionSummary>
+            <AccordionDetails>
+              It's <strong>simple and easy</strong>, All you have to do is book
+              a flight and we'll give you the best option for you!
+            </AccordionDetails>
+            <AccordionActions>
+              <Link to="/Flight" style={{ textDecoration: "none" }}>
+                <Button variant="contained">Book Now</Button>
+              </Link>
+              {/* <Button>Agree</Button> */}
+            </AccordionActions>
+          </Accordion>{" "}
+        </div>
+        <div className="home-info">
+          <img src="/images/homeinfo.png" alt="" />
+        </div>
       </div>
 
       <MDBFooter
