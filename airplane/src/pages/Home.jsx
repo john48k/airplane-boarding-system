@@ -6,11 +6,62 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
-
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
+import React from "react";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import {
+  MDBFooter,
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBIcon,
+} from "mdb-react-ui-kit";
+
 export const Home = () => {
   return (
     <>
+      <MDBFooter
+        bgColor="light"
+        className="text-center text-lg-start text-muted"
+      >
+        <section className="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
+          <div
+            className="me-5 d-none d-lg-block"
+            style={{ fontSize: "0.875rem" }}
+          >
+            <p className="mb-0">
+              <MDBIcon icon="envelope" className="me-2" />
+              CitUniversity@gmail.com |
+              <MDBIcon icon="map-marker-alt" className="me-2 ms-2" />
+              7VVJ+QFR, Natalio B. Bacalso Ave, Cebu City, 6000 Cebu
+            </p>
+          </div>
+
+          <div>
+            <a href="" className="me-3 text-reset">
+              <MDBIcon fab icon="facebook-f" />
+            </a>
+            <a href="" className="me-3 text-reset">
+              <MDBIcon fab icon="twitter" />
+            </a>
+            <a href="" className="me-3 text-reset">
+              <MDBIcon fab icon="google" />
+            </a>
+            <a href="" className="me-3 text-reset">
+              <MDBIcon fab icon="instagram" />
+            </a>
+            <a href="" className="me-3 text-reset">
+              <MDBIcon fab icon="linkedin" />
+            </a>
+            <a href="" className="me-3 text-reset">
+              <MDBIcon fab icon="github" />
+            </a>
+          </div>
+        </section>
+      </MDBFooter>
+
       <Navbar activeTab="Home" />
 
       <Carousel>
@@ -108,18 +159,41 @@ export const Home = () => {
             aria-controls="panel3-content"
             id="panel3-header"
           >
-            Why <strong> FLIGHTMATCH ?</strong>
+            Why <strong>‎ FLIGHTMATCH ?</strong>
           </AccordionSummary>
           <AccordionDetails>
             It's <strong>simple and easy</strong>, All you have to do is book a
-            fligt and we'll give you the best option for you!
+            flight and we'll give you the best option for you!
           </AccordionDetails>
           <AccordionActions>
-            <Button>Cancel</Button>
-            <Button>Agree</Button>
+            {/* <Button>Cancel</Button>
+            <Button>Agree</Button> */}
           </AccordionActions>
         </Accordion>
       </div>
+
+      <MDBFooter
+        className="text-center text-white"
+        style={{ backgroundColor: "#0a4275" }}
+      >
+        <MDBContainer className="p-4 pb-0">
+          <section className="">
+            <p className="d-flex justify-content-center align-items-center">
+              <span className="me-3">Register for free</span>
+              <MDBBtn type="button" outline color="light" rounded>
+                Sign up!
+              </MDBBtn>
+            </p>
+          </section>
+        </MDBContainer>
+
+        <div
+          className="text-center p-3"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        >
+          © 2020 Copyright FLIGHT MATCH
+        </div>
+      </MDBFooter>
     </>
   );
 };
