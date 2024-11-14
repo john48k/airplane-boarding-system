@@ -147,10 +147,17 @@ export const Login = () => {
                     required
                   />
                 </form>
+                {/* <button type="submit">Login</button> */}
 
-                <MDBBtn className="mb-4 px-5" color="dark" size="lg">
+                <MDBBtn
+                  className="mb-4 px-5"
+                  color="dark"
+                  size="lg"
+                  type="submit"
+                >
                   Login
                 </MDBBtn>
+
                 {/* <a className="small text-muted" href="#!">
                   Forgot password?
                 </a> */}
@@ -211,7 +218,7 @@ export const Login = () => {
     //   required
     // />
 
-    //       <button type="submit">Login</button>
+    // <button type="submit">Login</button>
     //     </form>
     //   </div>
     // </div>
