@@ -13,13 +13,6 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 import { Navbar } from "../components/Navbar";
-import Carousel from "react-bootstrap/Carousel";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -155,25 +148,29 @@ export const Signup = () => {
 
             <MDBCard className="my-5 bg-glass">
               <MDBCardBody className="p-5">
-                <MDBRow>
-                  <MDBCol col="6">
-                    <MDBInput
-                      wrapperClass="mb-4"
-                      label="First name"
-                      id="form1"
-                      type="text"
-                    />
-                  </MDBCol>
+                <MDBRow></MDBRow>
 
-                  <MDBCol col="6">
-                    <MDBInput
-                      wrapperClass="mb-4"
-                      label="Last name"
-                      id="form2"
-                      type="text"
-                    />
-                  </MDBCol>
-                </MDBRow>
+                {/* 
+                <h2>Signup</h2>
+        <form className="signup-form" onSubmit={handleSignup}>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          /> */}
+
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Username"
+                  id="form3"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
 
                 <MDBInput
                   wrapperClass="mb-4"
@@ -183,7 +180,21 @@ export const Signup = () => {
                 />
                 <MDBInput
                   wrapperClass="mb-4"
+                  label="Phone Number"
+                  id="form3"
+                  type="tel"
+                />
+
+                <MDBInput
+                  wrapperClass="mb-4"
                   label="Password"
+                  id="form4"
+                  type="password"
+                />
+
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Confirm Password"
                   id="form4"
                   type="password"
                 />
@@ -315,17 +326,6 @@ export const Signup = () => {
         className="text-center text-white"
         style={{ backgroundColor: "#555C67" }}
       >
-        {/* <MDBContainer className="p-4 pb-0">
-          <section className="">
-            <p className="d-flex justify-content-center align-items-center">
-              <span className="me-3">Register for free</span>
-              <MDBBtn type="button" outline color="light" rounded>
-                Sign up!
-              </MDBBtn>
-            </p>
-          </section>
-        </MDBContainer> */}
-
         <div
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
