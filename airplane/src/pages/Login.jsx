@@ -125,28 +125,35 @@ export const Login = () => {
                 >
                   Sign into your account
                 </h5>
-
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Username"
-                  id="formControlLg"
-                  type="text"
-                  size="lg"
-                />
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Password"
-                  id="formControlLg"
-                  type="password"
-                  size="lg"
-                />
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Username"
+                    id="formControlLg"
+                    type="text"
+                    size="lg"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Password"
+                    id="formControlLg"
+                    type="password"
+                    size="lg"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </form>
 
                 <MDBBtn className="mb-4 px-5" color="dark" size="lg">
                   Login
                 </MDBBtn>
-                <a className="small text-muted" href="#!">
+                {/* <a className="small text-muted" href="#!">
                   Forgot password?
-                </a>
+                </a> */}
                 <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                   Don't have an account?{" "}
                   <a href="#!" style={{ color: "#393f81" }}>
@@ -154,14 +161,14 @@ export const Login = () => {
                   </a>
                 </p>
 
-                <div className="d-flex flex-row justify-content-start">
+                {/* <div className="d-flex flex-row justify-content-start">
                   <a href="#!" className="small text-muted me-1">
                     Terms of use.
                   </a>
                   <a href="#!" className="small text-muted">
                     Privacy policy
                   </a>
-                </div>
+                </div> */}
               </MDBCardBody>
             </MDBCol>
           </MDBRow>
@@ -183,26 +190,26 @@ export const Login = () => {
     // <div>
     //   <Navbar activeTab="Login" />
 
-    //   <div className="container">
-    //     <h1>Login</h1>
-    //     <form onSubmit={handleSubmit}>
-    //       <label htmlFor="username">Username:</label>
-    //       <input
-    //         type="text"
-    //         id="username"
-    //         value={username}
-    //         onChange={(e) => setUsername(e.target.value)}
-    //         required
-    //       />
+    // <div className="container">
+    //   <h1>Login</h1>
+    //   <form onSubmit={handleSubmit}>
+    //     <label htmlFor="username">Username:</label>
+    //     <input
+    //       type="text"
+    //       id="username"
+    //       value={username}
+    //       onChange={(e) => setUsername(e.target.value)}
+    //       required
+    //     />
 
-    //       <label htmlFor="password">Password:</label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         value={password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //         required
-    //       />
+    // <label htmlFor="password">Password:</label>
+    // <input
+    //   type="password"
+    //   id="password"
+    //   value={password}
+    //   onChange={(e) => setPassword(e.target.value)}
+    //   required
+    // />
 
     //       <button type="submit">Login</button>
     //     </form>
