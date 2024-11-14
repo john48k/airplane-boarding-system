@@ -4,13 +4,13 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './css/NavBar.css'
+import './css/Analytics.css'
 // import './css/Boarding.css'
 // import './css/Flight.css'
 // import './css/Flight_delete.css'
 // import './css/Flight_update.css'
 // import './css/Gate.css'
 // import './css/Notify.css'
-// import './css/Analytics.css'
 // import './css/Passenger.css'
 // import './css/Passenger_delete.css'
 // import './css/Passenger_update.css'

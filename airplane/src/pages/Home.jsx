@@ -6,10 +6,10 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
-// import ExampleCarouselImage from "components/ExampleCarouselImage";
 import React from "react";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Link } from "react-router-dom";
 import {
   MDBFooter,
   MDBContainer,
@@ -18,6 +18,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
+// import ExampleCarouselImage from "components/ExampleCarouselImage";
 
 export const Home = () => {
   return (
@@ -40,22 +41,22 @@ export const Home = () => {
           </div>
 
           <div>
-            <a href="" className="me-3 text-reset">
+            <a href="https://www.facebook.com/" className="me-3 text-reset">
               <MDBIcon fab icon="facebook-f" />
             </a>
-            <a href="" className="me-3 text-reset">
+            <a href="https://twitter.com/" className="me-3 text-reset">
               <MDBIcon fab icon="twitter" />
             </a>
-            <a href="" className="me-3 text-reset">
+            <a href="https://www.google.com/" className="me-3 text-reset">
               <MDBIcon fab icon="google" />
             </a>
-            <a href="" className="me-3 text-reset">
+            <a href="https://www.instagram.com/" className="me-3 text-reset">
               <MDBIcon fab icon="instagram" />
             </a>
-            <a href="" className="me-3 text-reset">
+            <a href="https://www.linkedin.com/" className="me-3 text-reset">
               <MDBIcon fab icon="linkedin" />
             </a>
-            <a href="" className="me-3 text-reset">
+            <a href="https://www.github.com/" className="me-3 text-reset">
               <MDBIcon fab icon="github" />
             </a>
           </div>
@@ -166,15 +167,17 @@ export const Home = () => {
             flight and we'll give you the best option for you!
           </AccordionDetails>
           <AccordionActions>
-            {/* <Button>Cancel</Button>
-            <Button>Agree</Button> */}
+            <Link to="/Flight" style={{ textDecoration: "none" }}>
+              <Button variant="contained">Book Now</Button>
+            </Link>
+            {/* <Button>Agree</Button> */}
           </AccordionActions>
         </Accordion>
       </div>
 
       <MDBFooter
         className="text-center text-white"
-        style={{ backgroundColor: "#0a4275" }}
+        style={{ backgroundColor: "#555C67" }}
       >
         <MDBContainer className="p-4 pb-0">
           <section className="">
@@ -191,7 +194,7 @@ export const Home = () => {
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2020 Copyright FLIGHT MATCH
+          © 2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>
     </>

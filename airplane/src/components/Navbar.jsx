@@ -13,7 +13,7 @@ export const Navbar = ({ activeTab }) => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="Analytics">Analytics</Nav.Link>
             <Nav.Link href="Boarding">Boarding</Nav.Link>
-            <Nav.Link href="Flight">Flight</Nav.Link>
+            <Nav.Link href="Flight">Book Flight</Nav.Link>
             <Nav.Link href="Gate">Gate</Nav.Link>
             <Nav.Link href="Passenger">Passenger</Nav.Link>
             <Nav.Link href="Login">Login</Nav.Link>
