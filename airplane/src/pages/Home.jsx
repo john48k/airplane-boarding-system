@@ -10,14 +10,7 @@ import React from "react";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Link } from "react-router-dom";
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-  MDBIcon,
-} from "mdb-react-ui-kit";
+import { MDBFooter, MDBContainer, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
 export const Home = () => {
@@ -68,7 +61,7 @@ export const Home = () => {
       <Carousel>
         <Carousel.Item className="carousel-item carousel-image-size">
           <img
-            src="/images/banner-01.jpg"
+            src="/images/seaside-pic.jpg"
             className="carousel-banner-size"
             alt="slide 1"
           />
@@ -83,7 +76,7 @@ export const Home = () => {
 
         <Carousel.Item>
           <img
-            src="/images/banner-02.jpg"
+            src="/images/japan-pic.jpg"
             className="carousel-banner-size"
             alt=""
           />
@@ -95,7 +88,7 @@ export const Home = () => {
 
         <Carousel.Item>
           <img
-            src="/images/banner-03.jpg"
+            src="/images/dragon-pic.jpg"
             className="carousel-banner-size"
             alt=""
           />
@@ -111,15 +104,43 @@ export const Home = () => {
 
         <Carousel.Item>
           <img
-            src="/images/banner-04.jpg"
+            src="/images/england-pic.jpg"
             className="carousel-banner-size"
             alt=""
           />
           <Carousel.Caption className="carousel-caption">
-            <h3>YORK, ENGLAND</h3>
+            <h3>LONDON, ENGLAND</h3>
             <p>
-              York, England is a historic city known for its medieval
-              architecture, including the iconic York Minster.
+              London, England is a historic city known for its architecture,
+              including the iconic Clock Tower.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            src="/images/sanfran-pic.jpg"
+            className="carousel-banner-size"
+            alt=""
+          />
+          <Carousel.Caption className="carousel-caption">
+            <h3>SAN FRANCISCO, CALIFORNIA</h3>
+            <p>
+              San Francisco is known for its iconic Golden Gate Bridge, diverse
+              culture, and scenic bay views.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            src="/images/sydney-pic.jpg"
+            className="carousel-banner-size"
+            alt=""
+          />
+          <Carousel.Caption className="carousel-caption">
+            <h3>SYDNEY, AUSTRALIA</h3>
+            <p>
+              Sydney, Australia, is famous for its stunning harbor, the Sydney
+              Opera House, and beautiful beaches.
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -198,9 +219,11 @@ export const Home = () => {
           <section className="">
             <p className="d-flex justify-content-center align-items-center">
               <span className="me-3">Register for free</span>
-              <MDBBtn type="button" outline color="light" rounded>
-                Sign up!
-              </MDBBtn>
+              <Link to="/signup">
+                <MDBBtn type="button" outline color="light" rounded>
+                  Sign up!
+                </MDBBtn>
+              </Link>
             </p>
           </section>
         </MDBContainer>

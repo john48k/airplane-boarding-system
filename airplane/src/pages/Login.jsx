@@ -154,6 +154,7 @@ export const Login = () => {
                   color="dark"
                   size="lg"
                   type="submit"
+                  required
                 >
                   Login
                 </MDBBtn>
