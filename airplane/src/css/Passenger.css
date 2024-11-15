@@ -1,66 +1,8 @@
-.container{
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
- 
-h1, h2 {
-    color: #333;
-}
- 
-form {
-    display: flex;
-    flex-direction: column;
-}
- 
-label {
-    margin-bottom: 5px;
-    color: #555;
-}
- 
-button {
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
- 
-button:hover {
-    background-color: #4cae4c;
-}
- 
-.update-button {
-    background-color: #5cb85c; /* Green */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding-left: 85px;
-    padding-right: 85px;
-    cursor: pointer;
-    font-size: 16px;
-}
- 
-.update-button:hover {
-    background-color: #4cae4c; /* Darker green on hover */
-}
- 
-.delete-button {
-    background-color: #d9534f; /* Red */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding-left: 85px;
-    padding-right: 85px;
-    cursor: pointer;
-    font-size: 16px;
-}
- 
-.delete-button:hover {
-    background-color: #c9302c;
+.passenger-banner-page-heading {
+    background-image: url(../../public/images/passenger.jpg);
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 65px 0px;
+    text-align: center;
 }
