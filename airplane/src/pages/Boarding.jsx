@@ -92,7 +92,7 @@ export const Boarding = () => {
           </section>
         </MDBFooter>
         <Navbar activeTab="Boarding" />
-        <div className="banner-page-heading">
+        <div className="boarding-banner-page-heading">
           <div className="banner-heading-text">BOARDING</div>
         </div>
 

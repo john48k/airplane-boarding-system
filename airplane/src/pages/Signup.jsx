@@ -103,7 +103,7 @@ export const Signup = () => {
       </MDBFooter>
 
       <Navbar activeTab="Boarding" />
-      <div className="banner-signup">
+      <div className="signup-banner-page-heading">
         <div className="banner-heading-text">SIGN UP</div>
       </div>
       {message && (

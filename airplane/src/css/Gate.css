@@ -1,47 +1,17 @@
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 60px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  input[type="text"],
-  select {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #4cae4c;
-  }
-  
+.gate-banner-page-heading {
+  background-image: url(../../public/images/gate.jpg);
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 65px 0px;
+  text-align: center;
+}
+
+.gate-banner-heading-text{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers text */
+  color: rgb(255, 255, 255); /* Adjust as needed */
+  font-size: 35px; /* Adjust size as needed */
+  font-weight: bolder; /* Optional: makes text bold */
+}

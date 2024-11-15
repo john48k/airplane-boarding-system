@@ -107,7 +107,7 @@ export const Analytics = () => {
         </MDBFooter>
         <Navbar activeTab="Analytics" />
 
-        <div className="banner-page-heading">
+        <div className="anal-banner-page-heading">
           <div className="banner-heading-text">ANALYTICS</div>
         </div>
 

@@ -1,6 +1,6 @@
 .anal-page-heading {
     background-image: url(../../public/images/page-heading-bg.jpg);
-    background-position: center bottom;
+    background-position: center ;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 65px 0px;
@@ -16,3 +16,13 @@
     font-weight: bolder; /* Optional: makes text bold */
 }
 
+
+
+.anal-banner-page-heading{
+    background-image: url(../../public/images/anal-pic.jpg);
+    background-position: center 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 65px 0px;
+    text-align: center;
+}
