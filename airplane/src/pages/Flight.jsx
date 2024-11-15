@@ -1,13 +1,13 @@
 import { Navbar } from "../components/Navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Carousel from "react-bootstrap/Carousel";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
+// import Carousel from "react-bootstrap/Carousel";
+// import Accordion from "@mui/material/Accordion";
+// import AccordionActions from "@mui/material/AccordionActions";
+// import AccordionSummary from "@mui/material/AccordionSummary";
+// import AccordionDetails from "@mui/material/AccordionDetails";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -115,8 +115,8 @@ export const Flight = () => {
             className="text-center text-md-start d-flex flex-column justify-content-center"
           >
             <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-              Fasten Your Seatbelts <br />
-              <span className="text-primary">Your Journey Begins Here!</span>
+              Book Now, <br />
+              <span className="text-primary travel-text">Travel Better!</span>
             </h1>
 
             <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
@@ -171,12 +171,10 @@ export const Flight = () => {
                     onChange={handleChange}
                     required
                   />
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Flight Status"
+                  <select
                     id="flightStatus"
-                    type="select"
                     name="flight_status"
+                    className="form-select"
                     value={formData.flight_status}
                     onChange={handleChange}
                     required
@@ -187,7 +185,7 @@ export const Flight = () => {
                     <option value="0">BOARDING</option>
                     <option value="1">ON_FLIGHT</option>
                     <option value="2">ARRIVED</option>
-                  </MDBInput>
+                  </select>
 
                   <div className="delete-update-button-container ">
                     <MDBBtn
