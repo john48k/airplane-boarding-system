@@ -6,3 +6,48 @@
     padding: 65px 0px;
     text-align: center;
 }
+
+.flight-update-color{
+    background-color: rgb(0, 106, 255) !important;
+    transition: background-color 0.3s ease;
+}
+
+.flight-update-color:hover {
+    background-color: rgb(0, 78, 187) !important;
+
+
+}
+
+.flight-delete-color{
+    background-color: rgb(212, 7, 7) !important;
+    transition: background-color 0.3s ease;
+}
+
+.flight-delete-color:hover{
+    background-color: rgb(155, 0, 0) !important;
+}
+
+.flight-create-color{
+    background-color: rgb(13, 146, 9) !important;
+    transition: background-color 0.3s ease;
+}
+
+.flight-create-color:hover {
+    background-color: rgb(10, 120, 7) !important; 
+}
+
+.delete-update-button-container{
+
+    display: flex;
+    gap: 0.5rem; /* Space between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Aligns buttons vertically */
+      }
+      
+      .update-button, .delete-button {
+        flex: 1; /* Optional: Makes buttons equal width */
+        max-width: 500px; /* Optional: Limits button width */
+        border-radius: 14px;
+        margin-bottom: 10px;
+      }
+
