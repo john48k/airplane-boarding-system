@@ -19,6 +19,7 @@ import './css/Signup.css'
 import './css/Home.css'
 import './css/Carousel.css'
 import './css/Accordion.css'
+import './css/Login.css'
 import { Home } from "./pages/Home";
 import { Signup } from "./pages/Signup";
 import { Gate } from "./pages/Gate";
@@ -33,18 +34,16 @@ import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
 import {Login} from "./pages/Login";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Carousel from 'react-bootstrap/Carousel';
-
-
-import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+// import Button from 'react-bootstrap/Button';
+// import Container from 'react-bootstrap/Container';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+// import Carousel from 'react-bootstrap/Carousel';
+// import Accordion from '@mui/material/Accordion';
+// import AccordionActions from '@mui/material/AccordionActions';
+// import AccordionSummary from '@mui/material/AccordionSummary';
+// import AccordionDetails from '@mui/material/AccordionDetails';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
  
  
  
