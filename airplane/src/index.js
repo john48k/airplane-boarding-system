@@ -30,71 +30,75 @@ import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
 import { Login } from "./pages/Login";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProtectedRoute from "./components/ProtectedRoute"; // Import the ProtectedRoute component
+import { AnalyticsLogin } from "./pages/AnalyticsLogin"; // Import the AnalyticsLogin component
 
-// Simulating login status (replace with real authentication logic)
-const isLoggedIn = () => {
-  // Example logic to determine login status (replace with actual implementation)
-  return !!localStorage.getItem("authToken");
-};
-
-// Conditionally render routes based on login status
 const router = createBrowserRouter([
   {
     path: "/",
-    element: isLoggedIn() ? <HomeLogin /> : <Home />,
+    element: <Home />,
   },
   {
-    path: "HomeLogin",
+    path: "/HomeLogin",
     element: <HomeLogin />,
   },
   {
-    path: "boarding",
+    path: "/AnalyticsLogin",
+    element: <AnalyticsLogin />,  // Route for the login page
+  },
+  {
+    path: "/Analytics",
+    element: (
+      <ProtectedRoute
+        element={<Analytics />}
+        redirectPath="/Analytics"  // Redirect to login if not logged in
+      />
+    ), // Protect Analytics route based on login status
+  },
+  {
+    path: "/boarding",
     element: <Boarding />,
   },
   {
-    path: "gate",
+    path: "/gate",
     element: <Gate />,
   },
   {
-    path: "flight",
+    path: "/flight",
     element: <Flight />,
   },
   {
-    path: "flightupdate",
+    path: "/flightupdate",
     element: <Flightupdate />,
   },
   {
-    path: "flightdelete",
+    path: "/flightdelete",
     element: <Flightdelete />,
   },
   {
-    path: "notification",
+    path: "/notification",
     element: <Notification />,
   },
   {
-    path: "analytics",
-    element: <Analytics />,
-  },
-  {
-    path: "passenger",
+    path: "/passenger",
     element: <Passenger />,
   },
   {
-    path: "passengerdelete",
+    path: "/passengerdelete",
     element: <Passengerdelete />,
   },
   {
-    path: "passengerupdate",
+    path: "/passengerupdate",
     element: <Passengerupdate />,
   },
   {
-    path: "login",
+    path: "/login",
     element: <Login />,
   },
   {
-    path: "signup",
+    path: "/signup",
     element: <Signup />,
-  },
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,6 +1,4 @@
-import { Navbar } from "../components/Navbar";
 import React, { useState } from "react";
-
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {
@@ -14,8 +12,9 @@ import {
   MDBCardBody,
   MDBInput,
 } from "mdb-react-ui-kit";
+import { NavbarLogin } from "../components/NavbarLogin";
 
-export const Analytics = () => {
+export const AnalyticsLogin = () => {
   const [checkInTime, setCheckInTime] = useState("");
   const [boardingTime, setBoardingTime] = useState("");
   const [message, setMessage] = useState(""); // State for success/error message
@@ -53,6 +52,9 @@ export const Analytics = () => {
       const data = await response.json();
       console.log("Passenger data saved:", data);
       setMessage("Passenger data saved successfully!"); // Success message
+
+      // Set loggedIn status to true after successful login
+      localStorage.setItem("loggedIn", "true");
     } catch (error) {
       console.error("Error saving passenger data:", error);
       setMessage(`Error saving passenger data: ${error.message}`); // Error message
@@ -101,9 +103,9 @@ export const Analytics = () => {
             </div>
           </section>
         </MDBFooter>
-        <Navbar activeTab="Analytics" />
+        <NavbarLogin activeTab="Analytics" />
         <div className="anal-banner-page-heading">
-          <div className="banner-heading-text">ANALYTICS (ORIGINAL)</div>
+          <div className="banner-heading-text">ANALYTICS</div>
         </div>
         {message && <p>{message}</p>} {/* Display the message */}
         <MDBContainer fluid>
@@ -114,7 +116,9 @@ export const Analytics = () => {
                 style={{ borderRadius: "1rem", maxWidth: "500px" }}
               >
                 <MDBCardBody className="p-5 w-100 d-flex flex-column">
-                  <h2 className="fw-bold mb-2 text-center">Analytics</h2>
+                  <h2 className="fw-bold mb-2 text-center">
+                    Analytics (LOGIN)
+                  </h2>
 
                   <form onSubmit={handleSubmit}>
                     <MDBInput
@@ -150,33 +154,6 @@ export const Analytics = () => {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-        {/* <div className="form-container"> */}
-        {/* <h2 className="pass-title">Analytics</h2>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="check-in-time">Check In Time:</label>
-            <input
-              type="time"
-              id="check-in-time"
-              name="check-in-time"
-              required
-              value={checkInTime}
-              onChange={(e) => setCheckInTime(e.target.value)}
-            />
-
-            <label htmlFor="boarding-time">Boarding Time:</label>
-            <input
-              type="time"
-              id="boarding-time"
-              name="boarding-time"
-              required
-              value={boardingTime}
-              onChange={(e) => setBoardingTime(e.target.value)}
-            />
-
-            <button type="submit">Submit</button>
-          </form>
-          {message && <p>{message}</p>}  */}
-        {/* </div> */}
       </div>
 
       <div>

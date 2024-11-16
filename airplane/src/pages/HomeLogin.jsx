@@ -1,4 +1,4 @@
-import { Navbar } from "../components/Navbar";
+import { NavbarLogin } from "../components/NavbarLogin";
 import Carousel from "react-bootstrap/Carousel";
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
@@ -57,7 +57,7 @@ export const HomeLogin = () => {
         </section>
       </MDBFooter>
 
-      <Navbar activeTab="Home" />
+      <NavbarLogin activeTab="Home" />
 
       <Carousel>
         <Carousel.Item className="carousel-item carousel-image-size">
