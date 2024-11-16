@@ -1,12 +1,5 @@
 import { Navbar } from "../components/Navbar";
 import React, { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -17,6 +10,9 @@ import {
   MDBRow,
   MDBBtn,
   MDBIcon,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
 } from "mdb-react-ui-kit";
 
 export const Analytics = () => {
@@ -106,13 +102,56 @@ export const Analytics = () => {
           </section>
         </MDBFooter>
         <Navbar activeTab="Analytics" />
-
         <div className="anal-banner-page-heading">
           <div className="banner-heading-text">ANALYTICS</div>
         </div>
+        {message && <p>{message}</p>} {/* Display the message */}
+        <MDBContainer fluid>
+          <MDBRow className="d-flex justify-content-center align-items-center h-100">
+            <MDBCol col="12">
+              <MDBCard
+                className="bg-white my-5 mx-auto"
+                style={{ borderRadius: "1rem", maxWidth: "500px" }}
+              >
+                <MDBCardBody className="p-5 w-100 d-flex flex-column">
+                  <h2 className="fw-bold mb-2 text-center">Analytics</h2>
 
-        <div className="form-container">
-          <h2 className="pass-title">Analytics</h2>
+                  <form onSubmit={handleSubmit}>
+                    <MDBInput
+                      wrapperClass="mb-4 w-100"
+                      label="Check In Time"
+                      id="check-in-time"
+                      type="time"
+                      size="lg"
+                      required
+                      value={checkInTime}
+                      onChange={(e) => setCheckInTime(e.target.value)}
+                    />
+
+                    <MDBInput
+                      wrapperClass="mb-4 w-100"
+                      label="Boarding Time"
+                      id="boarding-time"
+                      type="time"
+                      size="lg"
+                      required
+                      value={boardingTime}
+                      onChange={(e) => setBoardingTime(e.target.value)}
+                    />
+
+                    <MDBBtn size="lg" type="submit">
+                      Submit
+                    </MDBBtn>
+                  </form>
+
+                  <hr className="my-4" />
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+        {/* <div className="form-container"> */}
+        {/* <h2 className="pass-title">Analytics</h2>
           <form onSubmit={handleSubmit}>
             <label htmlFor="check-in-time">Check In Time:</label>
             <input
@@ -136,31 +175,23 @@ export const Analytics = () => {
 
             <button type="submit">Submit</button>
           </form>
-          {message && <p>{message}</p>} {/* Display the message */}
-        </div>
+          {message && <p>{message}</p>}  */}
+        {/* </div> */}
       </div>
-      {/* <MDBFooter
-        className="text-center text-white"
-        style={{ backgroundColor: "#555C67" }}
-      >
-        <MDBContainer className="p-4 pb-0">
-          <section className="">
-            <p className="d-flex justify-content-center align-items-center">
-              <span className="me-3">Register for free</span>
-              <MDBBtn type="button" outline color="light" rounded>
-                Sign up!
-              </MDBBtn>
-            </p>
-          </section>
-        </MDBContainer>
 
-        <div
-          className="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+      <div>
+        <MDBFooter
+          className="text-center text-white"
+          style={{ backgroundColor: "#555C67" }}
         >
-          © 2024 FLIGHT MATCH. All Rights Reserved
-        </div>
-      </MDBFooter> */}
+          <div
+            className="text-center p-3"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+          >
+            © 2024 FLIGHT MATCH. All Rights Reserved
+          </div>
+        </MDBFooter>
+      </div>
     </>
   );
 };
