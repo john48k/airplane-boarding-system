@@ -2,22 +2,25 @@ import { Navbar } from "../components/Navbar";
 import React, { useState } from "react";
 
 export const Analytics = () => {
-  const [checkInTime, setCheckInTime] = useState("");
-  const [boardingTime, setBoardingTime] = useState("");
+  const [checkInTime, setCheckInTime] = useState(""); // State for check-in time
+  const [boardingTime, setBoardingTime] = useState(""); // State for boarding time
   const [message, setMessage] = useState(""); // State for success/error message
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Append ":00" to match the expected HH:MM:SS format
-    const formattedCheckInTime = checkInTime.length === 5 ? `${checkInTime}:00` : checkInTime;
-    const formattedBoardingTime = boardingTime.length === 5 ? `${boardingTime}:00` : boardingTime;
-  
+
+    // Validate inputs
+    if (!checkInTime || !boardingTime) {
+      setMessage("Please enter valid Date and Time for both Check-In and Boarding.");
+      return;
+    }
+
+    // Prepare passenger data with LocalDateTime format
     const passengerData = {
-      checkinTime: formattedCheckInTime,
-      boardingTime: formattedBoardingTime,
+      checkinTime: `${checkInTime}:00`, // Add seconds to match LocalDateTime format
+      boardingTime: `${boardingTime}:00`, // Add seconds to match LocalDateTime format
     };
-  
+
     try {
       const response = await fetch("http://localhost:8080/api/passengeranalytics", {
         method: "POST",
@@ -26,23 +29,23 @@ export const Analytics = () => {
         },
         body: JSON.stringify(passengerData),
       });
-  
+
       if (!response.ok) {
         throw new Error(`Server responded with status ${response.status}`);
       }
-  
+
       const data = await response.json();
       console.log("Passenger data saved:", data);
       setMessage("Passenger data saved successfully!"); // Success message
-      
+
       // Redirect to PassengerLogs page
-      window.location.href = "/passenger-logs"; // Update this path to match your actual route
+      window.location.href = "/PassengerLogs"; // Update this path to match your actual route
     } catch (error) {
       console.error("Error saving passenger data:", error);
       setMessage(`Error saving passenger data: ${error.message}`); // Error message
     }
   };
-  
+
   return (
     <div>
       <Navbar activeTab="Analytics" />
@@ -50,9 +53,9 @@ export const Analytics = () => {
       <div className="form-container">
         <h2 className="pass-title">Analytics</h2>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="check-in-time">Check In Time:</label>
+          <label htmlFor="check-in-time">Check-In Date and Time:</label>
           <input
-            type="time"
+            type="datetime-local"
             id="check-in-time"
             name="check-in-time"
             required
@@ -60,9 +63,9 @@ export const Analytics = () => {
             onChange={(e) => setCheckInTime(e.target.value)}
           />
 
-          <label htmlFor="boarding-time">Boarding Time:</label>
+          <label htmlFor="boarding-time">Boarding Date and Time:</label>
           <input
-            type="time"
+            type="datetime-local"
             id="boarding-time"
             name="boarding-time"
             required

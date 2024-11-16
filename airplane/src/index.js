@@ -14,6 +14,7 @@ import './css/Analytics.css'
 import './css/Passenger.css'
 import './css/Passenger_delete.css'
 import './css/Passenger_update.css'
+import './css/Passengerlogs.css'
 import { Home } from "./pages/Home";
 import { Gate } from "./pages/Gate";
 import { Boarding } from "./pages/Boarding";
@@ -25,6 +26,7 @@ import { Analytics } from "./pages/Analytics";
 import { Passenger } from "./pages/Passenger";
 import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
+import { PassengerLogs } from "./pages/PassengerLogs";
  
  
  
@@ -75,6 +77,10 @@ const router = createBrowserRouter([
     path: 'passengerupdate',
     element: <Passengerupdate/>
   },
+  {
+    path: 'Passengerlogs',
+    element: <PassengerLogs/>
+  }
 ]);
  
 const root = ReactDOM.createRoot(document.getElementById("root"));

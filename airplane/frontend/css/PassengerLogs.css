@@ -1,0 +1,85 @@
+/* PassengerLogs.css 
+
+/* Container for the entire component 
+.passenger-logs-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+  }
+  
+  /* Heading styling 
+  .passenger-logs-container h2 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the loading message 
+  .loading-message {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Error message styling 
+  .error-message {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* Table styling 
+  .passenger-logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .passenger-logs-table th,
+  .passenger-logs-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .passenger-logs-table th {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .passenger-logs-table tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  .passenger-logs-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .passenger-logs-table td {
+    color: #555;
+  }
+  
+  /* Responsive design 
+  @media (max-width: 768px) {
+    .passenger-logs-table th,
+    .passenger-logs-table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .passenger-logs-container h2 {
+      font-size: 20px;
+    }
+  }
+  */
