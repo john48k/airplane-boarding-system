@@ -1,22 +1,23 @@
-import { 
-  MDBBtn, 
+import {
+  MDBBtn,
   MDBContainer,
   MDBCard,
-  MDBCardBody, 
-  MDBCardImage, 
-  MDBRow, MDBCol, 
-  MDBIcon, 
-  MDBInput, 
-  MDBFooter 
+  MDBCardBody,
+  MDBCardImage,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  MDBInput,
+  MDBFooter,
 } from "mdb-react-ui-kit";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -35,28 +36,40 @@ export const Login = () => {
         body: JSON.stringify(loginData),
       });
 
-      const result = await response.text();
+      let result;
+
+      // Determine response type
+      const contentType = response.headers.get("Content-Type");
+      if (contentType && contentType.includes("application/json")) {
+        result = await response.json(); // Parse JSON response
+      } else {
+        result = await response.text(); // Handle plain text response
+      }
 
       if (response.ok) {
-        alert(result); // "Login successful!" or message
-        console.log("Login result:", result);
-        setUsername("");
-        setPassword("");
-        navigate("/"); // Redirect to Home on success
+        alert(result.message || result || "Login successful!");
+        localStorage.setItem("authToken", "logged_in");
+        navigate("../HomeLogin");
       } else {
-        alert(result); // Show error message for invalid credentials
+        alert(result.message || result || "Login failed!");
       }
     } catch (error) {
-      console.error("Error during login:", error);
+      console.error("Error during login:", error.message);
       alert("An error occurred. Please try again.");
     }
   };
 
   return (
     <>
-      <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
+      <MDBFooter
+        bgColor="light"
+        className="text-center text-lg-start text-muted"
+      >
         <section className="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
-          <div className="me-5 d-none d-lg-block" style={{ fontSize: "0.875rem" }}>
+          <div
+            className="me-5 d-none d-lg-block"
+            style={{ fontSize: "0.875rem" }}
+          >
             <p className="mb-0">
               <MDBIcon icon="envelope" className="me-2" />
               CitUniversity@gmail.com |
@@ -95,18 +108,29 @@ export const Login = () => {
         <MDBCard>
           <MDBRow className="g-0">
             <MDBCol md="6">
-              <MDBCardImage src="images/login-pilot.jpg" alt="login form" className="rounded-start w-100" />
+              <MDBCardImage
+                src="images/login-pilot.jpg"
+                alt="login form"
+                className="rounded-start w-100"
+              />
             </MDBCol>
 
             <MDBCol md="6">
               <MDBCardBody className="d-flex flex-column">
                 <div className="d-flex flex-row mt-2">
-                  <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: "#ff6219" }} />
+                  <MDBIcon
+                    fas
+                    icon="cubes fa-3x me-3"
+                    style={{ color: "#ff6219" }}
+                  />
                   <span className="h1 fw-bold mb-0">FLIGHTMATCH</span>
                 </div>
 
-                <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: "1px" }}>
-                  Sign into your account
+                <h5
+                  className="fw-normal my-4 pb-3"
+                  style={{ letterSpacing: "1px" }}
+                >
+                  Login into your account
                 </h5>
                 <form onSubmit={handleSubmit}>
                   <MDBInput
@@ -129,14 +153,19 @@ export const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  <MDBBtn className="mb-4 px-5" color="dark" size="lg" type="submit">
+                  <MDBBtn
+                    className="mb-4 px-5"
+                    color="dark"
+                    size="lg"
+                    type="submit"
+                  >
                     Login
                   </MDBBtn>
                 </form>
 
                 <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                   Don't have an account?{" "}
-                  <a href="#!" style={{ color: "#393f81" }}>
+                  <a href="/signup" style={{ color: "#393f81" }}>
                     Register here
                   </a>
                 </p>
@@ -145,8 +174,14 @@ export const Login = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <MDBFooter className="text-center text-white" style={{ backgroundColor: "#555C67" }}>
-        <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+      <MDBFooter
+        className="text-center text-white"
+        style={{ backgroundColor: "#555C67" }}
+      >
+        <div
+          className="text-center p-3"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        >
           © 2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>
