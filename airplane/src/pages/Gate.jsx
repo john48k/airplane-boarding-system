@@ -1,12 +1,5 @@
 import { useState } from "react";
 import { Navbar } from "../components/Navbar";
-import Carousel from "react-bootstrap/Carousel";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -17,6 +10,9 @@ import {
   MDBRow,
   MDBBtn,
   MDBIcon,
+  MDBCard,
+  MDBInput,
+  MDBCardBody,
 } from "mdb-react-ui-kit";
 
 export const Gate = () => {
@@ -104,7 +100,70 @@ export const Gate = () => {
         <div className="gate-banner-heading-text">GATE</div>
       </div>
 
-      <div className="container">
+      <MDBContainer fluid>
+        <MDBRow className="d-flex justify-content-center align-items-center h-100">
+          <MDBCol col="12">
+            <MDBCard
+              className="bg-white my-5 mx-auto"
+              style={{ borderRadius: "1rem", maxWidth: "500px" }}
+            >
+              <MDBCardBody className="p-5 w-100 d-flex flex-column">
+                <h2 className="fw-bold mb-2 text-center">GATE DETAILS</h2>
+
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    label="Gate Number"
+                    id="gateNumber"
+                    type="number"
+                    size="lg"
+                    required
+                    value={gateNumber}
+                    onChange={(e) =>
+                      setGateNumber(e.target.value.replace(/\D/g, ""))
+                    }
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    label="Terminal"
+                    id="terminal"
+                    type="text"
+                    size="lg"
+                    required
+                    value={terminal}
+                    onChange={(e) => setTerminal(e.target.value)}
+                  />
+
+                  <select
+                    id="gateStatus"
+                    name="gate_status"
+                    className="form-select gate-option-design"
+                    value={gateStatus}
+                    onChange={(e) => setGateStatus(e.target.value)}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select Gate Status
+                    </option>
+                    <option value="open">Open</option>
+                    <option value="closed">Closed</option>
+                    <option value="under_maintenance">Under Maintenance</option>
+                  </select>
+
+                  <MDBBtn size="lg" type="submit">
+                    Submit
+                  </MDBBtn>
+                </form>
+
+                <hr className="my-4" />
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+
+      {/* <div className="container">
         <h1>Gate Management Form</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="gateNumber">Gate Number:</label>
@@ -139,6 +198,19 @@ export const Gate = () => {
 
           <button type="submit">Submit</button>
         </form>
+      </div> */}
+      <div>
+        <MDBFooter
+          className="text-center text-white"
+          style={{ backgroundColor: "#555C67" }}
+        >
+          <div
+            className="text-center p-3"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+          >
+            © 2024 FLIGHT MATCH. All Rights Reserved
+          </div>
+        </MDBFooter>
       </div>
     </div>
   );

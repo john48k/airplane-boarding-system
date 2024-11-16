@@ -17,6 +17,10 @@ import {
   MDBRow,
   MDBBtn,
   MDBIcon,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBCheckbox,
 } from "mdb-react-ui-kit";
 
 export const Passenger = () => {
@@ -94,7 +98,122 @@ export const Passenger = () => {
       <div className="passenger-banner-page-heading">
         <div className="banner-heading-text">PASSENGER</div>
       </div>
-      <div className="container">
+
+      <MDBContainer fluid className="p-4">
+        <MDBRow>
+          <MDBCol
+            md="6"
+            className="text-center text-md-start d-flex flex-column justify-content-center"
+          >
+            <h1 className="my-5 display-3 fw-bold ls-tight px-3">
+              Fly Easy, <br />
+              <span className="text-primary">Travel Happy!</span>
+            </h1>
+
+            <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
+              Flying high above the clouds, each moment aboard the airplane
+              offers a sense of freedom and adventure. The smooth, relaxing
+              journey allows you to sit back, unwind, and enjoy the comfort of
+              modern air travel. With breathtaking views and exceptional
+              service, every flight transforms into a memorable experience that
+              makes the journey just as enjoyable as the destination.
+            </p>
+          </MDBCol>
+
+          <MDBCol md="6">
+            <MDBCard className="my-5">
+              <MDBCardBody className="p-5">
+                <form onSubmit={handleSubmit}>
+                  <MDBRow>
+                    <MDBCol col="6">
+                      <MDBInput
+                        wrapperClass="mb-4"
+                        label="First name"
+                        id="firstname"
+                        type="text"
+                        name="firstname"
+                        required
+                      />
+                    </MDBCol>
+                    <MDBCol col="6">
+                      <MDBInput
+                        wrapperClass="mb-4"
+                        label="Last name"
+                        id="lastname"
+                        type="text"
+                        name="lastname"
+                        required
+                      />
+                    </MDBCol>
+                  </MDBRow>
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Email"
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Passenger ID"
+                    id="passengerid"
+                    type="text"
+                    name="passengerid"
+                    required
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Passport Number"
+                    id="passportnumber"
+                    type="text"
+                    name="passportnumber"
+                    required
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Phone Number"
+                    id="phonenumber"
+                    type="tel"
+                    name="phonenumber"
+                    required
+                  />
+
+                  <MDBBtn className="w-100 mb-4" size="md" type="submit">
+                    Submit
+                  </MDBBtn>
+
+                  <MDBBtn
+                    className="w-100 mb-4 update-button"
+                    size="md"
+                    type="button"
+                    onClick={() => (window.location.href = "Passengerupdate")}
+                  >
+                    Update Passenger
+                  </MDBBtn>
+
+                  <MDBBtn
+                    className="w-100 mb-4 delete-button"
+                    size="md"
+                    type="button"
+                    onClick={() =>
+                      (window.location.href = "passenger_delete.html")
+                    }
+                  >
+                    Delete Passenger
+                  </MDBBtn>
+                </form>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+
+      {/* <div className="container">
         <h1>Passenger</h1>
 
         <div id="passenger-form">
@@ -154,7 +273,18 @@ export const Passenger = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <MDBFooter
+        className="text-center text-white"
+        style={{ backgroundColor: "#555C67" }}
+      >
+        <div
+          className="text-center p-3"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        >
+          © 2024 FLIGHT MATCH. All Rights Reserved
+        </div>
+      </MDBFooter>
     </>
   );
 };
