@@ -42,7 +42,7 @@ export const Login = () => {
         console.log("Login result:", result);
         setUsername("");
         setPassword("");
-        navigate("/"); // Redirect to Home on success
+        navigate("HomeLogin"); // Redirect to Home on success
       } else {
         alert(result); // Show error message for invalid credentials
       }
