@@ -21,7 +21,7 @@ export const PassengerLogs = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Fetch passenger logs
+  // Fetch logs from the backend
   useEffect(() => {
     const fetchLogs = async () => {
       try {
@@ -32,7 +32,6 @@ export const PassengerLogs = () => {
         );
         if (!response.ok) throw new Error("Failed to fetch data.");
         const data = await response.json();
-        console.log("API Response:", data);
         setLogs(data);
       } catch (err) {
         setError("Unable to load passenger logs. Please try again later.");
@@ -44,7 +43,7 @@ export const PassengerLogs = () => {
     fetchLogs();
   }, []);
 
-  // Process check-in data for bar chart and heatmap
+  // Process logs for check-ins by hour
   useEffect(() => {
     if (logs.length > 0) {
       const checkinHours = Array(24).fill(0);
@@ -56,12 +55,40 @@ export const PassengerLogs = () => {
     }
   }, [logs]);
 
-  // Split the data into three ranges
+  // Split check-in data for heatmaps
   const morningData = checkinsByHour.slice(0, 8);
   const afternoonData = checkinsByHour.slice(8, 16);
   const eveningData = checkinsByHour.slice(16, 24);
 
-  // Bar Chart Data
+  // Heatmap rendering helper function
+  const renderHeatmap = (labels, data, title) => (
+    <div style={{ marginBottom: "20px" }}>
+      <h5>{title}</h5>
+      <div style={{ display: "flex", gap: "5px" }}>
+        {labels.map((label, index) => (
+          <div
+            key={label}
+            style={{
+              width: "40px",
+              height: "40px",
+              backgroundColor: `rgba(255, 0, 0, ${
+                data[index] / Math.max(...data || [1])
+              })`,
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid #ccc",
+            }}
+          >
+            {data[index]}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  // Bar chart configuration
   const chartData = {
     labels: Array.from({ length: 24 }, (_, index) => `${index}:00`),
     datasets: [
@@ -92,52 +119,6 @@ export const PassengerLogs = () => {
     },
   };
 
-  // Render Heatmap with updated alignment and square cells
-  const renderHeatmap = (xLabels, data, title) => (
-    <div className="heatmap-section mt-3">
-      <h5>{title}</h5>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-        {/* Label for y-axis */}
-        <div
-          style={{
-            writingMode: "vertical-rl",
-            transform: "rotate(180deg)",
-            marginRight: "10px",
-            textAlign: "center",
-          }}
-        >
-          Check-ins
-        </div>
-        {/* Heatmap Cells */}
-        <div style={{ display: "grid", gridTemplateColumns: `repeat(${xLabels.length}, 1fr)`, gap: "5px" }}>
-          {data.map((value, index) => {
-            const opacity = Math.min(value / 10, 1);
-            return (
-              <div
-                key={index}
-                style={{
-                  backgroundColor: `rgba(255, 0, 0, ${opacity})`,
-                  borderRadius: "5px",
-                  width: "50px",
-                  height: "50px",
-                  border: "1px solid #ccc",
-                }}
-              />
-            );
-          })}
-        </div>
-      </div>
-      {/* X-Axis Labels */}
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-        {xLabels.map((label, index) => (
-          <span key={index} style={{ textAlign: "center", width: "50px" }}>
-            {label}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     <div className="container-fluid">
       <Navbar />
@@ -147,30 +128,43 @@ export const PassengerLogs = () => {
         {error && <p>{error}</p>}
 
         {/* Logs Table */}
-        <table className="table table-bordered mt-5">
-          <thead>
-            <tr>
-              <th scope="col">Check-in Time</th>
-              <th scope="col">Boarding Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {logs.length > 0 ? (
-              logs.map((log, index) => (
-                <tr key={index}>
-                  <td>{log.checkinTime ? log.checkinTime : "No Check-in Time"}</td>
-                  <td>{log.boardingTime ? log.boardingTime : "No Boarding Time"}</td>
-                </tr>
-              ))
-            ) : (
+        <div
+          style={{
+            height: "300px",
+            overflowY: "auto",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          <table className="table table-bordered" style={{ margin: "0", width: "100%" }}>
+            <thead>
               <tr>
-                <td colSpan="2">No logs available</td>
+                <th scope="col">Analytics ID</th>
+                <th scope="col">Check-in Time</th>
+                <th scope="col">Boarding Time</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {logs.length > 0 ? (
+                logs.map((log, index) => (
+                  <tr key={index}>
+                    <td>{log.analyticsId || "N/A"}</td>
+                    <td>{log.checkinTime ? log.checkinTime : "No Check-in Time"}</td>
+                    <td>{log.boardingTime ? log.boardingTime : "No Boarding Time"}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="3">No logs available</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
 
-        {/* Heat Map Section */}
+        {/* Heatmap Section */}
         <div className="heatmap-container mt-5">
           <h4>Check-ins Intensity by Time Ranges</h4>
           {renderHeatmap(
@@ -190,13 +184,14 @@ export const PassengerLogs = () => {
           )}
         </div>
 
-        {/* Bar Chart Section with Border */}
+        {/* Bar Chart Section */}
         <div
           className="mt-5"
           style={{
             border: "2px solid #007bff",
             padding: "20px",
             borderRadius: "10px",
+            marginTop: "30px",
             marginBottom: "30px",
           }}
         >

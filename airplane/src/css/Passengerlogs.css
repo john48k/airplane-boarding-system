@@ -11,7 +11,11 @@ body {
   max-width: 900px;
   margin: 20px auto;
 }
-
+.scrollable-table-container {
+  max-height: 400px; /* Adjust the height as needed */
+  overflow-y: auto;
+  border: 1px solid #ddd; /* Optional: to distinguish the scrollable area */
+}
 /* Heading styling */
 .passenger-logs-container h2 {
   color: #333;
