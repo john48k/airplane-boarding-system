@@ -27,6 +27,8 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -106,6 +108,7 @@ export const Signup = () => {
       <div className="signup-banner-page-heading">
         <div className="banner-heading-text">SIGN UP</div>
       </div>
+
       {message && (
         <div
           className={`message ${
@@ -196,21 +199,38 @@ export const Signup = () => {
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Password"
-                    id="form4"
-                    type="password"
+                    id="form-password"
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-
+                  <MDBIcon
+                    icon={showPassword ? "eye-slash" : "eye"}
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                      cursor: "pointer",
+                      position: "relative",
+                      top: "-20px", // Moves it up 10px
+                    }}
+                  />
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Confirm Password"
-                    id="form4"
-                    type="password"
+                    id="form-confirm-password"
+                    type={showConfirmPassword ? "text" : "password"}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
+                  />
+                  <MDBIcon
+                    icon={showConfirmPassword ? "eye-slash" : "eye"}
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    style={{
+                      cursor: "pointer",
+                      position: "relative",
+                      top: "-25px", // Moves it up 10px
+                    }}
                   />
 
                   <div className="d-flex justify-content-center mb-4">
@@ -271,71 +291,7 @@ export const Signup = () => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      {/* 
-      <div className="signup-container">
-        <form className="signup-form" onSubmit={handleSignup}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
 
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input
-            type="text"
-            id="phoneNumber"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            required
-          />
-
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-
-          <button type="submit">Sign Up</button>
-        </form>
-
-        {message && (
-          <div
-            className={`message ${
-              message.includes("successful") ? "success" : "error"
-            }`}
-          >
-            {message}
-          </div>
-        )}
-
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </div> */}
       <MDBFooter
         className="text-center text-white"
         style={{ backgroundColor: "#555C67" }}
