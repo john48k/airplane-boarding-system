@@ -32,6 +32,7 @@ import { Analytics } from "./pages/Analytics";
 import { Passenger } from "./pages/Passenger";
 import { Passengerdelete } from "./pages/Passenger_delete";
 import { Passengerupdate } from "./pages/Passenger_update";
+import { PassengerLogs } from "./pages/PassengerLogs";
 import {Login} from "./pages/Login";
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Button from 'react-bootstrap/Button';
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
   {
     path: 'signup',
     element: <Signup/>
+  },
+  {
+    path: 'Passengerlogs',
+    element: <PassengerLogs/>
   }
 ]);
  
