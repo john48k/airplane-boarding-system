@@ -24,8 +24,7 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -145,12 +144,24 @@ export const Signup = () => {
           </MDBCol>
 
           <MDBCol md="6" className="position-relative">
+            <div
+              id="radius-shape-1"
+              className="position-absolute rounded-circle shadow-5-strong"
+            ></div>
+            <div
+              id="radius-shape-2"
+              className="position-absolute shadow-5-strong"
+            ></div>
+
             <form className="signup-form" onSubmit={handleSignup}>
               <MDBCard className="my-5 bg-glass">
                 <MDBCardBody className="p-5">
+                  <MDBRow></MDBRow>
+
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Username"
+                    id="form3"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -160,6 +171,7 @@ export const Signup = () => {
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Email"
+                    id="form3"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -169,6 +181,7 @@ export const Signup = () => {
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Phone Number"
+                    id="form3"
                     type="tel"
                     value={phoneNumber}
                     onChange={(e) =>
@@ -179,72 +192,84 @@ export const Signup = () => {
                     required
                   />
 
-                  <div className="password-toggle-wrapper mb-4">
-                    <MDBInput
-                      label="Password"
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                    <MDBBtn
-                      tag="a"
-                      className="toggle-password-visibility"
-                      onClick={() => setShowPassword((prev) => !prev)}
-                    >
-                      <MDBIcon
-                        icon={showPassword ? "eye-slash" : "eye"}
-                      />
-                    </MDBBtn>
-                  </div>
-
-                  <div className="password-toggle-wrapper mb-4">
-                    <MDBInput
-                      label="Confirm Password"
-                      type={showConfirmPassword ? "text" : "password"}
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      required
-                    />
-                    <MDBBtn
-                      tag="a"
-                      className="toggle-password-visibility"
-                      onClick={() => setShowConfirmPassword((prev) => !prev)}
-                    >
-                      <MDBIcon
-                        icon={showConfirmPassword ? "eye-slash" : "eye"}
-                      />
-                    </MDBBtn>
-                  </div>
-
-                  <MDBCheckbox
-                    name="flexCheck"
-                    value=""
-                    id="flexCheckDefault"
-                    label="Subscribe to our newsletter"
-                    className="mb-4"
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Password"
+                    id="form4"
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Confirm Password"
+                    id="form4"
+                    type={showPassword ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+
+                  <div className="d-flex justify-content-between mb-4">
+                    <MDBCheckbox
+                      id="showPasswordToggle"
+                      label="Show Password"
+                      checked={showPassword}
+                      onChange={(e) => setShowPassword(e.target.checked)}
+                    />
+                  </div>
 
                   <MDBBtn className="w-100 mb-4" size="md" type="submit">
                     Sign Up
                   </MDBBtn>
+
+                  <div className="text-center">
+                    <p>or sign up with:</p>
+
+                    <MDBBtn
+                      tag="a"
+                      color="none"
+                      className="mx-3"
+                      style={{ color: "#1266f1" }}
+                    >
+                      <MDBIcon fab icon="facebook-f" size="sm" />
+                    </MDBBtn>
+
+                    <MDBBtn
+                      tag="a"
+                      color="none"
+                      className="mx-3"
+                      style={{ color: "#1266f1" }}
+                    >
+                      <MDBIcon fab icon="twitter" size="sm" />
+                    </MDBBtn>
+
+                    <MDBBtn
+                      tag="a"
+                      color="none"
+                      className="mx-3"
+                      style={{ color: "#1266f1" }}
+                    >
+                      <MDBIcon fab icon="google" size="sm" />
+                    </MDBBtn>
+
+                    <MDBBtn
+                      tag="a"
+                      color="none"
+                      className="mx-3"
+                      style={{ color: "#1266f1" }}
+                    >
+                      <MDBIcon fab icon="github" size="sm" />
+                    </MDBBtn>
+                  </div>
                 </MDBCardBody>
               </MDBCard>
             </form>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      <MDBFooter
-        className="text-center text-white"
-        style={{ backgroundColor: "#555C67" }}
-      >
-        <div
-          className="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-        >
-          © 2024 FLIGHT MATCH. All Rights Reserved
-        </div>
-      </MDBFooter>
     </div>
   );
 };
