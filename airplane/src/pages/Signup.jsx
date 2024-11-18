@@ -17,9 +17,6 @@ import { Navbar } from "../components/Navbar";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
 export const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +24,8 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -146,24 +145,12 @@ export const Signup = () => {
           </MDBCol>
 
           <MDBCol md="6" className="position-relative">
-            <div
-              id="radius-shape-1"
-              className="position-absolute rounded-circle shadow-5-strong"
-            ></div>
-            <div
-              id="radius-shape-2"
-              className="position-absolute shadow-5-strong"
-            ></div>
-
             <form className="signup-form" onSubmit={handleSignup}>
               <MDBCard className="my-5 bg-glass">
                 <MDBCardBody className="p-5">
-                  <MDBRow></MDBRow>
-
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Username"
-                    id="form3"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -173,7 +160,6 @@ export const Signup = () => {
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Email"
-                    id="form3"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -183,158 +169,71 @@ export const Signup = () => {
                   <MDBInput
                     wrapperClass="mb-4"
                     label="Phone Number"
-                    id="form3"
                     type="tel"
                     value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value.replace(/[^0-9]/g, ""))}
+                    onChange={(e) =>
+                      setPhoneNumber(e.target.value.replace(/[^0-9]/g, ""))
+                    }
                     pattern="\d{11}"
                     title="Phone number must be exactly 11 digits."
                     required
                   />
 
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Password"
-                    id="form4"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Confirm Password"
-                    id="form4"
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                  />
-
-                  <div className="d-flex justify-content-center mb-4">
-                    <MDBCheckbox
-                      name="flexCheck"
-                      value=""
-                      id="flexCheckDefault"
-                      label="Subscribe to our newsletter"
+                  <div className="password-toggle-wrapper mb-4">
+                    <MDBInput
+                      label="Password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
+                    <MDBBtn
+                      tag="a"
+                      className="toggle-password-visibility"
+                      onClick={() => setShowPassword((prev) => !prev)}
+                    >
+                      <MDBIcon
+                        icon={showPassword ? "eye-slash" : "eye"}
+                      />
+                    </MDBBtn>
                   </div>
+
+                  <div className="password-toggle-wrapper mb-4">
+                    <MDBInput
+                      label="Confirm Password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                    <MDBBtn
+                      tag="a"
+                      className="toggle-password-visibility"
+                      onClick={() => setShowConfirmPassword((prev) => !prev)}
+                    >
+                      <MDBIcon
+                        icon={showConfirmPassword ? "eye-slash" : "eye"}
+                      />
+                    </MDBBtn>
+                  </div>
+
+                  <MDBCheckbox
+                    name="flexCheck"
+                    value=""
+                    id="flexCheckDefault"
+                    label="Subscribe to our newsletter"
+                    className="mb-4"
+                  />
 
                   <MDBBtn className="w-100 mb-4" size="md" type="submit">
                     Sign Up
                   </MDBBtn>
-
-                  <div className="text-center">
-                    <p>or sign up with:</p>
-
-                    <MDBBtn
-                      tag="a"
-                      color="none"
-                      className="mx-3"
-                      style={{ color: "#1266f1" }}
-                    >
-                      <MDBIcon fab icon="facebook-f" size="sm" />
-                    </MDBBtn>
-
-                    <MDBBtn
-                      tag="a"
-                      color="none"
-                      className="mx-3"
-                      style={{ color: "#1266f1" }}
-                    >
-                      <MDBIcon fab icon="twitter" size="sm" />
-                    </MDBBtn>
-
-                    <MDBBtn
-                      tag="a"
-                      color="none"
-                      className="mx-3"
-                      style={{ color: "#1266f1" }}
-                    >
-                      <MDBIcon fab icon="google" size="sm" />
-                    </MDBBtn>
-
-                    <MDBBtn
-                      tag="a"
-                      color="none"
-                      className="mx-3"
-                      style={{ color: "#1266f1" }}
-                    >
-                      <MDBIcon fab icon="github" size="sm" />
-                    </MDBBtn>
-                  </div>
                 </MDBCardBody>
               </MDBCard>
             </form>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      {/* 
-      <div className="signup-container">
-        <form className="signup-form" onSubmit={handleSignup}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input
-            type="text"
-            id="phoneNumber"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            required
-          />
-
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-
-          <button type="submit">Sign Up</button>
-        </form>
-
-        {message && (
-          <div
-            className={`message ${
-              message.includes("successful") ? "success" : "error"
-            }`}
-          >
-            {message}
-          </div>
-        )}
-
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </div> */}
       <MDBFooter
         className="text-center text-white"
         style={{ backgroundColor: "#555C67" }}
