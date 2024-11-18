@@ -110,34 +110,52 @@ export const Analytics = () => {
       <div className="anal-banner-page-heading">
         <div className="banner-heading-text">ANALYTICS (ORIGINAL)</div>
       </div>
+      {message && <p>{message}</p>}
 
-      <div className="form-container">
-        <h2 className="pass-title">Analytics</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="check-in-time">Check-In Date and Time:</label>
-          <input
-            type="datetime-local"
-            id="check-in-time"
-            name="check-in-time"
-            required
-            value={checkInTime}
-            onChange={(e) => setCheckInTime(e.target.value)}
-          />
+      <MDBContainer fluid>
+        <MDBRow className="d-flex justify-content-center align-items-center h-100">
+          <MDBCol col="12">
+            <MDBCard
+              className="bg-white my-5 mx-auto"
+              style={{ borderRadius: "1rem", maxWidth: "500px" }}
+            >
+              <MDBCardBody className="p-5 w-100 d-flex flex-column">
+                <h2 className="fw-bold mb-2 text-center">ANALYTICS DETAILS</h2>
 
-          <label htmlFor="boarding-time">Boarding Date and Time:</label>
-          <input
-            type="datetime-local"
-            id="boarding-time"
-            name="boarding-time"
-            required
-            value={boardingTime}
-            onChange={(e) => setBoardingTime(e.target.value)}
-          />
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    label="Check-In Date and Time:"
+                    id="check-in-time"
+                    type="datetime-local"
+                    size="lg"
+                    required
+                    value={checkInTime}
+                    onChange={(e) => setCheckInTime(e.target.value)}
+                  />
 
-          <button type="submit">Submit</button>
-        </form>
-        {message && <p>{message}</p>} {/* Display the message */}
-      </div>
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    label="Boarding Date and Time:"
+                    id="boarding-time"
+                    type="datetime-local"
+                    size="lg"
+                    required
+                    value={boardingTime}
+                    onChange={(e) => setBoardingTime(e.target.value)}
+                  />
+
+                  <MDBBtn size="lg" type="submit">
+                    Submit
+                  </MDBBtn>
+                </form>
+
+                <hr className="my-4" />
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
       <MDBFooter
         className="text-center text-white"
         style={{ backgroundColor: "#555C67" }}
