@@ -1,13 +1,14 @@
-import { 
-  MDBBtn, 
+import {
+  MDBBtn,
   MDBContainer,
   MDBCard,
-  MDBCardBody, 
-  MDBCardImage, 
-  MDBRow, MDBCol, 
-  MDBIcon, 
-  MDBInput, 
-  MDBFooter 
+  MDBCardBody,
+  MDBCardImage,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  MDBInput,
+  MDBFooter,
 } from "mdb-react-ui-kit";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
@@ -16,6 +17,7 @@ import { Navbar } from "../components/Navbar";
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // Manage password visibility
   const navigate = useNavigate(); // Initialize the navigate function
 
   const handleSubmit = async (event) => {
@@ -54,9 +56,15 @@ export const Login = () => {
 
   return (
     <>
-      <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
+      <MDBFooter
+        bgColor="light"
+        className="text-center text-lg-start text-muted"
+      >
         <section className="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
-          <div className="me-5 d-none d-lg-block" style={{ fontSize: "0.875rem" }}>
+          <div
+            className="me-5 d-none d-lg-block"
+            style={{ fontSize: "0.875rem" }}
+          >
             <p className="mb-0">
               <MDBIcon icon="envelope" className="me-2" />
               CitUniversity@gmail.com |
@@ -95,17 +103,28 @@ export const Login = () => {
         <MDBCard>
           <MDBRow className="g-0">
             <MDBCol md="6">
-              <MDBCardImage src="images/login-pilot.jpg" alt="login form" className="rounded-start w-100" />
+              <MDBCardImage
+                src="images/login-pilot.jpg"
+                alt="login form"
+                className="rounded-start w-100"
+              />
             </MDBCol>
 
             <MDBCol md="6">
               <MDBCardBody className="d-flex flex-column">
                 <div className="d-flex flex-row mt-2">
-                  <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: "#ff6219" }} />
+                  <MDBIcon
+                    fas
+                    icon="cubes fa-3x me-3"
+                    style={{ color: "#ff6219" }}
+                  />
                   <span className="h1 fw-bold mb-0">FLIGHTMATCH</span>
                 </div>
 
-                <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: "1px" }}>
+                <h5
+                  className="fw-normal my-4 pb-3"
+                  style={{ letterSpacing: "1px" }}
+                >
                   Sign into your account
                 </h5>
                 <form onSubmit={handleSubmit}>
@@ -119,17 +138,34 @@ export const Login = () => {
                     onChange={(e) => setUsername(e.target.value)}
                     required
                   />
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Password"
-                    id="formControlLg"
-                    type="password"
+                  <div style={{ position: "relative" }} className="mb-4">
+                    <MDBInput
+                      wrapperClass="mb-4"
+                      label="Password"
+                      id="form-password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                    <MDBIcon
+                      icon={showPassword ? "eye-slash" : "eye"}
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        top: "50%",
+                        right: "10px", // Positioned on the right side of the input
+                        transform: "translateY(-50%)", // Centers vertically
+                      }}
+                    />
+                  </div>
+                  <MDBBtn
+                    className="mb-4 px-5"
+                    color="dark"
                     size="lg"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <MDBBtn className="mb-4 px-5" color="dark" size="lg" type="submit">
+                    type="submit"
+                  >
                     Login
                   </MDBBtn>
                 </form>
@@ -145,8 +181,14 @@ export const Login = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <MDBFooter className="text-center text-white" style={{ backgroundColor: "#555C67" }}>
-        <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+      <MDBFooter
+        className="text-center text-white"
+        style={{ backgroundColor: "#555C67" }}
+      >
+        <div
+          className="text-center p-3"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        >
           © 2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>

@@ -196,42 +196,53 @@ export const Signup = () => {
                     required
                   />
 
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Password"
-                    id="form-password"
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <MDBIcon
-                    icon={showPassword ? "eye-slash" : "eye"}
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={{
-                      cursor: "pointer",
-                      position: "relative",
-                      top: "-20px", // Moves it up 10px
-                    }}
-                  />
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Confirm Password"
-                    id="form-confirm-password"
-                    type={showConfirmPassword ? "text" : "password"}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                  />
-                  <MDBIcon
-                    icon={showConfirmPassword ? "eye-slash" : "eye"}
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    style={{
-                      cursor: "pointer",
-                      position: "relative",
-                      top: "-25px", // Moves it up 10px
-                    }}
-                  />
+                  <div style={{ position: "relative" }} className="mb-4">
+                    <MDBInput
+                      wrapperClass="mb-4"
+                      label="Password"
+                      id="form-password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                    <MDBIcon
+                      icon={showPassword ? "eye-slash" : "eye"}
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        top: "50%", // Centered vertically
+                        right: "10px", // Positioned at the right of the input
+                        transform: "translateY(-50%)", // Adjust to vertical center
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ position: "relative" }} className="mb-4">
+                    <MDBInput
+                      wrapperClass="mb-4"
+                      label="Confirm Password"
+                      id="form-confirm-password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                    <MDBIcon
+                      icon={showConfirmPassword ? "eye-slash" : "eye"}
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
+                      style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        top: "50%", // Centered vertically
+                        right: "10px", // Positioned at the right of the input
+                        transform: "translateY(-50%)", // Adjust to vertical center
+                      }}
+                    />
+                  </div>
 
                   <div className="d-flex justify-content-center mb-4">
                     <MDBCheckbox
