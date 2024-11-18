@@ -186,10 +186,9 @@ export const Signup = () => {
                     id="form3"
                     type="tel"
                     value={phoneNumber}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/[^0-9]/g, "");
-                      setPhoneNumber(value);
-                    }}
+                    onChange={(e) => setPhoneNumber(e.target.value.replace(/[^0-9]/g, ""))}
+                    pattern="\d{11}"
+                    title="Phone number must be exactly 11 digits."
                     required
                   />
 
