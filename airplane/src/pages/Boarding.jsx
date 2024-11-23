@@ -1,13 +1,5 @@
 import { useState } from "react";
 import { Navbar } from "../components/Navbar";
-import { Link } from "react-router-dom";
-import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Button from "@mui/material/Button";
 
 // import Carousel from "react-bootstrap/Carousel";
 // import Accordion from "@mui/material/Accordion";
@@ -29,7 +21,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBCheckbox,
 } from "mdb-react-ui-kit";
 
 export const Boarding = () => {
@@ -289,7 +280,7 @@ export const Boarding = () => {
         </MDBCarousel>
       </div>
 */}
-      <div>
+      <div className="boarding-body">
         <MDBFooter
           className="text-center text-white"
           style={{ backgroundColor: "#555C67" }}

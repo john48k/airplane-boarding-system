@@ -12,7 +12,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBCheckbox,
 } from "mdb-react-ui-kit";
 
 export const Analytics = () => {
@@ -66,7 +65,7 @@ export const Analytics = () => {
   };
 
   return (
-    <div>
+    <div className="anal-body">
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -112,7 +111,7 @@ export const Analytics = () => {
       </div>
       {message && <p>{message}</p>}
 
-      <MDBContainer fluid>
+      <MDBContainer fluid className="flex-one">
         <MDBRow className="d-flex justify-content-center align-items-center h-100">
           <MDBCol col="12">
             <MDBCard
