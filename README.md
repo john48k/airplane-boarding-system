@@ -42,81 +42,61 @@ Follow these steps to set up the project on your local machine.
 
 Make sure you have the following software installed:
 
-- **Python 3.12.5 (you can check by running `python --version` or `python3 --version` in your terminal).
-- **pip** (Python's package manager), usually installed alongside Python.
-- **Django** (installed through pip).
+- **Spring Boot**: Required to run the backend.  
+  [Download Spring Boot](https://spring.io/projects/spring-boot) if you haven't installed it.
+
+- Java (JDK 17 or higher): (you can check by running `java -version`  in your terminal).
+- NodeJs ([Download Node.js](https://nodejs.org/) if you haven't installed it.) 
 - **MySQL Workbench**
   
-If you don't have these installed, download Python from the [official website](https://www.python.org/downloads/), and `pip` comes with it.
+If you don't have these installed, download () from the [official website](), and 
 
-Follow these steps to install the project:
+<h1>Follow these steps to install the project:</h1>
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/username/repository-name.git](https://github.com/Daniel-Stephende5/IM2-Repository.git
+    https://github.com/john48k/airplane-boarding-system.git
     ```
-
 2. Navigate into the project directory:
     ```bash
-    cd NewDjango
-    cd myblogsite
+    cd airplane
     ```
-3. Create a virtual environment (optional but recommended):
-   - For Windows
-    ```bash
-    python -m venv myenv
-    myenv\Scripts\activate
-    ```
-   - For MacOS/Linux:
-    ```bash
-    python3 -m venv myenv
-    source myenv/bin/activate
-    ```
-
-4. Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-    -If the project doesn't include a requirements.txt file, you can manually install Django and other dependencies as needed:
-   ```bash
-    pip install django
-    ```
-
-5. Check Python and Django versions: Verify that Python and Django are properly installed:
-- Python
-    ```bash
-    python --version
-    ```
-- Django
-   ```bash
-    python -m django --version
-    ```
-6. Set up the database: Run the database migrations to create the necessary database tables:
-   ```bash
-   python manage.py migrate
-   ```
-7. Create a superuser (optional, but required to access the Django admin panel): To create an admin user, run:
-   ```bash
-   python manage.py createsuperuser
-   ```
-   - Follow the prompts to create a superuser with a username, email, and password.
    
-8. Run the server: Once everything is set up, start the development server:
-   ```bash
-   python manage.py runserver
-   ```
-   - You can now visit the application in your browser at http://127.0.0.1:8000/. The Django admin panel can be accessed at http://127.0.0.1:8000/admin/, where you can log in using       the superuser credentials you just created.
-   
+3. Install Dependencies
+    ```bash
+    npm install
+    npm install swiper
+    npm install @coreui/react @coreui/coreui
+    npm install bootstrap
+    npm install react-bootstrap
+    npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+    npm i mdb-react-ui-kit
+    npm install @fortawesome/fontawesome-free
+    npm install react-chartjs-2 chart.js
+    ```
+    
+4. Update the .env file with your MySQL credentials:
+- DB_HOST=localhost
+- DB_USER=<your_username>
+- DB_PASSWORD=<your_password>
+- DB_NAME=<database_name>
 
+
+
+5. To Start
+    ```bash
+    npm start
+    ```
 ---
 
 ## 💻 Usage
 
 ### Running the Application
-After setting up the project and starting the server with `python manage.py runserver`, open the following in your web browser:
+After setting up the project and starting the server with `npm start`, open the following in your web browser:
 
-- **Home Page**: `http://127.0.0.1:8000/`
-- **Admin Panel**: `http://127.0.0.1:8000/admin/` (Login using the superuser credentials you created)
+- Frontend: http://localhost:3000/
+- Backend: http://localhost:5000/
+- Admin: http://localhost:3000/admin
 
 ---
 
