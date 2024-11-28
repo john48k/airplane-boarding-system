@@ -46,10 +46,10 @@ Make sure you have the following software installed:
   [Download Spring Boot](https://spring.io/projects/spring-boot) if you haven't installed it.
 
 - Java (JDK 17 or higher): (you can check by running `java -version`  in your terminal).
-- NodeJs ([Download Node.js](https://nodejs.org/) if you haven't installed it.) 
-- **MySQL Workbench**
+   <br> Download Java if you haven't installed it yet [Download Java](https://www.oracle.com/ph/java/technologies/downloads/)
+- NodeJs: ([Download Node.js](https://nodejs.org/) if you haven't installed it.) 
+- **MySQL Workbench**: (Download Here: [Download MYSql Workbench](https://dev.mysql.com/downloads/workbench/) if you haven't installed it yet.)
   
-If you don't have these installed, download () from the [official website](), and 
 
 <h1>Follow these steps to install the project:</h1>
 
@@ -80,8 +80,6 @@ If you don't have these installed, download () from the [official website](), an
 - DB_USER=<your_username>
 - DB_PASSWORD=<your_password>
 - DB_NAME=<database_name>
-
-
 
 5. To Start
     ```bash
