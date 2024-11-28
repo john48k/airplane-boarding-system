@@ -123,4 +123,6 @@ Trello: [View Trello Timeline](https://trello.com/b/Kq2AFuhk/airlane-boarding-sy
 
 Clickup: [View Clickup](https://drive.google.com/file/d/1WhFnhzwXh_JXbuH18tJD9ri-ZCCkUzlR/view)
 
+Entity Relationship Diagram (ERD): [View ERD](https://drive.google.com/file/d/1WhFnhzwXh_JXbuH18tJD9ri-ZCCkUzlR/view)
+
 
