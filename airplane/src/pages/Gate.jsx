@@ -55,7 +55,7 @@ export const Gate = () => {
   };
 
   return (
-    <div>
+    <div className="gate-full-body">
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -199,7 +199,7 @@ export const Gate = () => {
           <button type="submit">Submit</button>
         </form>
       </div> */}
-      <div>
+      <div className="gate-footer">
         <MDBFooter
           className="text-center text-white"
           style={{ backgroundColor: "#555C67" }}

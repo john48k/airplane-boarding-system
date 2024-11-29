@@ -1,38 +1,38 @@
 .anal-page-heading {
-    background-image: url(../../public/images/page-heading-bg.jpg);
-    background-position: center ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 65px 0px;
-    text-align: center;
+  background-image: url(../../public/images/page-heading-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 65px 0px;
+  text-align: center;
 }
 
-.anal-heading-text{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers text */
-    color: rgb(255, 255, 255); /* Adjust as needed */
-    font-size: 30px; /* Adjust size as needed */
-    font-weight: bolder; /* Optional: makes text bold */
+.anal-heading-text {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers text */
+  color: rgb(255, 255, 255); /* Adjust as needed */
+  font-size: 30px; /* Adjust size as needed */
+  font-weight: bolder; /* Optional: makes text bold */
 }
 
-
-
-.anal-banner-page-heading{
-    background-image: url(../../public/images/anal-pic.jpg);
-    background-position: center 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 65px 0px;
-    text-align: center;
+.anal-banner-page-heading {
+  background-image: url(../../public/images/anal-pic.jpg);
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 65px 0px;
+  text-align: center;
 }
 
-.anal-body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.anal-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
-.flex-one{
-    flex: 1;
+.flex-one {
+  flex: 1;
 }

@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.gate-banner-heading-text{
+.gate-banner-heading-text {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%); /* Centers text */
@@ -16,8 +16,18 @@
   font-weight: bolder; /* Optional: makes text bold */
 }
 
-.gate-option-design{
-
+.gate-option-design {
   margin-bottom: 10px;
-  
+}
+
+.gate-full-body {
+  min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.gate-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

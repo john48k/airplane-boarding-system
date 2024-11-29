@@ -1,37 +1,21 @@
 .boarding-banner-page-heading {
-    background-image: url(../../public/images/boarding-pic.jpg);
-    background-position: center 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 65px 0px;
-    text-align: center;
+  background-image: url(../../public/images/boarding-pic.jpg);
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 65px 0px;
+  text-align: center;
 }
 
+.board-body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
-/* .boarding-custom-carousel {
-    height: 400px; 
-    width: 100%;
-    overflow: hidden; 
-  }
-  
-  .boarding-custom-carousel img {
-    background-position: center 50%;
-margin-bottom: 100px;
-    height: 100%;
-    object-fit: cover; 
-  } */
-  
-
-  /* .board-pics-container{
-    height: 100px;
-    width: 500px;
-
-  } */
-
-
-
-  .boarding-body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.boarding-body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 100px;
+  overflow-y: hidden;
 }
