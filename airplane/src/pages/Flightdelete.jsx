@@ -40,7 +40,7 @@ export const Flightdelete = () => {
   };
 
   return (
-    <div>
+    <div className="flight-delete-container">
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -92,14 +92,18 @@ export const Flightdelete = () => {
           >
             <h1 className="my-5 display-3 fw-bold ls-tight px-3">
               Delete Flight, <br />
-              <span className="text-primary travel-text">Manage Efficiently!</span>
+              <span className="text-primary travel-text">
+                Manage Efficiently!
+              </span>
             </h1>
 
             <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
-            Deleting a flight from our system is a critical operation that should be performed with caution. 
-            This action is typically used when a flight has been cancelled or when correcting data entry errors. 
-            Please ensure you have the correct Flight ID before proceeding with the deletion. 
-            Once a flight is deleted, all associated data will be permanently removed from our database.
+              Deleting a flight from our system is a critical operation that
+              should be performed with caution. This action is typically used
+              when a flight has been cancelled or when correcting data entry
+              errors. Please ensure you have the correct Flight ID before
+              proceeding with the deletion. Once a flight is deleted, all
+              associated data will be permanently removed from our database.
             </p>
           </MDBCol>
 
@@ -128,11 +132,7 @@ export const Flightdelete = () => {
                     >
                       Return
                     </MDBBtn>
-                    <MDBBtn
-                      type="submit"
-                      className="mb-4"
-                      color="danger"
-                    >
+                    <MDBBtn type="submit" className="mb-4" color="danger">
                       Confirm Delete
                     </MDBBtn>
                   </div>
@@ -191,17 +191,19 @@ export const Flightdelete = () => {
         </MDBRow>
       </MDBContainer>
 
-      <MDBFooter
-        className="text-center text-white"
-        style={{ backgroundColor: "#555C67" }}
-      >
-        <div
-          className="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+      <div className="gate-footer">
+        <MDBFooter
+          className="text-center text-white"
+          style={{ backgroundColor: "#555C67" }}
         >
-          © 2024 FLIGHT MATCH. All Rights Reserved
-        </div>
-      </MDBFooter>
+          <div
+            className="text-center p-3"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+          >
+            © 2024 FLIGHT MATCH. All Rights Reserved
+          </div>
+        </MDBFooter>
+      </div>
     </div>
   );
 };
