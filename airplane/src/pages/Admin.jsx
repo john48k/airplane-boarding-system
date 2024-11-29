@@ -33,11 +33,7 @@ const NAVIGATION = [
     title: "Dashboard",
     icon: <DashboardIcon />,
   },
-  {
-    segment: "Data",
-    title: "Data",
-    icon: <DataThresholdingIcon />,
-  },
+
   {
     kind: "divider",
   },
@@ -47,25 +43,20 @@ const NAVIGATION = [
   },
   {
     segment: "reports",
-    title: "Reports",
+    title: "User",
     icon: <BarChartIcon />,
     children: [
       {
         segment: "sales",
-        title: "Sales",
+        title: "Logout",
         icon: <DescriptionIcon />,
       },
       {
         segment: "traffic",
-        title: "Traffic",
+        title: "ResetPassword",
         icon: <DescriptionIcon />,
       },
     ],
-  },
-  {
-    segment: "integrations",
-    title: "Integrations",
-    icon: <LayersIcon />,
   },
 ];
 
