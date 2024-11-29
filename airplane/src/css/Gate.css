@@ -143,9 +143,9 @@
 }
  
 .gate-footer {
-  flex-shrink: 0;
-  width: 100%;
-  margin-top: auto;
+  width: 100% !important;
+  position: absolute !important;
+  bottom: 0 !important;
 }
  
 /* Make the table header sticky */
