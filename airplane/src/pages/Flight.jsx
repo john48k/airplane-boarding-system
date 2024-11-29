@@ -201,6 +201,7 @@ export const Flight = () => {
                       type="button"
                       className="delete-button flight-delete-color"
                       size="md"
+                      color="danger"
                       onClick={() => navigate("/Flightdelete")}
                     >
                       Delete a Flight
