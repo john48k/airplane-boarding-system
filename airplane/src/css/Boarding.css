@@ -1,43 +1,37 @@
-
-
-.form-container {
-    width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
+.boarding-banner-page-heading {
+    background-image: url(../../public/images/boarding-pic.jpg);
+    background-position: center 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 65px 0px;
     text-align: center;
-    color: #333;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
 
-input[type="text"],
-input[type="time"] {
+/* .boarding-custom-carousel {
+    height: 400px; 
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+    overflow: hidden; 
+  }
+  
+  .boarding-custom-carousel img {
+    background-position: center 50%;
+margin-bottom: 100px;
+    height: 100%;
+    object-fit: cover; 
+  } */
+  
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+  /* .board-pics-container{
+    height: 100px;
+    width: 500px;
 
-button:hover {
-    background-color: #45a049;
+  } */
+
+
+
+  .boarding-body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

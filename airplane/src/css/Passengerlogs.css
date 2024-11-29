@@ -1,0 +1,129 @@
+
+  
+  .passenger-logs-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+  }
+  .scrollable-table-container {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd; /* Optional: to distinguish the scrollable area */
+  }
+  /* Heading styling */
+  .passenger-logs-container h2 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the loading message */
+  .loading-message {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* Container to make table scrollable */
+  .table-container {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Table styling */
+  .passenger-logs-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .passenger-logs-table th,
+  .passenger-logs-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .passenger-logs-table th {
+    background-color: #f0f0f0;
+    background-color: #ffae42;
+  }
+  
+  .passenger-logs-table tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  .passenger-logs-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .passenger-logs-table td {
+    color: #555;
+  }
+  
+  /* Heatmap container styling */
+  .heatmap-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .passenger-logs-table th,
+    .passenger-logs-table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .passenger-logs-container h2 {
+      font-size: 20px;
+    }
+  }
+  
+  .heatmap-container, .column-chart, .bar-chart {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .chart-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Ensures 2 charts side by side */
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 0.0rem !important;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    margin-right: auto;
+    margin-left: auto;
+}

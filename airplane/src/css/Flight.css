@@ -1,84 +1,55 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-} */
-
-.flight-del-button{
-
-        padding: 10px;
-        background-color: #ff0000;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 10px; 
-}
-
-.flight-del-button:hover{
-
-    padding: 10px;
-    background-color: #e10101;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 10px; 
-}
-
-.deleteflight-title{
-    margin-top: 10px;
-}
-
-
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
-}
-
-h1 {
+.flight-banner-page-heading {
+    background-image: url(../../public/images/book-flight.jpg);
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 65px 0px;
     text-align: center;
-    color: #333;
 }
 
-form {
+.flight-update-color{
+    background-color: rgb(0, 106, 255) !important;
+    transition: background-color 0.3s ease;
+}
+
+.flight-update-color:hover {
+    background-color: rgb(0, 78, 187) !important;
+}
+
+.flight-delete-color{
+    background-color: rgb(212, 7, 7) !important;
+    transition: background-color 0.3s ease;
+}
+
+.flight-delete-color:hover{
+    background-color: rgb(155, 0, 0) !important;
+}
+
+.flight-create-color{
+    background-color: rgb(13, 146, 9) !important;
+    transition: background-color 0.3s ease;
+}
+
+.flight-create-color:hover {
+    background-color: rgb(10, 120, 7) !important; 
+}
+
+.delete-update-button-container{
+
     display: flex;
-    flex-direction: column;
-}
+    gap: 0.5rem; /* Space between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Aligns buttons vertically */
+      }
+      
+      .update-button, .delete-button {
+        flex: 1; /* Optional: Makes buttons equal width */
+        max-width: 500px; /* Optional: Limits button width */
+        border-radius: 14px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+      }
 
-label {
-    margin-bottom: 5px;
-    color: #555;
-}
-
-input[type="number"],
-input[type="time"],
-select {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #4cae4c;
+.travel-text{
+    color: orange !important;
 }

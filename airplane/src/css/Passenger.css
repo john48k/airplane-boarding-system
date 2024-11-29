@@ -1,0 +1,8 @@
+.passenger-banner-page-heading {
+    background-image: url(../../public/images/passenger.jpg);
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 65px 0px;
+    text-align: center;
+}

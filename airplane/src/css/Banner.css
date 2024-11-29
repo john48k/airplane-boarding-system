@@ -1,0 +1,18 @@
+.banner-page-heading {
+    background-image: url(../../public/images/page-heading-bg.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 65px 0px;
+    text-align: center;
+}
+
+.banner-heading-text{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers text */
+    color: rgb(255, 255, 255); /* Adjust as needed */
+    font-size: 30px; /* Adjust size as needed */
+    font-weight: bolder; /* Optional: makes text bold */
+}
+
