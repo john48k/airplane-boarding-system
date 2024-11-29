@@ -18,6 +18,7 @@ import {
 export const Flightdelete = () => {
   const [flightId, setFlightId] = useState("");
   const navigate = useNavigate();
+  const [notification, setNotification] = useState({ show: false, message: '', type: '' });
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -26,21 +27,53 @@ export const Flightdelete = () => {
         `http://localhost:8080/api/flight/${flightId}`,
         { method: "DELETE" }
       );
-
+  
       const responseText = await response.text();
       if (response.ok) {
-        alert(responseText); // Success message from backend
+        setNotification({ show: true, message: responseText, type: 'success' });
       } else {
-        alert(`Failed to delete flight: ${responseText}`); // Error message from backend
+        setNotification({ 
+          show: true, 
+          message: `Failed to delete flight: ${responseText}`, 
+          type: 'error' 
+        });
       }
+  
+      // Auto-hide notification after 3 seconds
+      setTimeout(() => {
+        setNotification({ show: false, message: '', type: '' });
+      }, 3000);
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while deleting the flight.");
+      setNotification({ 
+        show: true, 
+        message: 'An error occurred while deleting the flight.', 
+        type: 'error' 
+      });
     }
   };
 
   return (
     <div className="flight-delete-container">
+      {notification.show && (
+      <div
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          padding: '10px 20px',
+          borderRadius: '4px',
+          backgroundColor: notification.type === 'success' ? 'white' : 'white',
+          color: '#0d6efd',
+          zIndex: 1000,
+          boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+          transition: 'all 0.3s ease',
+          fontWeight: "bold",
+        }}
+      >
+        {notification.message}
+      </div>
+    )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"

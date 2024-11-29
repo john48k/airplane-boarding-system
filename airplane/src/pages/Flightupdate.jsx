@@ -25,7 +25,7 @@ export const Flightupdate = () => {
   });
 
   const navigate = useNavigate();
-
+  const [notification, setNotification] = useState({ show: false, message: '', type: '' });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -42,9 +42,9 @@ export const Flightupdate = () => {
         ...formData,
         flight_status: formData.flight_status ? formData.flight_status : "BOARDING",
       };
-
+  
       console.log("Submitting flight update:", updatedFlightData);
-
+  
       const response = await fetch(
         `http://localhost:8080/api/flight/updateFlight/${formData.id}`,
         {
@@ -53,24 +53,58 @@ export const Flightupdate = () => {
           body: JSON.stringify(updatedFlightData),
         }
       );
-
+  
       console.log("Response status:", response.status);
-
+  
       if (response.ok) {
-        alert("Flight updated successfully!");
-        navigate("/flightview");
+        setNotification({ show: true, message: 'Flight updated successfully!', type: 'success' });
+        // Navigate after a short delay to allow the user to see the success message
+        setTimeout(() => {
+        }, 1500);
       } else {
         const errorText = await response.text();
-        alert(`Failed to update flight: ${errorText}`);
+        setNotification({ 
+          show: true, 
+          message: `Failed to update flight: ${errorText}`, 
+          type: 'error' 
+        });
       }
+  
+      // Auto-hide notification after 3 seconds
+      setTimeout(() => {
+        setNotification({ show: false, message: '', type: '' });
+      }, 3000);
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while updating the flight.");
+      setNotification({ 
+        show: true, 
+        message: 'An error occurred while updating the flight.', 
+        type: 'error' 
+      });
     }
   };
 
   return (
     <div>
+      {notification.show && (
+      <div
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          padding: '10px 20px',
+          borderRadius: '4px',
+          backgroundColor: notification.type === 'success' ? 'white' : 'white',
+          color: '#0d6efd',
+          zIndex: 1000,
+          boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+          transition: 'all 0.3s ease',
+          fontWeight: "bold",
+        }}
+      >
+        {notification.message}
+      </div>
+    )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
