@@ -15,7 +15,7 @@ import "./css/Gate.css";
 // import './css/Notify.css'
 import "./css/Passenger.css";
 // import './css/Passenger_delete.css'
-// import './css/Passenger_update.css'
+import "./css/Passenger_update.css";
 import "./css/Home.css";
 import "./css/Carousel.css";
 import "./css/Accordion.css";
