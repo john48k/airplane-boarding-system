@@ -149,7 +149,7 @@ export const GateDetails = () => {
         </div>
       </div>
 
-      <div className="gate-footer">
+      <div className="gate-footer2">
         <MDBFooter
           className="text-center text-white bottom-footer"
           style={{ backgroundColor: "#555C67" }}

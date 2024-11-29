@@ -142,10 +142,10 @@
   overflow: hidden;
 }
  
-.gate-footer {
-  width: 100% !important;
-  position: absolute !important;
-  bottom: 0 !important;
+.gate-footer2{
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: auto;
 }
  
 /* Make the table header sticky */
