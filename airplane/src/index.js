@@ -23,6 +23,7 @@ import "./css/Login.css";
 import { Home } from "./pages/Home";
 import { Signup } from "./pages/Signup";
 import { Gate } from "./pages/Gate";
+import { GateDetails } from "./pages/GateDetails";
 import { Boarding } from "./pages/Boarding";
 import { Flight } from "./pages/Flight";
 import { Flightupdate } from "./pages/Flightupdate";
@@ -35,6 +36,7 @@ import { Passengerupdate } from "./pages/Passenger_update";
 import { PassengerLogs } from "./pages/PassengerLogs";
 import { Login } from "./pages/Login";
 import Admin from "./pages/Admin";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -50,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "gate",
     element: <Gate />,
+  },
+  {
+    path: "gate-details",
+    element: <GateDetails />,
   },
   {
     path: "flight",

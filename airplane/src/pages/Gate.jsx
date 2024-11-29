@@ -1,70 +1,63 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
-
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import {
   MDBFooter,
   MDBContainer,
   MDBCol,
   MDBRow,
-  MDBBtn,
   MDBIcon,
   MDBCard,
-  MDBInput,
   MDBCardBody,
+  MDBInput,
+  MDBBtn,
 } from "mdb-react-ui-kit";
 
 export const Gate = () => {
-  const [gateNumber, setGateNumber] = useState("");
-  const [terminal, setTerminal] = useState("");
-  const [gateStatus, setGateStatus] = useState("open");
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    gateNumber: '',
+    terminal: '',
+    gateStatus: 'AVAILABLE'
+  });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const newGate = {
-      gateNumber,
-      terminal,
-      gateStatus,
-    };
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch("http://localhost:8080/api/gates", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newGate),
+        body: JSON.stringify(formData),
       });
-
+      
       if (response.ok) {
-        const result = await response.json();
-        alert("Gate created successfully!");
-        console.log("New Gate:", result);
-        setGateNumber("");
-        setTerminal("");
-        setGateStatus("open");
-      } else {
-        alert("Failed to create gate.");
+        setFormData({
+          gateNumber: '',
+          terminal: '',
+          gateStatus: 'AVAILABLE'
+        });
+        navigate('/gate-details');
       }
     } catch (error) {
-      console.error("Error creating gate:", error);
-      alert("An error occurred. Please try again.");
+      console.error("Error adding gate:", error);
     }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
     <div className="gate-full-body">
-      <MDBFooter
-        bgColor="light"
-        className="text-center text-lg-start text-muted"
-      >
+      {/* Header Section */}
+      <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
         <section className="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
-          <div
-            className="me-5 d-none d-lg-block"
-            style={{ fontSize: "0.875rem" }}
-          >
+          <div className="me-5 d-none d-lg-block" style={{ fontSize: "0.875rem" }}>
             <p className="mb-0">
               <MDBIcon icon="envelope" className="me-2" />
               CitUniversity@gmail.com |
@@ -95,74 +88,62 @@ export const Gate = () => {
           </div>
         </section>
       </MDBFooter>
+
       <Navbar activeTab="Gate" />
+      
       <div className="gate-banner-page-heading">
-        <div className="gate-banner-heading-text">GATE</div>
+        <div className="gate-banner-heading-text">GATE OPERATIONS</div>
       </div>
 
       <MDBContainer fluid>
-        <MDBRow className="d-flex justify-content-center align-items-center h-100">
+        <MDBRow className="d-flex justify-content-center align-items-center">
           <MDBCol col="12">
             <MDBCard
               className="bg-white my-5 mx-auto"
               style={{ borderRadius: "1rem", maxWidth: "500px" }}
             >
-              <MDBCardBody className="p-5 w-100 d-flex flex-column">
-                <h2 className="fw-bold mb-2 text-center">GATE DETAILS</h2>
-
+              <MDBCardBody className="p-5 w-100">
+                <h2 className="fw-bold mb-4 text-center">Add New Gate</h2>
                 <form onSubmit={handleSubmit}>
                   <MDBInput
-                    wrapperClass="mb-4 w-100"
+                    wrapperClass="mb-4"
                     label="Gate Number"
-                    id="gateNumber"
-                    type="number"
-                    size="lg"
-                    required
-                    value={gateNumber}
-                    onChange={(e) =>
-                      setGateNumber(e.target.value.replace(/\D/g, ""))
-                    }
-                  />
-
-                  <MDBInput
-                    wrapperClass="mb-4 w-100"
-                    label="Terminal"
-                    id="terminal"
+                    name="gateNumber"
                     type="text"
-                    size="lg"
+                    value={formData.gateNumber}
+                    onChange={handleChange}
                     required
-                    value={terminal}
-                    onChange={(e) => setTerminal(e.target.value)}
                   />
-
-                  <select
-                    id="gateStatus"
-                    name="gate_status"
-                    className="form-select gate-option-design"
-                    value={gateStatus}
-                    onChange={(e) => setGateStatus(e.target.value)}
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Terminal"
+                    name="terminal"
+                    type="text"
+                    value={formData.terminal}
+                    onChange={handleChange}
                     required
+                  />
+                  <select
+                    className="form-select mb-4"
+                    name="gateStatus"
+                    value={formData.gateStatus}
+                    onChange={handleChange}
                   >
-                    <option value="" disabled>
-                      Select Gate Status
-                    </option>
-                    <option value="open">Open</option>
-                    <option value="closed">Closed</option>
-                    <option value="under_maintenance">Under Maintenance</option>
+                    <option value="AVAILABLE">Available</option>
+                    <option value="OCCUPIED">Occupied</option>
+                    <option value="MAINTENANCE">Maintenance</option>
                   </select>
-
-                  <MDBBtn size="lg" type="submit">
-                    Submit
+                  <MDBBtn type="submit" className="w-100 mb-4" size="md">
+                    Add Gate
                   </MDBBtn>
                 </form>
-
-                <hr className="my-4" />
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
 
+      {/* Footer Section */}
       <div className="gate-footer">
         <MDBFooter
           className="text-center text-white"
@@ -179,3 +160,5 @@ export const Gate = () => {
     </div>
   );
 };
+
+export default Gate;
