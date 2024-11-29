@@ -184,29 +184,19 @@ export const Flight = () => {
                       type="button"
                       className="update-button flight-update-color"
                       size="md"
-                      onClick={() => navigate("/Flightupdate")}
+                      onClick={() => navigate("/flightview")}
                     >
-                      Update Flight
+                      Flight List
                     </MDBBtn>
 
                     <MDBBtn
-                      type="button"
-                      className="delete-button flight-delete-color"
+                      type="submit"
+                      className="delete-button  flight-create-color"
                       size="md"
-                      color="danger"
-                      onClick={() => navigate("/Flightdelete")}
                     >
-                      Delete a Flight
+                      Create Flight
                     </MDBBtn>
                   </div>
-
-                  <MDBBtn
-                    type="submit"
-                    className="w-100 mb-4 flight-create-color"
-                    size="md"
-                  >
-                    Create Flight
-                  </MDBBtn>
                 </form>
 
                 <div className="text-center">

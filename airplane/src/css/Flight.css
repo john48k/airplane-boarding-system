@@ -16,12 +16,12 @@
     background-color: rgb(0, 78, 187) !important;
 }
 
-.flight-delete-color{
-    background-color: rgb(212, 7, 7) !important;
+.flight-delete-color {
+    background-color: rgb(220, 53, 69) !important; /* Changed to Bootstrap's danger color */
     transition: background-color 0.3s ease;
 }
 
-.flight-delete-color:hover{
+.flight-delete-color:hover {
     background-color: rgb(155, 0, 0) !important;
 }
 
