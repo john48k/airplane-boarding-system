@@ -146,7 +146,7 @@ export const Gate = () => {
       {/* Footer Section */}
       <div className="gate-footer">
         <MDBFooter
-          className="text-center text-white"
+          className="text-bottomcenter text-white"
           style={{ backgroundColor: "#555C67" }}
         >
           <div
