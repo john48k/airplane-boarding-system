@@ -29,6 +29,7 @@ import { Boarding } from "./pages/Boarding";
 import { Flight } from "./pages/Flight";
 import { Flightupdate } from "./pages/Flightupdate";
 import { Flightdelete } from "./pages/Flightdelete";
+import Flightview from "./pages/Flightview";
 import { Notification } from "./pages/Notification";
 import { Analytics } from "./pages/Analytics";
 import { Passenger } from "./pages/Passenger";
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "flightdelete",
     element: <Flightdelete />,
+  },
+  {
+    path: 'flightview',
+    element: <Flightview/>
   },
   {
     path: "notification",

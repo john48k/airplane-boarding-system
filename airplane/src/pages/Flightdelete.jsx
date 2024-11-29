@@ -128,7 +128,7 @@ export const Flightdelete = () => {
                       type="button"
                       className="mb-4"
                       color="secondary"
-                      onClick={() => navigate("/flight")}
+                      onClick={() => navigate("/flightview")}
                     >
                       Return
                     </MDBBtn>

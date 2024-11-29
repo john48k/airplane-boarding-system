@@ -58,7 +58,7 @@ export const Flightupdate = () => {
 
       if (response.ok) {
         alert("Flight updated successfully!");
-        navigate("/flight");
+        navigate("/flightview");
       } else {
         const errorText = await response.text();
         alert(`Failed to update flight: ${errorText}`);
@@ -203,7 +203,7 @@ export const Flightupdate = () => {
                       type="button"
                       className="mb-4"
                       color="secondary"
-                      onClick={() => navigate("/flight")}
+                      onClick={() => navigate("/flightview")}
                     >
                       Return
                     </MDBBtn>
