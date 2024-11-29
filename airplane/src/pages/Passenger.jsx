@@ -1,12 +1,5 @@
 import React from "react";
 import { Navbar } from "../components/Navbar";
-import Carousel from "react-bootstrap/Carousel";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -20,7 +13,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBCheckbox,
 } from "mdb-react-ui-kit";
 
 export const Passenger = () => {
@@ -213,67 +205,6 @@ export const Passenger = () => {
         </MDBRow>
       </MDBContainer>
 
-      {/* <div className="container">
-        <h1>Passenger</h1>
-
-        <div id="passenger-form">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="passengerid">Passenger ID:</label>
-            <input type="text" id="passengerid" name="passengerid" required />
-            <br />
-            <br />
-
-            <label htmlFor="passportnumber">Passport Number:</label>
-            <input
-              type="text"
-              id="passportnumber"
-              name="passportnumber"
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="firstname">First Name:</label>
-            <input type="text" id="firstname" name="firstname" required />
-            <br />
-            <br />
-
-            <label htmlFor="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" required />
-            <br />
-            <br />
-
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-            <br />
-            <br />
-
-            <label htmlFor="phonenumber">Phone Number:</label>
-            <input type="tel" id="phonenumber" name="phonenumber" required />
-            <br />
-            <br />
-
-            <button type="submit">Submit</button>
-          </form>
-
-          <div className="action-buttons">
-            <button
-              type="button"
-              className="update-button"
-              onClick={() => (window.location.href = "passenger_update.html")}
-            >
-              Update Passenger
-            </button>
-            <button
-              type="button"
-              className="delete-button"
-              onClick={() => (window.location.href = "passenger_delete.html")}
-            >
-              Delete Passenger
-            </button>
-          </div>
-        </div>
-      </div> */}
       <MDBFooter
         className="text-center text-white"
         style={{ backgroundColor: "#555C67" }}

@@ -163,42 +163,6 @@ export const Gate = () => {
         </MDBRow>
       </MDBContainer>
 
-      {/* <div className="container">
-        <h1>Gate Management Form</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="gateNumber">Gate Number:</label>
-          <input
-            type="text"
-            id="gateNumber"
-            value={gateNumber}
-            onChange={(e) => setGateNumber(e.target.value)}
-            required
-          />
-
-          <label htmlFor="terminal">Terminal:</label>
-          <input
-            type="text"
-            id="terminal"
-            value={terminal}
-            onChange={(e) => setTerminal(e.target.value)}
-            required
-          />
-
-          <label htmlFor="gateStatus">Gate Status:</label>
-          <select
-            id="gateStatus"
-            value={gateStatus}
-            onChange={(e) => setGateStatus(e.target.value)}
-            required
-          >
-            <option value="open">Open</option>
-            <option value="closed">Closed</option>
-            <option value="under_maintenance">Under Maintenance</option>
-          </select>
-
-          <button type="submit">Submit</button>
-        </form>
-      </div> */}
       <div className="gate-footer">
         <MDBFooter
           className="text-center text-white"

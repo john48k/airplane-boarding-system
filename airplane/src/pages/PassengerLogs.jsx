@@ -2,28 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import "../css/Passengerlogs.css";
 import { Bar } from "react-chartjs-2";
-import Carousel from "react-bootstrap/Carousel";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-  MDBIcon,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBCheckbox,
-} from "mdb-react-ui-kit";
+import { MDBFooter, MDBIcon } from "mdb-react-ui-kit";
 
 import {
   Chart as ChartJS,

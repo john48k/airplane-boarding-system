@@ -1,14 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "../components/Navbar";
 
-// import Carousel from "react-bootstrap/Carousel";
-// import Accordion from "@mui/material/Accordion";
-// import AccordionActions from "@mui/material/AccordionActions";
-// import AccordionSummary from "@mui/material/AccordionSummary";
-// import AccordionDetails from "@mui/material/AccordionDetails";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import Button from "@mui/material/Button";
-
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {

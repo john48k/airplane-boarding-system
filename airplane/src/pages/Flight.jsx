@@ -1,13 +1,6 @@
 import { Navbar } from "../components/Navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Carousel from "react-bootstrap/Carousel";
-// import Accordion from "@mui/material/Accordion";
-// import AccordionActions from "@mui/material/AccordionActions";
-// import AccordionSummary from "@mui/material/AccordionSummary";
-// import AccordionDetails from "@mui/material/AccordionDetails";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import Button from "@mui/material/Button";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -22,7 +15,6 @@ import {
   MDBCardBody,
   MDBInput,
 } from "mdb-react-ui-kit";
-import { MDBSelect } from "mdb-react-ui-kit";
 
 export const Flight = () => {
   const [formData, setFormData] = useState({
@@ -215,24 +207,7 @@ export const Flight = () => {
                   >
                     Create Flight
                   </MDBBtn>
-                  {/* 
-                  <MDBBtn type="submit" className="w-100 mb-4" size="md">
-                    Submit
-                  </MDBBtn> */}
                 </form>
-
-                {/* <div className="d-flex justify-content-center mb-4">
-                    <MDBCheckbox
-                      name="flexCheck"
-                      value=""
-                      id="flexCheckDefault"
-                      label="Subscribe to our newsletter"
-                    />
-                  </div> */}
-
-                {/* <MDBBtn className="w-100 mb-4" size="md">
-                    sign up
-                  </MDBBtn> */}
 
                 <div className="text-center">
                   <p>Check Out Our Other Pages:</p>
@@ -287,76 +262,6 @@ export const Flight = () => {
         </MDBRow>
       </MDBContainer>
 
-      {/*       
-      <div className="container">
-        <h1>Flight Management</h1>
-        <form id="flightForm" onSubmit={handleSubmit}>
-          <label htmlFor="flightNumber">Flight Number:</label>
-          <input
-            type="text"
-            id="flightNumber"
-            name="flight_number"
-            value={formData.flight_number}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="departureTime">Departure Time:</label>
-          <input
-            type="datetime-local"
-            id="departureTime"
-            name="departure_time"
-            value={formData.departure_time}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="arrivalTime">Arrival Time:</label>
-          <input
-            type="datetime-local"
-            id="arrivalTime"
-            name="arrival_time"
-            value={formData.arrival_time}
-            onChange={handleChange}
-            required
-          />
-
-          <label htmlFor="flightStatus">Flight Status:</label>
-          <select
-            id="flightStatus"
-            name="flight_status"
-            value={formData.flight_status}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>
-              Choose here
-            </option>
-            <option value="0">Boarding</option>
-            <option value="1">On Flight</option>
-            <option value="2">Arrived</option>
-          </select>
-
-          <button type="submit">Create Flight</button>
-        </form>
-
-        <div className="action-buttons">
-          <button
-            id="update-btn"
-            className="update-button"
-            onClick={() => navigate("/Flightupdate")}
-          >
-            Update a Flight
-          </button>
-          <button
-            id="delete-btn"
-            className="delete-button"
-            onClick={() => navigate("/Flightdelete")}
-          >
-            Delete a Flight
-          </button>
-        </div>
-      </div> */}
       <div>
         <MDBFooter
           className="text-center text-white"
