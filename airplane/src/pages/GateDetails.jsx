@@ -7,10 +7,6 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBTable,
-  MDBTableHead,
-  MDBTableBody,
-  MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
@@ -28,9 +24,9 @@ export const GateDetails = () => {
       const response = await fetch("http://localhost:8080/api/gates");
       if (response.ok) {
         const data = await response.json();
-        const formattedData = data.map(gate => ({
+        const formattedData = data.map((gate) => ({
           ...gate,
-          gateStatus: gate.gateStatus.toLowerCase()
+          gateStatus: gate.gateStatus.toLowerCase(),
         }));
         setGates(formattedData);
       }
@@ -56,9 +52,15 @@ export const GateDetails = () => {
 
   return (
     <div className="gate-details-container">
-      <MDBFooter bgColor="light" className="text-center text-lg-start text-muted header-footer">
+      <MDBFooter
+        bgColor="light"
+        className="text-center text-lg-start text-muted header-footer"
+      >
         <section className="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
-          <div className="me-5 d-none d-lg-block" style={{ fontSize: "0.875rem" }}>
+          <div
+            className="me-5 d-none d-lg-block"
+            style={{ fontSize: "0.875rem" }}
+          >
             <p className="mb-0">
               <MDBIcon icon="envelope" className="me-2" />
               CitUniversity@gmail.com |
@@ -91,7 +93,7 @@ export const GateDetails = () => {
       </MDBFooter>
       <div className="gate-content">
         <Navbar activeTab="Gate" />
-        
+
         <div className="gate-banner-page-heading">
           <div className="gate-banner-heading-text">GATE DETAILS</div>
         </div>
@@ -101,10 +103,10 @@ export const GateDetails = () => {
             <MDBCol col="12">
               <MDBCard
                 className="departure-board mx-auto"
-                style={{ 
-                  maxWidth: "1000px", 
-                  background: '#1a1a2e',
-                  width: '100%' 
+                style={{
+                  maxWidth: "1000px",
+                  background: "#1a1a2e",
+                  width: "100%",
                 }}
               >
                 <MDBCardBody className="p-4">
@@ -122,8 +124,12 @@ export const GateDetails = () => {
                           <tr key={gate.gateID} className="board-row">
                             <td className="gate-column">{gate.gateNumber}</td>
                             <td className="terminal-column">{gate.terminal}</td>
-                            <td className={`status-${gate.gateStatus.toLowerCase()}`}>
-                              {gate.gateStatus.toLowerCase() === 'available' ? 'available' : gate.gateStatus.toLowerCase()}
+                            <td
+                              className={`status-${gate.gateStatus.toLowerCase()}`}
+                            >
+                              {gate.gateStatus.toLowerCase() === "available"
+                                ? "available"
+                                : gate.gateStatus.toLowerCase()}
                             </td>
                           </tr>
                         ))}
@@ -137,10 +143,7 @@ export const GateDetails = () => {
         </MDBContainer>
 
         <div className="back-button-section">
-          <button
-            className="back-button"
-            onClick={() => navigate('/gate')}
-          >
+          <button className="back-button" onClick={() => navigate("/gate")}>
             ← BACK TO GATE FORM
           </button>
         </div>
@@ -163,4 +166,4 @@ export const GateDetails = () => {
   );
 };
 
-export default GateDetails; 
+export default GateDetails;

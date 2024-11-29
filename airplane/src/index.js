@@ -12,6 +12,7 @@ import "./css/Flight.css";
 // import './css/Flight_delete.css'
 // import './css/Flight_update.css'
 import "./css/Gate.css";
+import "./css/GateDetails.css";
 // import './css/Notify.css'
 import "./css/Passenger.css";
 // import './css/Passenger_delete.css'
@@ -36,7 +37,6 @@ import { Passengerupdate } from "./pages/Passenger_update";
 import { PassengerLogs } from "./pages/PassengerLogs";
 import { Login } from "./pages/Login";
 import Admin from "./pages/Admin";
-
 
 import "bootstrap/dist/css/bootstrap.min.css";
 

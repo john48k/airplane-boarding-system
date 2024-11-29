@@ -1,27 +1,23 @@
 import * as React from "react";
+import { useState } from "react";
 import { extendTheme, styled } from "@mui/material/styles";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import DescriptionIcon from "@mui/icons-material/Description";
-import LayersIcon from "@mui/icons-material/Layers";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { PageContainer } from "@toolpad/core/PageContainer";
 import Grid from "@mui/material/Grid2";
-import DataThresholdingIcon from "@mui/icons-material/DataThresholding";
 import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import {
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-} from "mdb-react-ui-kit";
+import { MDBBtn, MDBCard } from "mdb-react-ui-kit";
+
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { MDBCol, MDBRow, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
 
 const NAVIGATION = [
   {
@@ -174,7 +170,31 @@ export default function DashboardLayoutBasic(props) {
     } catch (error) {
       console.error("Error:", error);
     }
+    try {
+      const response = await fetch("http://localhost:8080/api/boarding-pass", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ seatNumber, boardingTime }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Success:", data);
+        alert(`Boarding pass created: ${JSON.stringify(data)}`);
+      } else {
+        console.error("Error:", response.statusText);
+        alert("Failed to create boarding pass.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
+  const [seatNumber, setSeatNumber] = useState("");
+  const [boardingTime, setBoardingTime] = useState("");
+
   return (
     <AppProvider
       navigation={NAVIGATION}
@@ -291,7 +311,7 @@ export default function DashboardLayoutBasic(props) {
                           textDecoration: "none",
                         }}
                       >
-                        Update Passenger
+                        UPDATE PASSENGER
                       </a>
 
                       <MDBBtn
@@ -311,7 +331,34 @@ export default function DashboardLayoutBasic(props) {
               <Skeleton height={14} />
             </Grid>
             <Grid size={4}>
-              <Skeleton height={100} />
+              <MDBCardBody className="p-5">
+                <h1>BOARDING PASS</h1>
+
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Seat Number"
+                    id="seatNumber"
+                    type="text"
+                    value={seatNumber}
+                    required
+                    onChange={(event) => setSeatNumber(event.target.value)}
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Boarding Time"
+                    id="boardingTime"
+                    type="datetime-local"
+                    value={boardingTime}
+                    onChange={(event) => setBoardingTime(event.target.value)}
+                  />
+
+                  <MDBBtn type="submit" className="w-100 mb-4" size="md">
+                    Submit
+                  </MDBBtn>
+                </form>
+              </MDBCardBody>
             </Grid>
             <Grid size={8}>
               <Skeleton height={100} />

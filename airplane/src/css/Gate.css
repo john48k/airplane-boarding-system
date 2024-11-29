@@ -41,7 +41,9 @@
   background-color: #fff;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 .form-select:focus {
@@ -95,7 +97,7 @@
 
 .back-button-section {
   text-align: center;
-  padding: 20px 0;
+  padding: 0px 0;
   flex-shrink: 0;
 }
 
@@ -120,7 +122,9 @@
 }
 
 .table-wrapper {
-  max-height: calc(100vh - 300px); /* Adjust this value based on your header/footer heights */
+  max-height: calc(
+    100vh - 300px
+  ); /* Adjust this value based on your header/footer heights */
   overflow-y: auto;
 }
 
@@ -157,7 +161,8 @@
   padding: 1rem !important;
 }
 
-.table td, .table th {
+.table td,
+.table th {
   padding: 0.5rem !important;
 }
 
@@ -175,14 +180,14 @@
 }
 
 .flight-table th {
-  font-family: 'Digital-7', Arial, sans-serif;
+  font-family: "Digital-7", Arial, sans-serif;
   font-size: 1.2rem;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .gate-row {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: 'Digital-7', Arial, sans-serif;
+  font-family: "Digital-7", Arial, sans-serif;
   font-size: 1.1rem;
 }
 
@@ -240,9 +245,15 @@
 
 /* Optional: Add a blinking effect for status changes */
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .status-changed {
@@ -301,17 +312,17 @@
   font-weight: bold;
 }
 
-.gate-column, .terminal-column {
+.gate-column,
+.terminal-column {
   color: #ffffff;
   font-weight: bold;
 }
 
 /* Status colors */
 .status-open {
-  color: #4CAF50;
+  color: #4caf50;
   font-weight: bold;
 }
-
 
 .status-occupied {
   color: #f44336;
@@ -356,15 +367,22 @@
 }
 
 /* Text glow effect */
-.departure-table td, .departure-table th {
+.departure-table td,
+.departure-table th {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* Status update animation */
 @keyframes statusUpdate {
-  0% { opacity: 0.7; }
-  50% { opacity: 1; }
-  100% { opacity: 0.7; }
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 .status-changed {
@@ -373,7 +391,7 @@
 
 .departure-table th,
 .departure-table td {
-  padding-left: 40px !important;  /* Adjust this value to move content more or less to the right */
+  padding-left: 40px !important; /* Adjust this value to move content more or less to the right */
 }
 
 /* If you want different spacing for different columns, you can target them specifically */
