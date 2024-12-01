@@ -26,7 +26,7 @@ export const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [message, setMessage] = useState("");
+  const [notification, setNotification] = useState({ show: false, message: '', type: 'success' });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
@@ -35,7 +35,8 @@ export const Signup = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setMessage("Passwords do not match.");
+      setNotification({ show: true, message: 'Passwords do not match.', type: 'error' });
+      setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
       return;
     }
 
@@ -52,19 +53,48 @@ export const Signup = () => {
       });
 
       if (response.ok) {
-        setMessage("Signup successful!");
-        navigate("/login");
+        setNotification({ show: true, message: 'Signup successful!', type: 'success' });
+        setTimeout(() => {
+          setNotification({ show: false, message: '', type: 'success' });
+          navigate("/login");
+        }, 2000);
       } else {
         const errorMessage = await response.text();
-        setMessage(errorMessage);
+        // Check if error is about duplicate entry
+        if (errorMessage.includes('Duplicate entry')) {
+          setNotification({ show: true, message: 'Email already exists', type: 'error' });
+        } else {
+          setNotification({ show: true, message: 'Failed to create account. Please try again.', type: 'error' });
+        }
+        setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
       }
     } catch (error) {
-      setMessage("An error occurred. Please try again.");
+      setNotification({ show: true, message: 'An error occurred. Please try again.', type: 'error' });
+      setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
     }
   };
 
   return (
     <div>
+      {notification.show && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            backgroundColor: notification.type === 'success' ? 'white' : 'white',
+            color: '#0d6efd',
+            zIndex: 1000,
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            transition: 'all 0.3s ease',
+            fontWeight: "bold",
+          }}
+        >
+          {notification.message}
+        </div>
+      )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -108,16 +138,6 @@ export const Signup = () => {
       <div className="signup-banner-page-heading">
         <div className="banner-heading-text">SIGN UP</div>
       </div>
-
-      {message && (
-        <div
-          className={`message ${
-            message.includes("successful") ? "success" : "error"
-          }`}
-        >
-          {message}
-        </div>
-      )}
 
       <MDBContainer
         fluid
@@ -311,7 +331,7 @@ export const Signup = () => {
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2024 FLIGHT MATCH. All Rights Reserved
+          2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>
     </div>

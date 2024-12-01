@@ -17,6 +17,7 @@ import {
 export const Boarding = () => {
   const [seatNumber, setSeatNumber] = useState("");
   const [boardingTime, setBoardingTime] = useState("");
+  const [notification, setNotification] = useState({ show: false, message: '', type: 'success' });
 
   // Handle form submission
   const handleSubmit = async (event) => {
@@ -34,18 +35,41 @@ export const Boarding = () => {
       if (response.ok) {
         const data = await response.json();
         console.log("Success:", data);
-        alert(`Boarding pass created: ${JSON.stringify(data)}`);
+        setNotification({ show: true, message: 'Boarding Pass successfully created', type: 'success' });
+        setTimeout(() => setNotification({ show: false, message: '', type: 'success' }), 3000);
       } else {
         console.error("Error:", response.statusText);
-        alert("Failed to create boarding pass.");
+        setNotification({ show: true, message: 'Failed to create boarding pass.', type: 'error' });
+        setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
       }
     } catch (error) {
       console.error("Error:", error);
+      setNotification({ show: true, message: 'An error occurred.', type: 'error' });
+      setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
     }
   };
 
   return (
     <>
+      {notification.show && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            backgroundColor: notification.type === 'success' ? 'white' : 'white',
+            color: '#0d6efd',
+            zIndex: 1000,
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            transition: 'all 0.3s ease',
+            fontWeight: "bold",
+          }}
+        >
+          {notification.message}
+        </div>
+      )}
       <div className="board-full-body">
         <MDBFooter
           bgColor="light"
@@ -206,7 +230,7 @@ export const Boarding = () => {
               className="text-center p-3"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
             >
-              © 2024 FLIGHT MATCH. All Rights Reserved
+              2024 FLIGHT MATCH. All Rights Reserved
             </div>
           </MDBFooter>
         </div>

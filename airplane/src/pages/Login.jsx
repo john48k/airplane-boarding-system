@@ -18,6 +18,7 @@ export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // Manage password visibility
+  const [notification, setNotification] = useState({ show: false, message: '', type: 'success' });
   const navigate = useNavigate(); // Initialize the navigate function
 
   const handleSubmit = async (event) => {
@@ -40,22 +41,46 @@ export const Login = () => {
       const result = await response.text();
 
       if (response.ok) {
-        alert(result); // "Login successful!" or message
+        setNotification({ show: true, message: 'Login successful!', type: 'success' });
         console.log("Login result:", result);
         setUsername("");
         setPassword("");
-        navigate("/"); // Redirect to Home on success
+        setTimeout(() => {
+          setNotification({ show: false, message: '', type: 'success' });
+          navigate("/"); // Redirect to Home on success
+        }, 2000);
       } else {
-        alert(result); // Show error message for invalid credentials
+        setNotification({ show: true, message: 'Invalid username or password', type: 'error' });
+        setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert("An error occurred. Please try again.");
+      setNotification({ show: true, message: 'An error occurred. Please try again.', type: 'error' });
+      setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
     }
   };
 
   return (
     <>
+      {notification.show && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            backgroundColor: notification.type === 'success' ? 'white' : 'white',
+            color: '#0d6efd',
+            zIndex: 1000,
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            transition: 'all 0.3s ease',
+            fontWeight: "bold",
+          }}
+        >
+          {notification.message}
+        </div>
+      )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -189,7 +214,7 @@ export const Login = () => {
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2024 FLIGHT MATCH. All Rights Reserved
+          2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>
     </>

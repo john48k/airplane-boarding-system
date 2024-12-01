@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../components/Navbar";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
@@ -16,6 +16,8 @@ import {
 } from "mdb-react-ui-kit";
 
 export const Passenger = () => {
+  const [notification, setNotification] = useState({ show: false, message: '', type: 'success' });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
@@ -36,17 +38,40 @@ export const Passenger = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        alert("Passenger created successfully!");
+        setNotification({ show: true, message: 'Passenger created successfully!', type: 'success' });
+        setTimeout(() => setNotification({ show: false, message: '', type: 'success' }), 3000);
       } else {
-        alert("Failed to create passenger.");
+        setNotification({ show: true, message: 'Failed to create passenger.', type: 'error' });
+        setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
       }
     } catch (error) {
       console.error("Error:", error);
+      setNotification({ show: true, message: 'An error occurred while creating passenger.', type: 'error' });
+      setTimeout(() => setNotification({ show: false, message: '', type: 'error' }), 3000);
     }
   };
 
   return (
     <>
+      {notification.show && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            backgroundColor: notification.type === 'success' ? 'white' : 'white',
+            color: '#0d6efd',
+            zIndex: 1000,
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            transition: 'all 0.3s ease',
+            fontWeight: "bold",
+          }}
+        >
+          {notification.message}
+        </div>
+      )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -178,26 +203,6 @@ export const Passenger = () => {
                   <MDBBtn className="w-100 mb-4" size="md" type="submit">
                     Submit
                   </MDBBtn>
-
-                  <MDBBtn
-                    className="w-100 mb-4 update-button"
-                    size="md"
-                    type="button"
-                    onClick={() => (window.location.href = "Passengerupdate")}
-                  >
-                    Update Passenger
-                  </MDBBtn>
-
-                  <MDBBtn
-                    className="w-100 mb-4 delete-button"
-                    size="md"
-                    type="button"
-                    onClick={() =>
-                      (window.location.href = "passenger_delete.html")
-                    }
-                  >
-                    Delete Passenger
-                  </MDBBtn>
                 </form>
               </MDBCardBody>
             </MDBCard>
@@ -213,7 +218,7 @@ export const Passenger = () => {
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2024 FLIGHT MATCH. All Rights Reserved
+          2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>
     </>
