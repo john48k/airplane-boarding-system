@@ -579,12 +579,6 @@ export default function DashboardLayoutBasic(props) {
             <Grid size={3}>
               <Skeleton height={100} />
             </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
           </Grid>
         </PageContainer>
       </DashboardLayout>

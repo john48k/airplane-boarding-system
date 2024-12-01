@@ -172,7 +172,7 @@ export const Login = () => {
 
                 <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                   Don't have an account?{" "}
-                  <a href="#!" style={{ color: "#393f81" }}>
+                  <a href="/signup" style={{ color: "#393f81" }}>
                     Register here
                   </a>
                 </p>
