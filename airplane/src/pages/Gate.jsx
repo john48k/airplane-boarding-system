@@ -133,9 +133,63 @@ export const Gate = () => {
                     <option value="OCCUPIED">Occupied</option>
                     <option value="MAINTENANCE">Maintenance</option>
                   </select>
-                  <MDBBtn type="submit" className="w-100 mb-4" size="md">
-                    Add Gate
-                  </MDBBtn>
+                  <style>
+                    {`
+                      .gate-action-button {
+                        padding: 12px 24px;
+                        border-radius: 8px;
+                        font-size: 0.95rem;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        text-transform: none;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                      }
+                      .gate-action-button:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                      }
+                      .gate-action-button.primary {
+                        background: linear-gradient(45deg, #0d6efd, #0a58ca);
+                        color: white;
+                        border: none;
+                      }
+                      .gate-action-button.primary:hover {
+                        background: linear-gradient(45deg, #0b5ed7, #084298);
+                      }
+                      .gate-action-button.secondary {
+                        background: linear-gradient(45deg, #6c757d, #5c636a);
+                        color: white;
+                        border: none;
+                      }
+                      .gate-action-button.secondary:hover {
+                        background: linear-gradient(45deg, #5c636a, #4d5154);
+                      }
+                      .button-container {
+                        display: flex;
+                        gap: 15px;
+                        margin-bottom: 20px;
+                      }
+                    `}
+                  </style>
+                  <div className="button-container">
+                    <MDBBtn 
+                      type="submit" 
+                      className="gate-action-button primary flex-grow-1"
+                    >
+                      <MDBIcon fas icon="plus-circle" className="me-2" />
+                      ADD GATE
+                    </MDBBtn>
+                    <MDBBtn 
+                      onClick={() => navigate('/gate-details')}
+                      className="gate-action-button secondary flex-grow-1"
+                    >
+                      <MDBIcon fas icon="door-open" className="me-2" />
+                      GATE DETAILS
+                    </MDBBtn>
+                  </div>
                 </form>
               </MDBCardBody>
             </MDBCard>
@@ -153,7 +207,7 @@ export const Gate = () => {
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
-            © 2024 FLIGHT MATCH. All Rights Reserved
+            2024 FLIGHT MATCH. All Rights Reserved
           </div>
         </MDBFooter>
       </div>
