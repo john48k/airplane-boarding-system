@@ -30,9 +30,9 @@ The website offers intuitive features for both employees and administrators, pro
 ## 🚀 Table of Contents
 
 - [Installation](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#%EF%B8%8F-installation)
-- [Features](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#%EF%B8%8F-installation)
-- [Usage](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#%EF%B8%8F-installation)
-- [Project Documentation/Resources](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#%EF%B8%8F-installation)
+- [Features](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#-features)
+- [Usage](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#-usage)
+- [Project Documentation/Resources](https://github.com/john48k/airplane-boarding-system/tree/main?tab=readme-ov-file#-project-documentationresources)
 
 ---
 
