@@ -67,18 +67,6 @@ Make sure you have the following software installed:
 3. Install Dependencies
     ```bash
     npm install
-    npm install swiper
-    npm install @coreui/react @coreui/coreui
-    npm install bootstrap
-    npm install react-bootstrap
-    npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-    npm i mdb-react-ui-kit
-    npm install @fortawesome/fontawesome-free
-    npm install react-chartjs-2 chart.js
-    npm install @mui/x-data-grid
-    npm install @toolpad/core
-    npm install date-fns
-    npm install date-fns-tz
     ```
     
 4. Update the .env file with your MySQL credentials:
