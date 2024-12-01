@@ -127,7 +127,7 @@ UI/UX DESIGN: [Figma Prototype](https://www.figma.com/design/0e5BfOdvtAELFK7U6jp
 
 Trello: [View Trello Timeline](https://trello.com/b/Kq2AFuhk/airlane-boarding-system)
 
-Clickup: [View Clickup](https://drive.google.com/file/d/1WhFnhzwXh_JXbuH18tJD9ri-ZCCkUzlR/view)
+Clickup: [View Clickup](https://app.clickup.com/9016586762/v/l/8cpwcga-376)
 
 Entity Relationship Diagram (ERD): [View ERD](https://drive.google.com/file/d/1WhFnhzwXh_JXbuH18tJD9ri-ZCCkUzlR/view)
 
