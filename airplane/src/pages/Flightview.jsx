@@ -113,11 +113,11 @@ const Flightview = () => {
                 </MDBCol>
                 <MDBCol md="4" className="d-flex justify-content-end" style={{ paddingRight: "45px" }}>
                   <MDBBtn
-                    className="action-button secondary"
+                    className="action-button success"
                     onClick={() => navigate("/flight")}
                   >
-                    <MDBIcon fas icon="arrow-left" className="me-2" />
-                    Back
+                    <MDBIcon fas icon="plus" className="me-2" />
+                    Create a Flight
                   </MDBBtn>
                 </MDBCol>
               </MDBRow>
@@ -237,13 +237,20 @@ const Flightview = () => {
                       .action-button.danger:hover {
                         background-color: #bb2d3b;
                       }
+                      .action-button.success {
+                        background-color: #28a745;
+                        color: white;
+                        margin-right: -20px;
+                      }
+                      .action-button.success:hover {
+                        background-color: #218838;
+                      }
                       .button-container {
                         display: flex;
                         gap: 12px;
                         justify-content: center;
                         padding: 20px;
                         border-top: 1px solid #eaeaea;
-                        background-color: #f8f9fa;
                         border-radius: 0 0 12px 12px;
                       }
                     `}
