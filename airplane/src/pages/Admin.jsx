@@ -10,6 +10,7 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 import Grid from "@mui/material/Grid2";
 import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -17,7 +18,14 @@ import { MDBBtn, MDBCard } from "mdb-react-ui-kit";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { MDBCol, MDBRow, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
+import {
+  MDBCol,
+  MDBRow,
+  MDBCardBody,
+  MDBInput,
+  MDBContainer,
+  MDBIcon,
+} from "mdb-react-ui-kit";
 
 const NAVIGATION = [
   {
@@ -190,10 +198,65 @@ export default function DashboardLayoutBasic(props) {
     } catch (error) {
       console.error("Error:", error);
     }
+    if (!checkInTime || !boardingTime) {
+      setMessage(
+        "Please enter valid Date and Time for both Check-In and Boarding."
+      );
+      return;
+    }
+
+    // Prepare passenger data with LocalDateTime format
+    const passengerData = {
+      checkinTime: `${checkInTime}:00`, // Add seconds to match LocalDateTime format
+      boardingTime: `${boardingTime}:00`, // Add seconds to match LocalDateTime format
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/passengeranalytics",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(passengerData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Server responded with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Passenger data saved:", data);
+      setMessage("Passenger data saved successfully!"); // Success message
+
+      // Redirect to PassengerLogs page
+      window.location.href = "/PassengerLogs"; // Update this path to match your actual route
+    } catch (error) {
+      console.error("Error saving passenger data:", error);
+      setMessage(`Error saving passenger data: ${error.message}`); // Error message
+    }
   };
 
   const [seatNumber, setSeatNumber] = useState("");
   const [boardingTime, setBoardingTime] = useState("");
+  const [checkInTime, setCheckInTime] = useState(""); // State for check-in time
+  const [message, setMessage] = useState(""); // State for success/error message
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    gateNumber: "",
+    terminal: "",
+    gateStatus: "AVAILABLE",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <AppProvider
@@ -228,12 +291,13 @@ export default function DashboardLayoutBasic(props) {
                   height={200}
                 />
               </Box>
-              <h1>Passenger Editing</h1>
             </Grid>
             <Grid size={12}>
               <MDBCol md="6">
                 <MDBCard className="my-5">
                   <MDBCardBody className="p-5">
+                    <h1>Passenger</h1>
+
                     <form onSubmit={handleSubmit}>
                       <MDBRow>
                         <MDBCol col="6">
@@ -328,9 +392,8 @@ export default function DashboardLayoutBasic(props) {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <Skeleton height={14} />
             </Grid>
-            <Grid size={4}>
+            <Grid size={12}>
               <MDBCardBody className="p-5">
                 <h1>BOARDING PASS</h1>
 
@@ -360,18 +423,157 @@ export default function DashboardLayoutBasic(props) {
                 </form>
               </MDBCardBody>
             </Grid>
-            <Grid size={8}>
-              <Skeleton height={100} />
+
+            <Grid size={12}>
+              <MDBCardBody className="p-5 w-100 d-flex flex-column">
+                <h2 className="fw-bold mb-2 text-center">ANALYTICS DETAILS</h2>
+
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    label="Check-In Date and Time:"
+                    id="check-in-time"
+                    type="datetime-local"
+                    size="lg"
+                    required
+                    value={checkInTime}
+                    onChange={(e) => setCheckInTime(e.target.value)}
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    label="Boarding Date and Time:"
+                    id="boarding-time"
+                    type="datetime-local"
+                    size="lg"
+                    required
+                    value={boardingTime}
+                    onChange={(e) => setBoardingTime(e.target.value)}
+                  />
+
+                  <MDBBtn size="lg" type="submit">
+                    Submit
+                  </MDBBtn>
+                </form>
+
+                <hr className="my-4" />
+              </MDBCardBody>
             </Grid>
 
             <Grid size={12}>
-              <Skeleton height={150} />
-            </Grid>
-            <Grid size={12}>
-              <Skeleton height={14} />
+              <MDBCardBody className="p-5 w-100">
+                <h2 className="fw-bold mb-4 text-center">Add New Gate</h2>
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Gate Number"
+                    name="gateNumber"
+                    type="text"
+                    value={formData.gateNumber}
+                    onChange={handleChange}
+                    required
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Terminal"
+                    name="terminal"
+                    type="text"
+                    value={formData.terminal}
+                    onChange={handleChange}
+                    required
+                  />
+                  <select
+                    className="form-select mb-4"
+                    name="gateStatus"
+                    value={formData.gateStatus}
+                    onChange={handleChange}
+                  >
+                    <option value="AVAILABLE">Available</option>
+                    <option value="OCCUPIED">Occupied</option>
+                    <option value="MAINTENANCE">Maintenance</option>
+                  </select>
+                  <MDBBtn type="submit" className="w-100 mb-4" size="md">
+                    Add Gate
+                  </MDBBtn>
+                </form>
+              </MDBCardBody>
             </Grid>
 
-            <Grid size={3}>
+            <Grid size={12}>
+              <MDBCardBody className="p-5">
+                <h1>FLIGHTS DETAILS</h1>
+
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Flight Number"
+                    id="flightNumber"
+                    type="number"
+                    name="flight_number"
+                    value={formData.flight_number}
+                    onChange={handleChange}
+                    required
+                    // min="1"
+                    // step="1"
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Departure Time"
+                    id="departureTime"
+                    type="datetime-local"
+                    name="departure_time"
+                    value={formData.departure_time}
+                    onChange={handleChange}
+                    required
+                  />
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Arrival Time"
+                    id="arrivalTime"
+                    type="datetime-local"
+                    name="arrival_time"
+                    value={formData.arrival_time}
+                    onChange={handleChange}
+                    required
+                  />
+                  <select
+                    id="flightStatus"
+                    name="flight_status"
+                    className="form-select"
+                    value={formData.flight_status}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="" disabled>
+                      Choose here
+                    </option>
+                    <option value="0">BOARDING</option>
+                    <option value="1">ON FLIGHT</option>
+                    <option value="2">ARRIVED</option>
+                  </select>
+
+                  <div className="delete-update-button-container ">
+                    <MDBBtn
+                      type="button"
+                      className="update-button flight-update-color"
+                      size="md"
+                      onClick={() => navigate("/flightview")}
+                    >
+                      Flight List
+                    </MDBBtn>
+
+                    <MDBBtn
+                      type="submit"
+                      className="delete-button  flight-create-color"
+                      size="md"
+                    >
+                      Create Flight
+                    </MDBBtn>
+                  </div>
+                </form>
+              </MDBCardBody>
               <Skeleton height={100} />
             </Grid>
             <Grid size={3}>

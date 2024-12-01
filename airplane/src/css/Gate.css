@@ -6,7 +6,7 @@
   padding: 65px 0px;
   text-align: center;
 }
- 
+
 .gate-banner-heading-text {
   position: absolute;
   left: 50%;
@@ -15,23 +15,23 @@
   font-size: 35px; /* Adjust size as needed */
   font-weight: bolder; /* Optional: makes text bold */
 }
- 
+
 .gate-option-design {
   margin-bottom: 10px;
 }
- 
+
 .gate-full-body {
   min-height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
 }
- 
+
 .gate-footer {
   width: 100% !important;
   position: absolute !important;
   bottom: 10 !important;
 }
- 
+
 .form-select {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -45,38 +45,38 @@
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
 }
- 
+
 .form-select:focus {
   border-color: #86b7fe;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
- 
+
 .back-button {
   transition: all 0.3s ease;
 }
- 
+
 .back-button:hover {
   transform: translateX(-5px);
 }
- 
+
 .gate-details-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
- 
+
 .gate-content {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
- 
+
 .gate-banner-page-heading {
   flex-shrink: 0;
 }
- 
+
 .table-container {
   flex: 1;
   display: flex;
@@ -84,23 +84,23 @@
   justify-content: center;
   padding: 20px;
 }
- 
+
 .board-wrapper {
   width: 100%;
 }
- 
+
 .departure-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
 }
- 
+
 .back-button-section {
   text-align: center;
   padding: 0px 0;
   flex-shrink: 0;
 }
- 
+
 .back-button {
   background: #0066cc;
   color: white;
@@ -111,43 +111,43 @@
   transition: all 0.3s ease;
   font-weight: bold;
 }
- 
+
 .back-button:hover {
   background: #0052a3;
   transform: translateX(-5px);
 }
- 
+
 .gate-footer {
   flex-shrink: 0;
 }
- 
+
 .table-wrapper {
   max-height: calc(
     100vh - 300px
   ); /* Adjust this value based on your header/footer heights */
   overflow-y: auto;
 }
- 
+
 .MDBCard {
   height: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 60px;
 }
- 
+
 .MDBCardBody {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
- 
-.gate-footer2{
+
+.gate-footer2 {
   flex-shrink: 0;
   width: 100%;
   margin-top: auto;
 }
- 
+
 /* Make the table header sticky */
 .MDBTable thead th {
   position: sticky;
@@ -155,94 +155,94 @@
   background: white;
   z-index: 1;
 }
- 
+
 /* Reduce some spacing */
 .MDBCardBody {
   padding: 1rem !important;
 }
- 
+
 .table td,
 .table th {
   padding: 0.5rem !important;
 }
- 
+
 .gate-table-container {
   margin-bottom: 2rem;
 }
- 
+
 .flight-board {
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
- 
+
 .flight-table {
   margin: 0;
 }
- 
+
 .flight-table th {
   font-family: "Digital-7", Arial, sans-serif;
   font-size: 1.2rem;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
- 
+
 .gate-row {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: "Digital-7", Arial, sans-serif;
   font-size: 1.1rem;
 }
- 
+
 .gate-row td {
   padding: 1rem !important;
 }
- 
+
 /* Status colors */
 .status-open {
   color: #00ff00 !important; /* Bright green */
   font-weight: bold;
 }
- 
+
 .status-closed {
   color: #ff0000 !important; /* Bright red */
   font-weight: bold;
 }
- 
+
 .status-occupied {
   color: #ffff00 !important; /* Yellow */
   font-weight: bold;
 }
- 
+
 .status-maintenance {
   color: #ff9800 !important; /* Orange */
   font-weight: bold;
 }
- 
+
 .status-under_maintenance {
   color: #ff9800 !important; /* Orange */
   font-weight: bold;
 }
- 
+
 .delete-btn {
   background: rgba(220, 53, 69, 0.8);
   border: none;
   transition: all 0.3s ease;
 }
- 
+
 .delete-btn:hover {
   background: rgba(220, 53, 69, 1);
   transform: scale(1.05);
 }
- 
+
 .back-btn {
   background: rgba(255, 255, 255, 0.2);
   border: none;
   transition: all 0.3s ease;
 }
- 
+
 .back-btn:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateX(-5px);
 }
- 
+
 /* Optional: Add a blinking effect for status changes */
 @keyframes blink {
   0% {
@@ -255,11 +255,11 @@
     opacity: 1;
   }
 }
- 
+
 .status-changed {
   animation: blink 1s ease-in-out;
 }
- 
+
 .departure-board {
   width: 100%;
   max-width: 1200px;
@@ -268,17 +268,17 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 30px;
 }
- 
+
 .board-wrapper {
   overflow-x: auto;
 }
- 
+
 .departure-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
 }
- 
+
 .departure-table th {
   padding: 20px 40px;
   font-size: 1.4rem;
@@ -287,54 +287,54 @@
   background-color: #0066cc;
   color: white;
 }
- 
+
 .departure-table td {
   padding: 25px 40px;
   font-size: 1.3rem;
   vertical-align: middle;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
- 
+
 .board-row {
   transition: background-color 0.3s ease;
 }
- 
+
 .board-row:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
- 
+
 .board-row td {
   padding: 20px 15px;
 }
- 
+
 .time-column {
   color: #ffffff;
   font-weight: bold;
 }
- 
+
 .gate-column,
 .terminal-column {
   color: #ffffff;
   font-weight: bold;
 }
- 
+
 /* Status colors */
 .status-open {
   color: #4caf50;
   font-weight: bold;
 }
- 
+
 .status-occupied {
   color: #f44336;
   font-weight: bold;
 }
- 
+
 .status-maintenance,
 .status-under_maintenance {
   color: #ff9800;
   font-weight: bold;
 }
- 
+
 .delete-button {
   background: rgba(244, 67, 54, 0.8);
   color: white;
@@ -344,12 +344,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
- 
+
 .delete-button:hover {
   background: rgba(244, 67, 54, 1);
   transform: scale(1.05);
 }
- 
+
 .back-button {
   background: #0066cc;
   color: white;
@@ -360,18 +360,18 @@
   transition: all 0.3s ease;
   font-weight: bold;
 }
- 
+
 .back-button:hover {
   background: #0052a3;
   transform: translateX(-5px);
 }
- 
+
 /* Text glow effect */
 .departure-table td,
 .departure-table th {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
- 
+
 /* Status update animation */
 @keyframes statusUpdate {
   0% {
@@ -384,43 +384,43 @@
     opacity: 0.7;
   }
 }
- 
+
 .status-changed {
   animation: statusUpdate 2s infinite;
 }
- 
+
 .departure-table th,
 .departure-table td {
   padding-left: 40px !important; /* Adjust this value to move content more or less to the right */
 }
- 
+
 /* If you want different spacing for different columns, you can target them specifically */
 .time-column {
   padding-left: 40px !important;
 }
- 
+
 .gate-column {
   padding-left: 40px !important;
 }
- 
+
 .terminal-column {
   padding-left: 40px !important;
 }
- 
+
 .status-open,
 .status-closed,
 .status-maintenance,
 .status-under_maintenance {
   padding-left: 40px !important;
 }
- 
+
 .back-button-container {
   padding: 20px 0;
   margin: 20px auto;
   max-width: 1200px;
   padding-left: 40px; /* Matches the table's left padding */
 }
- 
+
 .back-button {
   background: #0066cc;
   color: white;
@@ -431,22 +431,22 @@
   transition: all 0.3s ease;
   font-weight: bold;
 }
- 
+
 .back-button:hover {
   background: #0052a3;
   transform: translateX(-5px);
 }
- 
+
 /* Ensure table rows are evenly spaced */
 .departure-table tr {
   height: 60px; /* Adjust this value as needed */
 }
- 
+
 /* Center align all table cells */
 .departure-table td {
   vertical-align: middle;
 }
- 
+
 /* Center the table */
 .table-container {
   display: flex;
@@ -454,12 +454,12 @@
   align-items: center;
   padding: 40px 20px;
 }
- 
+
 .departure-board {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
- 
+
 /* Update or add this to your existing status styles */
 .status-available {
   color: #00ff00 !important; /* Bright green */
@@ -468,13 +468,13 @@
   font-size: 2.5rem;
   text-transform: lowercase; /* To match your other status styles */
 }
- 
+
 .status-occupied {
   color: #ff0000 !important; /* Bright red */
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   font-weight: bold;
 }
- 
+
 /* Make sure your status text is visible */
 .departure-table td {
   /* ... existing styles ... */
