@@ -14,6 +14,8 @@ The website offers intuitive features for both employees and administrators, pro
 - BootStrap Css
 - JavaScript
 - HTML
+- MySQL Workbench
+- Postman
 ---
 
 ## 🙋‍♂️ Members:
@@ -73,6 +75,10 @@ Make sure you have the following software installed:
     npm i mdb-react-ui-kit
     npm install @fortawesome/fontawesome-free
     npm install react-chartjs-2 chart.js
+    npm install @mui/x-data-grid
+    npm install @toolpad/core
+    npm install date-fns
+    npm install date-fns-tz
     ```
     
 4. Update the .env file with your MySQL credentials:
@@ -106,6 +112,8 @@ After setting up the project and starting the server with `npm start`, open the 
 - Notifications
 - Analytics
 - Passenger Information
+- Admin Page
+- Stewardess Page
 - Signup
 - Login
 - Logout
