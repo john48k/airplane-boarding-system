@@ -26,6 +26,8 @@ export const Flightupdate = () => {
 
   const navigate = useNavigate();
   const [notification, setNotification] = useState({ show: false, message: '', type: '' });
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -35,16 +37,20 @@ export const Flightupdate = () => {
     console.log("Form data updated:", { ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setShowConfirmModal(true);
+  };
+
+  const confirmUpdate = async () => {
     try {
       const updatedFlightData = {
         ...formData,
         flight_status: formData.flight_status ? formData.flight_status : "BOARDING",
       };
-  
+
       console.log("Submitting flight update:", updatedFlightData);
-  
+
       const response = await fetch(
         `http://localhost:8080/api/flight/updateFlight/${formData.id}`,
         {
@@ -53,13 +59,14 @@ export const Flightupdate = () => {
           body: JSON.stringify(updatedFlightData),
         }
       );
-  
+
       console.log("Response status:", response.status);
-  
+
       if (response.ok) {
         setNotification({ show: true, message: 'Flight updated successfully!', type: 'success' });
-        // Navigate after a short delay to allow the user to see the success message
+        setShowConfirmModal(false);
         setTimeout(() => {
+          navigate("/flightview");
         }, 1500);
       } else {
         const errorText = await response.text();
@@ -69,8 +76,7 @@ export const Flightupdate = () => {
           type: 'error' 
         });
       }
-  
-      // Auto-hide notification after 3 seconds
+
       setTimeout(() => {
         setNotification({ show: false, message: '', type: '' });
       }, 3000);
@@ -105,6 +111,57 @@ export const Flightupdate = () => {
         {notification.message}
       </div>
     )}
+      {showConfirmModal && (
+        <div className="modal-overlay">
+          <div className="confirmation-modal">
+            <div className="modal-icon">
+              <MDBIcon fas icon="info-circle" size="3x" style={{ color: '#0d6efd' }} />
+            </div>
+            <h3>Confirm Update</h3>
+            <p>Are you sure you want to update Flight #{formData.id}?</p>
+            <div className="flight-details">
+              <p><strong>Flight Number:</strong> {formData.flight_number}</p>
+              <p><strong>Departure:</strong> {new Date(formData.departure_time).toLocaleString()}</p>
+              <p><strong>Arrival:</strong> {new Date(formData.arrival_time).toLocaleString()}</p>
+              <p><strong>Status:</strong> {formData.flight_status === "0" ? "Boarding" : 
+                                        formData.flight_status === "1" ? "On Flight" : 
+                                        formData.flight_status === "2" ? "Arrived" : "Unknown"}</p>
+            </div>
+            <div className="modal-buttons">
+              <MDBBtn
+                className="action-button secondary"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  minWidth: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                }}
+                onClick={() => setShowConfirmModal(false)}
+              >
+                <MDBIcon fas icon="times" /> Cancel
+              </MDBBtn>
+              <MDBBtn
+                className="action-button primary"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  minWidth: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                }}
+                onClick={confirmUpdate}
+              >
+                <MDBIcon fas icon="check" /> Update
+              </MDBBtn>
+            </div>
+          </div>
+        </div>
+      )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -235,23 +292,70 @@ export const Flightupdate = () => {
                   <div className="d-flex justify-content-between">
                     <MDBBtn
                       type="button"
-                      className="mb-4"
-                      color="secondary"
+                      className="action-button secondary"
+                      style={{
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        minWidth: '120px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                      }}
                       onClick={() => navigate("/flightview")}
                     >
-                      Return
+                      <MDBIcon fas icon="arrow-left" /> Back
                     </MDBBtn>
                     <MDBBtn
                       type="submit"
-                      className="mb-4"
-                      color="primary"
+                      className="action-button primary"
+                      style={{
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        minWidth: '120px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                      }}
                     >
-                      Confirm Update
+                      <MDBIcon fas icon="check" /> Confirm Update
                     </MDBBtn>
                   </div>
+
+                  <style>
+                    {`
+                      .action-button {
+                        border: none !important;
+                        font-weight: 500 !important;
+                      }
+                      .action-button:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+                      }
+                      .action-button.primary {
+                        background-color: #0d6efd !important;
+                        color: white !important;
+                      }
+                      .action-button.primary:hover {
+                        background-color: #0b5ed7 !important;
+                      }
+                      .action-button.secondary {
+                        background-color: #6c757d !important;
+                        color: white !important;
+                      }
+                      .action-button.secondary:hover {
+                        background-color: #5c636a !important;
+                      }
+                    `}
+                  </style>
                 </form>
 
-                <div className="text-center">
+                <div style={{ marginTop: "25px" }} className="text-center">
                   <p>Check Out Our Other Pages:</p>
 
                   <MDBBtn
@@ -304,6 +408,86 @@ export const Flightupdate = () => {
         </MDBRow>
       </MDBContainer>
 
+      <style>
+        {`
+          .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+          }
+
+          .confirmation-modal {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: modalSlideIn 0.3s ease-out;
+          }
+
+          @keyframes modalSlideIn {
+            from {
+              transform: translateY(-20px);
+              opacity: 0;
+            }
+            to {
+              transform: translateY(0);
+              opacity: 1;
+            }
+          }
+
+          .modal-icon {
+            margin-bottom: 1rem;
+          }
+
+          .confirmation-modal h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          }
+
+          .confirmation-modal p {
+            color: #5a6c7d;
+            margin-bottom: 0.5rem;
+          }
+
+          .flight-details {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: left;
+          }
+
+          .flight-details p {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-size: 0.9rem;
+          }
+
+          .flight-details strong {
+            color: #0d6efd;
+          }
+
+          .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+          }
+        `}
+      </style>
+
       <MDBFooter
         className="text-center text-white"
         style={{ backgroundColor: "#555C67" }}
@@ -312,7 +496,7 @@ export const Flightupdate = () => {
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2024 FLIGHT MATCH. All Rights Reserved
+          2024 FLIGHT MATCH. All Rights Reserved
         </div>
       </MDBFooter>
     </div>

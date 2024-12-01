@@ -19,18 +19,24 @@ export const Flightdelete = () => {
   const [flightId, setFlightId] = useState("");
   const navigate = useNavigate();
   const [notification, setNotification] = useState({ show: false, message: '', type: '' });
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const handleDelete = async (e) => {
     e.preventDefault();
+    setShowConfirmModal(true);
+  };
+
+  const confirmDelete = async () => {
     try {
       const response = await fetch(
         `http://localhost:8080/api/flight/${flightId}`,
         { method: "DELETE" }
       );
-  
+
       const responseText = await response.text();
       if (response.ok) {
         setNotification({ show: true, message: responseText, type: 'success' });
+        setShowConfirmModal(false);
       } else {
         setNotification({ 
           show: true, 
@@ -38,8 +44,7 @@ export const Flightdelete = () => {
           type: 'error' 
         });
       }
-  
-      // Auto-hide notification after 3 seconds
+
       setTimeout(() => {
         setNotification({ show: false, message: '', type: '' });
       }, 3000);
@@ -74,6 +79,119 @@ export const Flightdelete = () => {
         {notification.message}
       </div>
     )}
+      {showConfirmModal && (
+        <div className="modal-overlay">
+          <div className="confirmation-modal">
+            <div className="modal-icon">
+              <MDBIcon fas icon="exclamation-triangle" size="3x" style={{ color: '#dc3545' }} />
+            </div>
+            <h3>Confirm Delete</h3>
+            <p>Are you sure you want to delete Flight #{flightId}?</p>
+            <p className="warning-text">This action cannot be undone.</p>
+            <div className="modal-buttons">
+              <MDBBtn
+                className="action-button secondary"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  minWidth: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                }}
+                onClick={() => setShowConfirmModal(false)}
+              >
+                <MDBIcon fas icon="times" /> Cancel
+              </MDBBtn>
+              <MDBBtn
+                className="action-button danger"
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  minWidth: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                }}
+                onClick={confirmDelete}
+              >
+                <MDBIcon fas icon="trash-alt" /> Delete
+              </MDBBtn>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style>
+        {`
+          .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+          }
+
+          .confirmation-modal {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: modalSlideIn 0.3s ease-out;
+          }
+
+          @keyframes modalSlideIn {
+            from {
+              transform: translateY(-20px);
+              opacity: 0;
+            }
+            to {
+              transform: translateY(0);
+              opacity: 1;
+            }
+          }
+
+          .modal-icon {
+            margin-bottom: 1rem;
+          }
+
+          .confirmation-modal h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          }
+
+          .confirmation-modal p {
+            color: #5a6c7d;
+            margin-bottom: 0.5rem;
+          }
+
+          .warning-text {
+            color: #dc3545 !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+          }
+
+          .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+          }
+        `}
+      </style>
+
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
@@ -159,19 +277,70 @@ export const Flightdelete = () => {
                   <div className="d-flex justify-content-between">
                     <MDBBtn
                       type="button"
-                      className="mb-4"
-                      color="secondary"
+                      className="action-button secondary"
+                      style={{
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        minWidth: '120px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                      }}
                       onClick={() => navigate("/flightview")}
                     >
-                      Return
+                      <MDBIcon fas icon="arrow-left" /> Back
                     </MDBBtn>
-                    <MDBBtn type="submit" className="mb-4" color="danger">
-                      Confirm Delete
+                    <MDBBtn 
+                      type="submit" 
+                      className="action-button danger"
+                      style={{
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        minWidth: '120px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                      }}
+                    >
+                      <MDBIcon fas icon="trash-alt" /> Confirm Delete
                     </MDBBtn>
                   </div>
+
+                  <style>
+                    {`
+                      .action-button {
+                        border: none !important;
+                        font-weight: 500 !important;
+                      }
+                      .action-button:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+                      }
+                      .action-button.danger {
+                        background-color: #dc3545 !important;
+                        color: white !important;
+                      }
+                      .action-button.danger:hover {
+                        background-color: #bb2d3b !important;
+                      }
+                      .action-button.secondary {
+                        background-color: #6c757d !important;
+                        color: white !important;
+                      }
+                      .action-button.secondary:hover {
+                        background-color: #5c636a !important;
+                      }
+                    `}
+                  </style>
                 </form>
 
-                <div className="text-center">
+                <div style={{ marginTop: "25px" }} className="text-center">
                   <p>Check Out Our Other Pages:</p>
 
                   <MDBBtn
@@ -233,7 +402,7 @@ export const Flightdelete = () => {
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
-            © 2024 FLIGHT MATCH. All Rights Reserved
+            2024 FLIGHT MATCH. All Rights Reserved
           </div>
         </MDBFooter>
       </div>

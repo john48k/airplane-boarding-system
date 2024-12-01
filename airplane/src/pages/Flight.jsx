@@ -44,13 +44,13 @@ export const Flight = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         setNotification({ show: true, message: 'Flight created successfully!', type: 'success' });
       } else {
         setNotification({ show: true, message: 'Failed to create flight.', type: 'error' });
       }
-  
+
       // Auto-hide notification after 3 seconds
       setTimeout(() => {
         setNotification({ show: false, message: '', type: '' });
@@ -204,27 +204,70 @@ export const Flight = () => {
                     <option value="2">ARRIVED</option>
                   </select>
 
-                  <div className="delete-update-button-container ">
+                  <style>
+                    {`
+                      .action-button {
+                        padding: 8px 20px;
+                        border-radius: 8px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        transition: all 0.2s ease;
+                        text-transform: none;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 140px;
+                        border: none;
+                        margin: 0 8px;
+                      }
+                      .action-button:hover {
+                        transform: translateY(-1px);
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                      }
+                      .action-button.primary {
+                        background-color: #0d6efd;
+                        color: white;
+                      }
+                      .action-button.primary:hover {
+                        background-color: #0b5ed7;
+                      }
+                      .action-button.success {
+                        background-color: #28a745;
+                        color: white;
+                      }
+                      .action-button.success:hover {
+                        background-color: #218838;
+                      }
+                      .button-container {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 24px;
+                        gap: 16px;
+                      }
+                    `}
+                  </style>
+
+                  <div className="button-container">
                     <MDBBtn
                       type="button"
-                      className="update-button flight-update-color"
-                      size="md"
+                      className="action-button primary"
                       onClick={() => navigate("/flightview")}
                     >
+                      <MDBIcon fas icon="list" className="me-2" />
                       Flight List
                     </MDBBtn>
 
                     <MDBBtn
                       type="submit"
-                      className="delete-button  flight-create-color"
-                      size="md"
+                      className="action-button success"
                     >
+                      <MDBIcon fas icon="plus" className="me-2" />
                       Create Flight
                     </MDBBtn>
                   </div>
                 </form>
 
-                <div className="text-center">
+                <div style={{ marginTop: "24px" }} className="text-center">
                   <p>Check Out Our Other Pages:</p>
 
                   <MDBBtn
@@ -286,7 +329,7 @@ export const Flight = () => {
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
-            © 2024 FLIGHT MATCH. All Rights Reserved
+            2024 FLIGHT MATCH. All Rights Reserved
           </div>
         </MDBFooter>
       </div>

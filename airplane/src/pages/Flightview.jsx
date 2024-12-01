@@ -113,18 +113,11 @@ const Flightview = () => {
                 </MDBCol>
                 <MDBCol md="4" className="d-flex justify-content-end" style={{ paddingRight: "45px" }}>
                   <MDBBtn
-                    type="button"
-                    color="secondary"
+                    className="action-button secondary"
                     onClick={() => navigate("/flight")}
-                    style={{
-                      textTransform: "none",
-                      backgroundColor: "#0d6efd",
-                      width: "100px",
-                      marginRight: "-30px",
-                      padding: "6px 16px",
-                    }}
                   >
-                    ← Back
+                    <MDBIcon fas icon="arrow-left" className="me-2" />
+                    Back
                   </MDBBtn>
                 </MDBCol>
               </MDBRow>
@@ -140,61 +133,202 @@ const Flightview = () => {
                         -ms-overflow-style: none;
                         scrollbar-width: none;
                       }
+                      .flight-card {
+                        background: white;
+                        border-radius: 12px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                        transition: transform 0.2s, box-shadow 0.2s;
+                        border: 1px solid #eaeaea;
+                      }
+                      .flight-card:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                      }
+                      .flight-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 15px;
+                      }
+                      .flight-number {
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        color: #0d6efd;
+                      }
+                      .flight-id {
+                        font-size: 0.85rem;
+                        color: #666;
+                        margin-top: 2px;
+                      }
+                      .flight-status {
+                        padding: 6px 12px;
+                        border-radius: 20px;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                      }
+                      .flight-status.on-time {
+                        background-color: #e8f5e9;
+                        color: #2e7d32;
+                      }
+                      .flight-status.delayed {
+                        background-color: #fff3e0;
+                        color: #e65100;
+                      }
+                      .flight-status.cancelled {
+                        background-color: #ffebee;
+                        color: #c62828;
+                      }
+                      .flight-details {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 15px;
+                      }
+                      .detail-group {
+                        display: flex;
+                        flex-direction: column;
+                      }
+                      .detail-label {
+                        font-size: 0.875rem;
+                        color: #666;
+                        margin-bottom: 4px;
+                      }
+                      .detail-value {
+                        font-size: 1rem;
+                        color: #333;
+                        font-weight: 500;
+                      }
+                      .action-button {
+                        padding: 8px 20px;
+                        border-radius: 8px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        transition: all 0.2s ease;
+                        text-transform: none;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 120px;
+                        border: none;
+                      }
+                      .action-button:hover {
+                        transform: translateY(-1px);
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                      }
+                      .action-button.primary {
+                        background-color: #0d6efd;
+                        color: white;
+                      }
+                      .action-button.primary:hover {
+                        background-color: #0b5ed7;
+                      }
+                      .action-button.secondary {
+                        background-color: #6c757d;
+                        color: white;
+                      }
+                      .action-button.secondary:hover {
+                        background-color: #5c636a;
+                      }
+                      .action-button.danger {
+                        background-color: #dc3545;
+                        color: white;
+                      }
+                      .action-button.danger:hover {
+                        background-color: #bb2d3b;
+                      }
+                      .button-container {
+                        display: flex;
+                        gap: 12px;
+                        justify-content: center;
+                        padding: 20px;
+                        border-top: 1px solid #eaeaea;
+                        background-color: #f8f9fa;
+                        border-radius: 0 0 12px 12px;
+                      }
                     `}
                   </style>
                   <ul className="flight-list" style={{ listStyleType: "none", padding: 0 }}>
                     {flights.map((flight) => {
                       const departureTime = toZonedTime(new Date(flight.departure_time), 'UTC');
                       const arrivalTime = toZonedTime(new Date(flight.arrival_time), 'UTC');
+                      const getStatusClass = (status) => {
+                        switch(status.toLowerCase()) {
+                          case 'on time': return 'on-time';
+                          case 'delayed': return 'delayed';
+                          case 'cancelled': return 'cancelled';
+                          default: return 'on-time';
+                        }
+                      };
+
+                      const formatStatus = (status) => {
+                        return status.replace(/_/g, ' ');
+                      };
+                      
                       return (
-                        <li key={flight.flight_id} style={{ marginBottom: "20px", borderBottom: "1px solid #ddd", paddingBottom: "10px" }}>
-                          <h2>Flight Number: {flight.flight_number}</h2>
-                          <p>Flight ID: {flight.flight_id}</p>
-                          <p>Departure: {format(departureTime, 'dd/MM/yyyy hh:mm a')}</p>
-                          <p>Arrival: {format(arrivalTime, 'dd/MM/yyyy hh:mm a')}</p>
-                          <p>Status: {flight.flight_status}</p>
+                        <li key={flight.flight_id} className="flight-card">
+                          <div className="flight-header">
+                            <div>
+                              <span className="flight-number">
+                                <MDBIcon far icon="paper-plane" className="me-2" />
+                                Flight {flight.flight_number}
+                              </span>
+                              <div className="flight-id">
+                                <MDBIcon fas icon="hashtag" className="me-1" style={{ fontSize: '0.75rem' }} />
+                                ID: {flight.flight_id}
+                              </div>
+                            </div>
+                            <span className={`flight-status ${getStatusClass(flight.flight_status)}`}>
+                              {formatStatus(flight.flight_status)}
+                            </span>
+                          </div>
+                          <div className="flight-details">
+                            <div className="detail-group">
+                              <span className="detail-label">
+                                <MDBIcon far icon="clock" className="me-2" />
+                                Departure
+                              </span>
+                              <span className="detail-value">
+                                {format(departureTime, 'dd MMM yyyy')}
+                              </span>
+                              <span className="detail-value" style={{ color: '#0d6efd' }}>
+                                {format(departureTime, 'hh:mm a')}
+                              </span>
+                            </div>
+                            <div className="detail-group">
+                              <span className="detail-label">
+                                <MDBIcon far icon="clock" className="me-2" />
+                                Arrival
+                              </span>
+                              <span className="detail-value">
+                                {format(arrivalTime, 'dd MMM yyyy')}
+                              </span>
+                              <span className="detail-value" style={{ color: '#0d6efd' }}>
+                                {format(arrivalTime, 'hh:mm a')}
+                              </span>
+                            </div>
+                          </div>
                         </li>
                       );
                     })}
                   </ul>
                 </div>
               </MDBCardBody>
-              <div className="delete-update-button-container text-center p-3" style={{ borderTop: "1px solid #ddd", marginBottom: "-25px", marginTop:"-48px" }}>
+              <div className="button-container">
                 <MDBBtn
-                  type="button"
-                  size="md"
+                  className="action-button primary"
                   onClick={() => navigate("/Flightupdate")}
-                  style={{
-                    backgroundColor: "#0d6efd",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "4px",
-                    padding: "6px 16px",
-                    cursor: "pointer",
-                    fontSize: "16px",
-                    margin: "5px"
-                  }}
                 >
+                  <MDBIcon fas icon="edit" className="me-2" />
                   Update Flight
                 </MDBBtn>
 
                 <MDBBtn
-                  type="button"
-                  size="md"
-                  color="danger"
+                  className="action-button danger"
                   onClick={() => navigate("/Flightdelete")}
-                  style={{
-                    backgroundColor: "danger",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "4px",
-                    padding: "6px 16px",
-                    cursor: "pointer",
-                    fontSize: "16px",
-                    margin: "5px"
-                  }}
                 >
-                  Delete a Flight
+                  <MDBIcon fas icon="trash-alt" className="me-2" />
+                  Delete Flight
                 </MDBBtn>
               </div>
               <div className="text-center p-3">
@@ -254,7 +388,7 @@ const Flightview = () => {
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
-            © 2024 FLIGHT MATCH. All Rights Reserved
+            2024 FLIGHT MATCH. All Rights Reserved
           </div>
         </MDBFooter>
       </div>
