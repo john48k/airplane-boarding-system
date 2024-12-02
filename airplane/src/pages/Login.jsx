@@ -43,6 +43,8 @@ export const Login = () => {
       if (response.ok) {
         setNotification({ show: true, message: 'Login successful!', type: 'success' });
         console.log("Login result:", result);
+        // Store username in localStorage
+        localStorage.setItem('loggedInUser', username);
         setUsername("");
         setPassword("");
         setTimeout(() => {

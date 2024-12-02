@@ -1,9 +1,27 @@
-// import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import BootstrapNavbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = ({ activeTab }) => {
+  const [username, setUsername] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      setUsername(loggedInUser);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('loggedInUser');
+    setUsername('');
+    navigate('/login');
+  };
+
   return (
     <>
       <BootstrapNavbar bg="dark" data-bs-theme="dark">
@@ -16,74 +34,27 @@ export const Navbar = ({ activeTab }) => {
             <Nav.Link href="Flightview">Flights</Nav.Link>
             <Nav.Link href="Gate">Gate</Nav.Link>
             <Nav.Link href="Passenger">Passenger</Nav.Link>
-            <Nav.Link href="Signup">Signup</Nav.Link>
-            <Nav.Link href="Login">Login</Nav.Link>
+            {!username && (
+              <>
+                <Nav.Link href="Signup">Signup</Nav.Link>
+                <Nav.Link href="Login">Login</Nav.Link>
+              </>
+            )}
+            {username && (
+              <Nav.Link onClick={handleLogout} style={{ cursor: 'pointer' }}>
+                Logout
+              </Nav.Link>
+            )}
           </Nav>
+          {username && (
+            <Nav>
+              <span className="text-light navbar-text">
+                {username}
+              </span>
+            </Nav>
+          )}
         </Container>
       </BootstrapNavbar>
     </>
   );
 };
-
-// <nav className="navbar header-area">
-//   <ul className="navbar-menu">
-//     <li>
-//       <Link to="/" id={activeTab === "Home" ? "highlight" : undefined}>
-//         Home
-//       </Link>
-//     </li>
-//     <li>
-//       <Link to="/gate" id={activeTab === "Gate" ? "highlight" : undefined}>
-//         Gate
-//       </Link>
-//     </li>
-//     <li>
-//       <Link
-//         to="/flight"
-//         id={activeTab === "Flight" ? "highlight" : undefined}
-//       >
-//         Flight
-//       </Link>
-//     </li>
-//     <li>
-//       <Link
-//         to="/boarding"
-//         id={activeTab === "Boarding" ? "highlight" : undefined}
-//       >
-//         Boarding Pass
-//       </Link>
-//     </li>
-//     <li>
-//       <Link
-//         to="/notification"
-//         id={activeTab === "Notification" ? "highlight" : undefined}
-//       >
-//         Notification
-//       </Link>
-//     </li>
-//     <li>
-//       <Link
-//         to="/analytics"
-//         id={activeTab === "Analytics" ? "highlight" : undefined}
-//       >
-//         Analytics
-//       </Link>
-//     </li>
-//     <li>
-//       <Link
-//         to="/passenger"
-//         id={activeTab === "Passenger" ? "highlight" : undefined}
-//       >
-//         Passenger
-//       </Link>
-//     </li>
-//     <li>
-//       <Link
-//         to="/Login"
-//         id={activeTab === "Login" ? "highlight" : undefined}
-//       >
-//         Login
-//       </Link>
-//     </li>
-//   </ul>
-// </nav>
