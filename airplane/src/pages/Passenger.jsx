@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../components/Navbar";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
@@ -16,6 +16,8 @@ import {
 } from "mdb-react-ui-kit";
 
 export const Passenger = () => {
+  const [notification, setNotification] = useState({ show: false, message: '', type: '' });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
@@ -36,17 +38,42 @@ export const Passenger = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        alert("Passenger created successfully!");
+        setNotification({ show: true, message: 'Passenger created successfully!', type: 'success' });
       } else {
-        alert("Failed to create passenger.");
+        setNotification({ show: true, message: 'Failed to create passenger.', type: 'error' });
       }
+      
+      // Auto-hide notification after 3 seconds
+      setTimeout(() => {
+        setNotification({ show: false, message: '', type: '' });
+      }, 3000);
     } catch (error) {
       console.error("Error:", error);
+      setNotification({ show: true, message: 'An error occurred.', type: 'error' });
     }
   };
 
   return (
     <>
+      {notification.show && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            backgroundColor: notification.type === 'success' ? 'white' : 'white',
+            color: '#0d6efd',
+            zIndex: 1000,
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            transition: 'all 0.3s ease',
+            fontWeight: "bold",
+          }}
+        >
+          {notification.message}
+        </div>
+      )}
       <MDBFooter
         bgColor="light"
         className="text-center text-lg-start text-muted"
